@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.weds.xf.mapper.XfMxMapper">
+  <resultMap id="BaseResultMap" type="com.weds.xf.entity.XfMxEntity">
+    <id column="xh" jdbcType="INTEGER" property="xh" />
+    <result column="jl_bh" jdbcType="VARCHAR" property="jlBh" />
+    <result column="dev_serial" jdbcType="CHAR" property="devSerial" />
+    <result column="user_serial" jdbcType="BIGINT" property="userSerial" />
+    <result column="user_card" jdbcType="VARCHAR" property="userCard" />
+    <result column="card_serial" jdbcType="CHAR" property="cardSerial" />
+    <result column="old_money" jdbcType="DECIMAL" property="oldMoney" />
+    <result column="new_money" jdbcType="DECIMAL" property="newMoney" />
+    <result column="new_sub" jdbcType="DECIMAL" property="newSub" />
+    <result column="new_add" jdbcType="DECIMAL" property="newAdd" />
+    <result column="save_money" jdbcType="DECIMAL" property="saveMoney" />
+    <result column="jl_sj" jdbcType="TIMESTAMP" property="jlSj" />
+    <result column="sj" jdbcType="TIMESTAMP" property="sj" />
+    <result column="money_count" jdbcType="INTEGER" property="moneyCount" />
+    <result column="sub_count" jdbcType="INTEGER" property="subCount" />
+    <result column="add_count" jdbcType="INTEGER" property="addCount" />
+    <result column="new_del" jdbcType="DECIMAL" property="newDel" />
+    <result column="del_count" jdbcType="INTEGER" property="delCount" />
+    <result column="jl_count" jdbcType="INTEGER" property="jlCount" />
+    <result column="lx" jdbcType="INTEGER" property="lx" />
+    <result column="gly_no" jdbcType="NVARCHAR" property="glyNo" />
+    <result column="card_lx" jdbcType="INTEGER" property="cardLx" />
+    <result column="new_zero" jdbcType="DECIMAL" property="newZero" />
+    <result column="del_zero" jdbcType="INTEGER" property="delZero" />
+    <result column="new_edit" jdbcType="DECIMAL" property="newEdit" />
+    <result column="del_edit" jdbcType="INTEGER" property="delEdit" />
+    <result column="time_no" jdbcType="CHAR" property="timeNo" />
+    <result column="new_each" jdbcType="INTEGER" property="newEach" />
+    <result column="each_count" jdbcType="INTEGER" property="eachCount" />
+    <result column="dev_time_no" jdbcType="CHAR" property="devTimeNo" />
+    <result column="rq" jdbcType="TIMESTAMP" property="rq" />
+    <result column="more_money" jdbcType="DECIMAL" property="moreMoney" />
+    <result column="rate_money" jdbcType="DECIMAL" property="rateMoney" />
+    <result column="discount_rate" jdbcType="INTEGER" property="discountRate" />
+    <result column="each_unit" jdbcType="DECIMAL" property="eachUnit" />
+    <result column="mould" jdbcType="INTEGER" property="mould" />
+    <result column="dep_serial" jdbcType="INTEGER" property="depSerial" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="acdep_serial" jdbcType="BIGINT" property="acdepSerial" />
+    <result column="cor_count" jdbcType="INTEGER" property="corCount" />
+    <result column="cor_money" jdbcType="DECIMAL" property="corMoney" />
+    <result column="cor_sub" jdbcType="DECIMAL" property="corSub" />
+    <result column="cor_add" jdbcType="DECIMAL" property="corAdd" />
+    <result column="del_cash" jdbcType="DECIMAL" property="delCash" />
+    <result column="del_sub" jdbcType="DECIMAL" property="delSub" />
+    <result column="del_each" jdbcType="INTEGER" property="delEach" />
+    <result column="old_add" jdbcType="DECIMAL" property="oldAdd" />
+    <result column="old_sub" jdbcType="DECIMAL" property="oldSub" />
+    <result column="save_add" jdbcType="DECIMAL" property="saveAdd" />
+    <result column="save_sub" jdbcType="DECIMAL" property="saveSub" />
+    <result column="xf_add" jdbcType="DECIMAL" property="xfAdd" />
+    <result column="xf_sub" jdbcType="DECIMAL" property="xfSub" />
+    <result column="add_type" jdbcType="INTEGER" property="addType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    xh, jl_bh, dev_serial, user_serial, user_card, card_serial, old_money, new_money, 
+    new_sub, new_add, save_money, jl_sj, sj, money_count, sub_count, add_count, new_del, 
+    del_count, jl_count, lx, gly_no, card_lx, new_zero, del_zero, new_edit, del_edit, 
+    time_no, new_each, each_count, dev_time_no, rq, more_money, rate_money, discount_rate, 
+    each_unit, mould, dep_serial, type, acdep_serial, cor_count, cor_money, cor_sub, 
+    cor_add, del_cash, del_sub, del_each, old_add, old_sub, save_add, save_sub, xf_add, 
+    xf_sub, add_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from xf_mx
+    where xh = #{xh,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from xf_mx
+    where xh = #{xh,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.weds.xf.entity.XfMxEntity">
+    insert into xf_mx (xh, jl_bh, dev_serial, 
+      user_serial, user_card, card_serial, 
+      old_money, new_money, new_sub, 
+      new_add, save_money, jl_sj, 
+      sj, money_count, sub_count, 
+      add_count, new_del, del_count, 
+      jl_count, lx, gly_no, 
+      card_lx, new_zero, del_zero, 
+      new_edit, del_edit, time_no, 
+      new_each, each_count, dev_time_no, 
+      rq, more_money, rate_money, 
+      discount_rate, each_unit, mould, 
+      dep_serial, type, acdep_serial, 
+      cor_count, cor_money, cor_sub, 
+      cor_add, del_cash, del_sub, 
+      del_each, old_add, old_sub, 
+      save_add, save_sub, xf_add, 
+      xf_sub, add_type)
+    values (#{xh,jdbcType=INTEGER}, #{jlBh,jdbcType=VARCHAR}, #{devSerial,jdbcType=CHAR}, 
+      #{userSerial,jdbcType=BIGINT}, #{userCard,jdbcType=VARCHAR}, #{cardSerial,jdbcType=CHAR}, 
+      #{oldMoney,jdbcType=DECIMAL}, #{newMoney,jdbcType=DECIMAL}, #{newSub,jdbcType=DECIMAL}, 
+      #{newAdd,jdbcType=DECIMAL}, #{saveMoney,jdbcType=DECIMAL}, #{jlSj,jdbcType=TIMESTAMP}, 
+      #{sj,jdbcType=TIMESTAMP}, #{moneyCount,jdbcType=INTEGER}, #{subCount,jdbcType=INTEGER}, 
+      #{addCount,jdbcType=INTEGER}, #{newDel,jdbcType=DECIMAL}, #{delCount,jdbcType=INTEGER}, 
+      #{jlCount,jdbcType=INTEGER}, #{lx,jdbcType=INTEGER}, #{glyNo,jdbcType=NVARCHAR}, 
+      #{cardLx,jdbcType=INTEGER}, #{newZero,jdbcType=DECIMAL}, #{delZero,jdbcType=INTEGER}, 
+      #{newEdit,jdbcType=DECIMAL}, #{delEdit,jdbcType=INTEGER}, #{timeNo,jdbcType=CHAR}, 
+      #{newEach,jdbcType=INTEGER}, #{eachCount,jdbcType=INTEGER}, #{devTimeNo,jdbcType=CHAR}, 
+      #{rq,jdbcType=TIMESTAMP}, #{moreMoney,jdbcType=DECIMAL}, #{rateMoney,jdbcType=DECIMAL}, 
+      #{discountRate,jdbcType=INTEGER}, #{eachUnit,jdbcType=DECIMAL}, #{mould,jdbcType=INTEGER}, 
+      #{depSerial,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, #{acdepSerial,jdbcType=BIGINT}, 
+      #{corCount,jdbcType=INTEGER}, #{corMoney,jdbcType=DECIMAL}, #{corSub,jdbcType=DECIMAL}, 
+      #{corAdd,jdbcType=DECIMAL}, #{delCash,jdbcType=DECIMAL}, #{delSub,jdbcType=DECIMAL}, 
+      #{delEach,jdbcType=INTEGER}, #{oldAdd,jdbcType=DECIMAL}, #{oldSub,jdbcType=DECIMAL}, 
+      #{saveAdd,jdbcType=DECIMAL}, #{saveSub,jdbcType=DECIMAL}, #{xfAdd,jdbcType=DECIMAL}, 
+      #{xfSub,jdbcType=DECIMAL}, #{addType,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.weds.xf.entity.XfMxEntity">
+    insert into xf_mx
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="jlBh != null">
+        jl_bh,
+      </if>
+      <if test="devSerial != null">
+        dev_serial,
+      </if>
+      <if test="userSerial != null">
+        user_serial,
+      </if>
+      <if test="userCard != null">
+        user_card,
+      </if>
+      <if test="cardSerial != null">
+        card_serial,
+      </if>
+      <if test="oldMoney != null">
+        old_money,
+      </if>
+      <if test="newMoney != null">
+        new_money,
+      </if>
+      <if test="newSub != null">
+        new_sub,
+      </if>
+      <if test="newAdd != null">
+        new_add,
+      </if>
+      <if test="saveMoney != null">
+        save_money,
+      </if>
+      <if test="jlSj != null">
+        jl_sj,
+      </if>
+      <if test="sj != null">
+        sj,
+      </if>
+      <if test="moneyCount != null">
+        money_count,
+      </if>
+      <if test="subCount != null">
+        sub_count,
+      </if>
+      <if test="addCount != null">
+        add_count,
+      </if>
+      <if test="newDel != null">
+        new_del,
+      </if>
+      <if test="delCount != null">
+        del_count,
+      </if>
+      <if test="jlCount != null">
+        jl_count,
+      </if>
+      <if test="lx != null">
+        lx,
+      </if>
+      <if test="glyNo != null">
+        gly_no,
+      </if>
+      <if test="cardLx != null">
+        card_lx,
+      </if>
+      <if test="newZero != null">
+        new_zero,
+      </if>
+      <if test="delZero != null">
+        del_zero,
+      </if>
+      <if test="newEdit != null">
+        new_edit,
+      </if>
+      <if test="delEdit != null">
+        del_edit,
+      </if>
+      <if test="timeNo != null">
+        time_no,
+      </if>
+      <if test="newEach != null">
+        new_each,
+      </if>
+      <if test="eachCount != null">
+        each_count,
+      </if>
+      <if test="devTimeNo != null">
+        dev_time_no,
+      </if>
+      <if test="rq != null">
+        rq,
+      </if>
+      <if test="moreMoney != null">
+        more_money,
+      </if>
+      <if test="rateMoney != null">
+        rate_money,
+      </if>
+      <if test="discountRate != null">
+        discount_rate,
+      </if>
+      <if test="eachUnit != null">
+        each_unit,
+      </if>
+      <if test="mould != null">
+        mould,
+      </if>
+      <if test="depSerial != null">
+        dep_serial,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="acdepSerial != null">
+        acdep_serial,
+      </if>
+      <if test="corCount != null">
+        cor_count,
+      </if>
+      <if test="corMoney != null">
+        cor_money,
+      </if>
+      <if test="corSub != null">
+        cor_sub,
+      </if>
+      <if test="corAdd != null">
+        cor_add,
+      </if>
+      <if test="delCash != null">
+        del_cash,
+      </if>
+      <if test="delSub != null">
+        del_sub,
+      </if>
+      <if test="delEach != null">
+        del_each,
+      </if>
+      <if test="oldAdd != null">
+        old_add,
+      </if>
+      <if test="oldSub != null">
+        old_sub,
+      </if>
+      <if test="saveAdd != null">
+        save_add,
+      </if>
+      <if test="saveSub != null">
+        save_sub,
+      </if>
+      <if test="xfAdd != null">
+        xf_add,
+      </if>
+      <if test="xfSub != null">
+        xf_sub,
+      </if>
+      <if test="addType != null">
+        add_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="jlBh != null">
+        #{jlBh,jdbcType=VARCHAR},
+      </if>
+      <if test="devSerial != null">
+        #{devSerial,jdbcType=CHAR},
+      </if>
+      <if test="userSerial != null">
+        #{userSerial,jdbcType=BIGINT},
+      </if>
+      <if test="userCard != null">
+        #{userCard,jdbcType=VARCHAR},
+      </if>
+      <if test="cardSerial != null">
+        #{cardSerial,jdbcType=CHAR},
+      </if>
+      <if test="oldMoney != null">
+        #{oldMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="newMoney != null">
+        #{newMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="newSub != null">
+        #{newSub,jdbcType=DECIMAL},
+      </if>
+      <if test="newAdd != null">
+        #{newAdd,jdbcType=DECIMAL},
+      </if>
+      <if test="saveMoney != null">
+        #{saveMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="jlSj != null">
+        #{jlSj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sj != null">
+        #{sj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="moneyCount != null">
+        #{moneyCount,jdbcType=INTEGER},
+      </if>
+      <if test="subCount != null">
+        #{subCount,jdbcType=INTEGER},
+      </if>
+      <if test="addCount != null">
+        #{addCount,jdbcType=INTEGER},
+      </if>
+      <if test="newDel != null">
+        #{newDel,jdbcType=DECIMAL},
+      </if>
+      <if test="delCount != null">
+        #{delCount,jdbcType=INTEGER},
+      </if>
+      <if test="jlCount != null">
+        #{jlCount,jdbcType=INTEGER},
+      </if>
+      <if test="lx != null">
+        #{lx,jdbcType=INTEGER},
+      </if>
+      <if test="glyNo != null">
+        #{glyNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="cardLx != null">
+        #{cardLx,jdbcType=INTEGER},
+      </if>
+      <if test="newZero != null">
+        #{newZero,jdbcType=DECIMAL},
+      </if>
+      <if test="delZero != null">
+        #{delZero,jdbcType=INTEGER},
+      </if>
+      <if test="newEdit != null">
+        #{newEdit,jdbcType=DECIMAL},
+      </if>
+      <if test="delEdit != null">
+        #{delEdit,jdbcType=INTEGER},
+      </if>
+      <if test="timeNo != null">
+        #{timeNo,jdbcType=CHAR},
+      </if>
+      <if test="newEach != null">
+        #{newEach,jdbcType=INTEGER},
+      </if>
+      <if test="eachCount != null">
+        #{eachCount,jdbcType=INTEGER},
+      </if>
+      <if test="devTimeNo != null">
+        #{devTimeNo,jdbcType=CHAR},
+      </if>
+      <if test="rq != null">
+        #{rq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="moreMoney != null">
+        #{moreMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="rateMoney != null">
+        #{rateMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="discountRate != null">
+        #{discountRate,jdbcType=INTEGER},
+      </if>
+      <if test="eachUnit != null">
+        #{eachUnit,jdbcType=DECIMAL},
+      </if>
+      <if test="mould != null">
+        #{mould,jdbcType=INTEGER},
+      </if>
+      <if test="depSerial != null">
+        #{depSerial,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="acdepSerial != null">
+        #{acdepSerial,jdbcType=BIGINT},
+      </if>
+      <if test="corCount != null">
+        #{corCount,jdbcType=INTEGER},
+      </if>
+      <if test="corMoney != null">
+        #{corMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="corSub != null">
+        #{corSub,jdbcType=DECIMAL},
+      </if>
+      <if test="corAdd != null">
+        #{corAdd,jdbcType=DECIMAL},
+      </if>
+      <if test="delCash != null">
+        #{delCash,jdbcType=DECIMAL},
+      </if>
+      <if test="delSub != null">
+        #{delSub,jdbcType=DECIMAL},
+      </if>
+      <if test="delEach != null">
+        #{delEach,jdbcType=INTEGER},
+      </if>
+      <if test="oldAdd != null">
+        #{oldAdd,jdbcType=DECIMAL},
+      </if>
+      <if test="oldSub != null">
+        #{oldSub,jdbcType=DECIMAL},
+      </if>
+      <if test="saveAdd != null">
+        #{saveAdd,jdbcType=DECIMAL},
+      </if>
+      <if test="saveSub != null">
+        #{saveSub,jdbcType=DECIMAL},
+      </if>
+      <if test="xfAdd != null">
+        #{xfAdd,jdbcType=DECIMAL},
+      </if>
+      <if test="xfSub != null">
+        #{xfSub,jdbcType=DECIMAL},
+      </if>
+      <if test="addType != null">
+        #{addType,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.weds.xf.entity.XfMxEntity">
+    update xf_mx
+    <set>
+      <if test="jlBh != null">
+        jl_bh = #{jlBh,jdbcType=VARCHAR},
+      </if>
+      <if test="devSerial != null">
+        dev_serial = #{devSerial,jdbcType=CHAR},
+      </if>
+      <if test="userSerial != null">
+        user_serial = #{userSerial,jdbcType=BIGINT},
+      </if>
+      <if test="userCard != null">
+        user_card = #{userCard,jdbcType=VARCHAR},
+      </if>
+      <if test="cardSerial != null">
+        card_serial = #{cardSerial,jdbcType=CHAR},
+      </if>
+      <if test="oldMoney != null">
+        old_money = #{oldMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="newMoney != null">
+        new_money = #{newMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="newSub != null">
+        new_sub = #{newSub,jdbcType=DECIMAL},
+      </if>
+      <if test="newAdd != null">
+        new_add = #{newAdd,jdbcType=DECIMAL},
+      </if>
+      <if test="saveMoney != null">
+        save_money = #{saveMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="jlSj != null">
+        jl_sj = #{jlSj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sj != null">
+        sj = #{sj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="moneyCount != null">
+        money_count = #{moneyCount,jdbcType=INTEGER},
+      </if>
+      <if test="subCount != null">
+        sub_count = #{subCount,jdbcType=INTEGER},
+      </if>
+      <if test="addCount != null">
+        add_count = #{addCount,jdbcType=INTEGER},
+      </if>
+      <if test="newDel != null">
+        new_del = #{newDel,jdbcType=DECIMAL},
+      </if>
+      <if test="delCount != null">
+        del_count = #{delCount,jdbcType=INTEGER},
+      </if>
+      <if test="jlCount != null">
+        jl_count = #{jlCount,jdbcType=INTEGER},
+      </if>
+      <if test="lx != null">
+        lx = #{lx,jdbcType=INTEGER},
+      </if>
+      <if test="glyNo != null">
+        gly_no = #{glyNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="cardLx != null">
+        card_lx = #{cardLx,jdbcType=INTEGER},
+      </if>
+      <if test="newZero != null">
+        new_zero = #{newZero,jdbcType=DECIMAL},
+      </if>
+      <if test="delZero != null">
+        del_zero = #{delZero,jdbcType=INTEGER},
+      </if>
+      <if test="newEdit != null">
+        new_edit = #{newEdit,jdbcType=DECIMAL},
+      </if>
+      <if test="delEdit != null">
+        del_edit = #{delEdit,jdbcType=INTEGER},
+      </if>
+      <if test="timeNo != null">
+        time_no = #{timeNo,jdbcType=CHAR},
+      </if>
+      <if test="newEach != null">
+        new_each = #{newEach,jdbcType=INTEGER},
+      </if>
+      <if test="eachCount != null">
+        each_count = #{eachCount,jdbcType=INTEGER},
+      </if>
+      <if test="devTimeNo != null">
+        dev_time_no = #{devTimeNo,jdbcType=CHAR},
+      </if>
+      <if test="rq != null">
+        rq = #{rq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="moreMoney != null">
+        more_money = #{moreMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="rateMoney != null">
+        rate_money = #{rateMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="discountRate != null">
+        discount_rate = #{discountRate,jdbcType=INTEGER},
+      </if>
+      <if test="eachUnit != null">
+        each_unit = #{eachUnit,jdbcType=DECIMAL},
+      </if>
+      <if test="mould != null">
+        mould = #{mould,jdbcType=INTEGER},
+      </if>
+      <if test="depSerial != null">
+        dep_serial = #{depSerial,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="acdepSerial != null">
+        acdep_serial = #{acdepSerial,jdbcType=BIGINT},
+      </if>
+      <if test="corCount != null">
+        cor_count = #{corCount,jdbcType=INTEGER},
+      </if>
+      <if test="corMoney != null">
+        cor_money = #{corMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="corSub != null">
+        cor_sub = #{corSub,jdbcType=DECIMAL},
+      </if>
+      <if test="corAdd != null">
+        cor_add = #{corAdd,jdbcType=DECIMAL},
+      </if>
+      <if test="delCash != null">
+        del_cash = #{delCash,jdbcType=DECIMAL},
+      </if>
+      <if test="delSub != null">
+        del_sub = #{delSub,jdbcType=DECIMAL},
+      </if>
+      <if test="delEach != null">
+        del_each = #{delEach,jdbcType=INTEGER},
+      </if>
+      <if test="oldAdd != null">
+        old_add = #{oldAdd,jdbcType=DECIMAL},
+      </if>
+      <if test="oldSub != null">
+        old_sub = #{oldSub,jdbcType=DECIMAL},
+      </if>
+      <if test="saveAdd != null">
+        save_add = #{saveAdd,jdbcType=DECIMAL},
+      </if>
+      <if test="saveSub != null">
+        save_sub = #{saveSub,jdbcType=DECIMAL},
+      </if>
+      <if test="xfAdd != null">
+        xf_add = #{xfAdd,jdbcType=DECIMAL},
+      </if>
+      <if test="xfSub != null">
+        xf_sub = #{xfSub,jdbcType=DECIMAL},
+      </if>
+      <if test="addType != null">
+        add_type = #{addType,jdbcType=INTEGER},
+      </if>
+    </set>
+    where xh = #{xh,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.weds.xf.entity.XfMxEntity">
+    update xf_mx
+    set jl_bh = #{jlBh,jdbcType=VARCHAR},
+      dev_serial = #{devSerial,jdbcType=CHAR},
+      user_serial = #{userSerial,jdbcType=BIGINT},
+      user_card = #{userCard,jdbcType=VARCHAR},
+      card_serial = #{cardSerial,jdbcType=CHAR},
+      old_money = #{oldMoney,jdbcType=DECIMAL},
+      new_money = #{newMoney,jdbcType=DECIMAL},
+      new_sub = #{newSub,jdbcType=DECIMAL},
+      new_add = #{newAdd,jdbcType=DECIMAL},
+      save_money = #{saveMoney,jdbcType=DECIMAL},
+      jl_sj = #{jlSj,jdbcType=TIMESTAMP},
+      sj = #{sj,jdbcType=TIMESTAMP},
+      money_count = #{moneyCount,jdbcType=INTEGER},
+      sub_count = #{subCount,jdbcType=INTEGER},
+      add_count = #{addCount,jdbcType=INTEGER},
+      new_del = #{newDel,jdbcType=DECIMAL},
+      del_count = #{delCount,jdbcType=INTEGER},
+      jl_count = #{jlCount,jdbcType=INTEGER},
+      lx = #{lx,jdbcType=INTEGER},
+      gly_no = #{glyNo,jdbcType=NVARCHAR},
+      card_lx = #{cardLx,jdbcType=INTEGER},
+      new_zero = #{newZero,jdbcType=DECIMAL},
+      del_zero = #{delZero,jdbcType=INTEGER},
+      new_edit = #{newEdit,jdbcType=DECIMAL},
+      del_edit = #{delEdit,jdbcType=INTEGER},
+      time_no = #{timeNo,jdbcType=CHAR},
+      new_each = #{newEach,jdbcType=INTEGER},
+      each_count = #{eachCount,jdbcType=INTEGER},
+      dev_time_no = #{devTimeNo,jdbcType=CHAR},
+      rq = #{rq,jdbcType=TIMESTAMP},
+      more_money = #{moreMoney,jdbcType=DECIMAL},
+      rate_money = #{rateMoney,jdbcType=DECIMAL},
+      discount_rate = #{discountRate,jdbcType=INTEGER},
+      each_unit = #{eachUnit,jdbcType=DECIMAL},
+      mould = #{mould,jdbcType=INTEGER},
+      dep_serial = #{depSerial,jdbcType=INTEGER},
+      type = #{type,jdbcType=INTEGER},
+      acdep_serial = #{acdepSerial,jdbcType=BIGINT},
+      cor_count = #{corCount,jdbcType=INTEGER},
+      cor_money = #{corMoney,jdbcType=DECIMAL},
+      cor_sub = #{corSub,jdbcType=DECIMAL},
+      cor_add = #{corAdd,jdbcType=DECIMAL},
+      del_cash = #{delCash,jdbcType=DECIMAL},
+      del_sub = #{delSub,jdbcType=DECIMAL},
+      del_each = #{delEach,jdbcType=INTEGER},
+      old_add = #{oldAdd,jdbcType=DECIMAL},
+      old_sub = #{oldSub,jdbcType=DECIMAL},
+      save_add = #{saveAdd,jdbcType=DECIMAL},
+      save_sub = #{saveSub,jdbcType=DECIMAL},
+      xf_add = #{xfAdd,jdbcType=DECIMAL},
+      xf_sub = #{xfSub,jdbcType=DECIMAL},
+      add_type = #{addType,jdbcType=INTEGER}
+    where xh = #{xh,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.weds.xf.mapper.XfAddmoneyMapper">
+  <resultMap id="BaseResultMap" type="com.weds.xf.entity.XfAddmoneyEntity">
+    <id column="xh" jdbcType="INTEGER" property="xh" />
+    <result column="user_serial" jdbcType="BIGINT" property="userSerial" />
+    <result column="input_money" jdbcType="DECIMAL" property="inputMoney" />
+    <result column="add_money" jdbcType="DECIMAL" property="addMoney" />
+    <result column="gly_money" jdbcType="DECIMAL" property="glyMoney" />
+    <result column="sj" jdbcType="TIMESTAMP" property="sj" />
+    <result column="update_sj" jdbcType="TIMESTAMP" property="updateSj" />
+    <result column="add_state" jdbcType="INTEGER" property="addState" />
+    <result column="gly_no" jdbcType="NVARCHAR" property="glyNo" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="lx" jdbcType="INTEGER" property="lx" />
+    <result column="card_serial" jdbcType="CHAR" property="cardSerial" />
+    <result column="add_order" jdbcType="INTEGER" property="addOrder" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    xh, user_serial, input_money, add_money, gly_money, sj, update_sj, add_state, gly_no, 
+    type, lx, card_serial, add_order
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from xf_addmoney
+    where xh = #{xh,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from xf_addmoney
+    where xh = #{xh,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.weds.xf.entity.XfAddmoneyEntity">
+    insert into xf_addmoney (xh, user_serial, input_money, 
+      add_money, gly_money, sj, 
+      update_sj, add_state, gly_no, 
+      type, lx, card_serial, 
+      add_order)
+    values (#{xh,jdbcType=INTEGER}, #{userSerial,jdbcType=BIGINT}, #{inputMoney,jdbcType=DECIMAL}, 
+      #{addMoney,jdbcType=DECIMAL}, #{glyMoney,jdbcType=DECIMAL}, #{sj,jdbcType=TIMESTAMP}, 
+      #{updateSj,jdbcType=TIMESTAMP}, #{addState,jdbcType=INTEGER}, #{glyNo,jdbcType=NVARCHAR}, 
+      #{type,jdbcType=INTEGER}, #{lx,jdbcType=INTEGER}, #{cardSerial,jdbcType=CHAR}, 
+      #{addOrder,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.weds.xf.entity.XfAddmoneyEntity">
+    insert into xf_addmoney
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="userSerial != null">
+        user_serial,
+      </if>
+      <if test="inputMoney != null">
+        input_money,
+      </if>
+      <if test="addMoney != null">
+        add_money,
+      </if>
+      <if test="glyMoney != null">
+        gly_money,
+      </if>
+      <if test="sj != null">
+        sj,
+      </if>
+      <if test="updateSj != null">
+        update_sj,
+      </if>
+      <if test="addState != null">
+        add_state,
+      </if>
+      <if test="glyNo != null">
+        gly_no,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="lx != null">
+        lx,
+      </if>
+      <if test="cardSerial != null">
+        card_serial,
+      </if>
+      <if test="addOrder != null">
+        add_order,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="userSerial != null">
+        #{userSerial,jdbcType=BIGINT},
+      </if>
+      <if test="inputMoney != null">
+        #{inputMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="addMoney != null">
+        #{addMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="glyMoney != null">
+        #{glyMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="sj != null">
+        #{sj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateSj != null">
+        #{updateSj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addState != null">
+        #{addState,jdbcType=INTEGER},
+      </if>
+      <if test="glyNo != null">
+        #{glyNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="lx != null">
+        #{lx,jdbcType=INTEGER},
+      </if>
+      <if test="cardSerial != null">
+        #{cardSerial,jdbcType=CHAR},
+      </if>
+      <if test="addOrder != null">
+        #{addOrder,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.weds.xf.entity.XfAddmoneyEntity">
+    update xf_addmoney
+    <set>
+      <if test="userSerial != null">
+        user_serial = #{userSerial,jdbcType=BIGINT},
+      </if>
+      <if test="inputMoney != null">
+        input_money = #{inputMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="addMoney != null">
+        add_money = #{addMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="glyMoney != null">
+        gly_money = #{glyMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="sj != null">
+        sj = #{sj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateSj != null">
+        update_sj = #{updateSj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addState != null">
+        add_state = #{addState,jdbcType=INTEGER},
+      </if>
+      <if test="glyNo != null">
+        gly_no = #{glyNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="lx != null">
+        lx = #{lx,jdbcType=INTEGER},
+      </if>
+      <if test="cardSerial != null">
+        card_serial = #{cardSerial,jdbcType=CHAR},
+      </if>
+      <if test="addOrder != null">
+        add_order = #{addOrder,jdbcType=INTEGER},
+      </if>
+    </set>
+    where xh = #{xh,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.weds.xf.entity.XfAddmoneyEntity">
+    update xf_addmoney
+    set user_serial = #{userSerial,jdbcType=BIGINT},
+      input_money = #{inputMoney,jdbcType=DECIMAL},
+      add_money = #{addMoney,jdbcType=DECIMAL},
+      gly_money = #{glyMoney,jdbcType=DECIMAL},
+      sj = #{sj,jdbcType=TIMESTAMP},
+      update_sj = #{updateSj,jdbcType=TIMESTAMP},
+      add_state = #{addState,jdbcType=INTEGER},
+      gly_no = #{glyNo,jdbcType=NVARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      lx = #{lx,jdbcType=INTEGER},
+      card_serial = #{cardSerial,jdbcType=CHAR},
+      add_order = #{addOrder,jdbcType=INTEGER}
+    where xh = #{xh,jdbcType=INTEGER}
+  </update>
+</mapper>

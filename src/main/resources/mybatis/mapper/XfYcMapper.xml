@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.weds.xf.mapper.XfYcMapper">
+  <resultMap id="BaseResultMap" type="com.weds.xf.entity.XfYcEntity">
+    <result column="xh" jdbcType="INTEGER" property="xh" />
+    <result column="user_serial" jdbcType="BIGINT" property="userSerial" />
+    <result column="dev_serial" jdbcType="CHAR" property="devSerial" />
+    <result column="jl_bh" jdbcType="VARCHAR" property="jlBh" />
+    <result column="card_hao" jdbcType="VARCHAR" property="cardHao" />
+    <result column="lx" jdbcType="INTEGER" property="lx" />
+    <result column="state_flag" jdbcType="INTEGER" property="stateFlag" />
+    <result column="new_money" jdbcType="INTEGER" property="newMoney" />
+    <result column="new_each" jdbcType="INTEGER" property="newEach" />
+    <result column="dev_type" jdbcType="INTEGER" property="devType" />
+    <result column="pass" jdbcType="INTEGER" property="pass" />
+    <result column="ident_type" jdbcType="INTEGER" property="identType" />
+    <result column="make_lx" jdbcType="INTEGER" property="makeLx" />
+    <result column="t_level" jdbcType="INTEGER" property="tLevel" />
+    <result column="style_yc" jdbcType="INTEGER" property="styleYc" />
+    <result column="yc_sj" jdbcType="TIMESTAMP" property="ycSj" />
+  </resultMap>
+  <insert id="insert" parameterType="com.weds.xf.entity.XfYcEntity">
+    insert into xf_yc (xh, user_serial, dev_serial, 
+      jl_bh, card_hao, lx, 
+      state_flag, new_money, new_each, 
+      dev_type, pass, ident_type, 
+      make_lx, t_level, style_yc, 
+      yc_sj)
+    values (#{xh,jdbcType=INTEGER}, #{userSerial,jdbcType=BIGINT}, #{devSerial,jdbcType=CHAR}, 
+      #{jlBh,jdbcType=VARCHAR}, #{cardHao,jdbcType=VARCHAR}, #{lx,jdbcType=INTEGER}, 
+      #{stateFlag,jdbcType=INTEGER}, #{newMoney,jdbcType=INTEGER}, #{newEach,jdbcType=INTEGER}, 
+      #{devType,jdbcType=INTEGER}, #{pass,jdbcType=INTEGER}, #{identType,jdbcType=INTEGER}, 
+      #{makeLx,jdbcType=INTEGER}, #{tLevel,jdbcType=INTEGER}, #{styleYc,jdbcType=INTEGER}, 
+      #{ycSj,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.weds.xf.entity.XfYcEntity">
+    insert into xf_yc
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="userSerial != null">
+        user_serial,
+      </if>
+      <if test="devSerial != null">
+        dev_serial,
+      </if>
+      <if test="jlBh != null">
+        jl_bh,
+      </if>
+      <if test="cardHao != null">
+        card_hao,
+      </if>
+      <if test="lx != null">
+        lx,
+      </if>
+      <if test="stateFlag != null">
+        state_flag,
+      </if>
+      <if test="newMoney != null">
+        new_money,
+      </if>
+      <if test="newEach != null">
+        new_each,
+      </if>
+      <if test="devType != null">
+        dev_type,
+      </if>
+      <if test="pass != null">
+        pass,
+      </if>
+      <if test="identType != null">
+        ident_type,
+      </if>
+      <if test="makeLx != null">
+        make_lx,
+      </if>
+      <if test="tLevel != null">
+        t_level,
+      </if>
+      <if test="styleYc != null">
+        style_yc,
+      </if>
+      <if test="ycSj != null">
+        yc_sj,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="userSerial != null">
+        #{userSerial,jdbcType=BIGINT},
+      </if>
+      <if test="devSerial != null">
+        #{devSerial,jdbcType=CHAR},
+      </if>
+      <if test="jlBh != null">
+        #{jlBh,jdbcType=VARCHAR},
+      </if>
+      <if test="cardHao != null">
+        #{cardHao,jdbcType=VARCHAR},
+      </if>
+      <if test="lx != null">
+        #{lx,jdbcType=INTEGER},
+      </if>
+      <if test="stateFlag != null">
+        #{stateFlag,jdbcType=INTEGER},
+      </if>
+      <if test="newMoney != null">
+        #{newMoney,jdbcType=INTEGER},
+      </if>
+      <if test="newEach != null">
+        #{newEach,jdbcType=INTEGER},
+      </if>
+      <if test="devType != null">
+        #{devType,jdbcType=INTEGER},
+      </if>
+      <if test="pass != null">
+        #{pass,jdbcType=INTEGER},
+      </if>
+      <if test="identType != null">
+        #{identType,jdbcType=INTEGER},
+      </if>
+      <if test="makeLx != null">
+        #{makeLx,jdbcType=INTEGER},
+      </if>
+      <if test="tLevel != null">
+        #{tLevel,jdbcType=INTEGER},
+      </if>
+      <if test="styleYc != null">
+        #{styleYc,jdbcType=INTEGER},
+      </if>
+      <if test="ycSj != null">
+        #{ycSj,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

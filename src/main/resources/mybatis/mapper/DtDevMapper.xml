@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.weds.xf.mapper.DtDevMapper">
+  <resultMap id="BaseResultMap" type="com.weds.xf.entity.DtDevEntity">
+    <id column="xh" jdbcType="INTEGER" property="xh" />
+    <result column="lx" jdbcType="INTEGER" property="lx" />
+    <result column="dev_serial" jdbcType="CHAR" property="devSerial" />
+    <result column="dep_serial" jdbcType="INTEGER" property="depSerial" />
+    <result column="gly_no" jdbcType="NVARCHAR" property="glyNo" />
+    <result column="module_id" jdbcType="CHAR" property="moduleId" />
+    <result column="acdep_serial" jdbcType="INTEGER" property="acdepSerial" />
+    <result column="sj" jdbcType="TIMESTAMP" property="sj" />
+    <result column="Group_no" jdbcType="CHAR" property="groupNo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    xh, lx, dev_serial, dep_serial, gly_no, module_id, acdep_serial, sj, Group_no
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dt_dev
+    where xh = #{xh,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from dt_dev
+    where xh = #{xh,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.weds.xf.entity.DtDevEntity">
+    insert into dt_dev (xh, lx, dev_serial, 
+      dep_serial, gly_no, module_id, 
+      acdep_serial, sj, Group_no
+      )
+    values (#{xh,jdbcType=INTEGER}, #{lx,jdbcType=INTEGER}, #{devSerial,jdbcType=CHAR}, 
+      #{depSerial,jdbcType=INTEGER}, #{glyNo,jdbcType=NVARCHAR}, #{moduleId,jdbcType=CHAR}, 
+      #{acdepSerial,jdbcType=INTEGER}, #{sj,jdbcType=TIMESTAMP}, #{groupNo,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.weds.xf.entity.DtDevEntity">
+    insert into dt_dev
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="lx != null">
+        lx,
+      </if>
+      <if test="devSerial != null">
+        dev_serial,
+      </if>
+      <if test="depSerial != null">
+        dep_serial,
+      </if>
+      <if test="glyNo != null">
+        gly_no,
+      </if>
+      <if test="moduleId != null">
+        module_id,
+      </if>
+      <if test="acdepSerial != null">
+        acdep_serial,
+      </if>
+      <if test="sj != null">
+        sj,
+      </if>
+      <if test="groupNo != null">
+        Group_no,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="lx != null">
+        #{lx,jdbcType=INTEGER},
+      </if>
+      <if test="devSerial != null">
+        #{devSerial,jdbcType=CHAR},
+      </if>
+      <if test="depSerial != null">
+        #{depSerial,jdbcType=INTEGER},
+      </if>
+      <if test="glyNo != null">
+        #{glyNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="moduleId != null">
+        #{moduleId,jdbcType=CHAR},
+      </if>
+      <if test="acdepSerial != null">
+        #{acdepSerial,jdbcType=INTEGER},
+      </if>
+      <if test="sj != null">
+        #{sj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="groupNo != null">
+        #{groupNo,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.weds.xf.entity.DtDevEntity">
+    update dt_dev
+    <set>
+      <if test="lx != null">
+        lx = #{lx,jdbcType=INTEGER},
+      </if>
+      <if test="devSerial != null">
+        dev_serial = #{devSerial,jdbcType=CHAR},
+      </if>
+      <if test="depSerial != null">
+        dep_serial = #{depSerial,jdbcType=INTEGER},
+      </if>
+      <if test="glyNo != null">
+        gly_no = #{glyNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="moduleId != null">
+        module_id = #{moduleId,jdbcType=CHAR},
+      </if>
+      <if test="acdepSerial != null">
+        acdep_serial = #{acdepSerial,jdbcType=INTEGER},
+      </if>
+      <if test="sj != null">
+        sj = #{sj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="groupNo != null">
+        Group_no = #{groupNo,jdbcType=CHAR},
+      </if>
+    </set>
+    where xh = #{xh,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.weds.xf.entity.DtDevEntity">
+    update dt_dev
+    set lx = #{lx,jdbcType=INTEGER},
+      dev_serial = #{devSerial,jdbcType=CHAR},
+      dep_serial = #{depSerial,jdbcType=INTEGER},
+      gly_no = #{glyNo,jdbcType=NVARCHAR},
+      module_id = #{moduleId,jdbcType=CHAR},
+      acdep_serial = #{acdepSerial,jdbcType=INTEGER},
+      sj = #{sj,jdbcType=TIMESTAMP},
+      Group_no = #{groupNo,jdbcType=CHAR}
+    where xh = #{xh,jdbcType=INTEGER}
+  </update>
+</mapper>

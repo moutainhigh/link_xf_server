@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.weds.xf.mapper.OnlineXfAcDepMapper">
+  <resultMap id="BaseResultMap" type="com.weds.xf.entity.OnlineXfAcDepEntity">
+    <id column="dep_serial" jdbcType="INTEGER" property="depSerial" />
+    <id column="ac_serial" jdbcType="INTEGER" property="acSerial" />
+    <result column="xh" jdbcType="INTEGER" property="xh" />
+    <result column="dep_name" jdbcType="VARCHAR" property="depName" />
+    <result column="ac_name" jdbcType="VARCHAR" property="acName" />
+    <result column="gly_no" jdbcType="VARCHAR" property="glyNo" />
+    <result column="sj" jdbcType="TIMESTAMP" property="sj" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dep_serial, ac_serial, xh, dep_name, ac_name, gly_no, sj
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from online_xf_ac_dep
+    where dep_serial = #{depSerial,jdbcType=INTEGER}
+      and ac_serial = #{acSerial,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from online_xf_ac_dep
+    where dep_serial = #{depSerial,jdbcType=INTEGER}
+      and ac_serial = #{acSerial,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.weds.xf.entity.OnlineXfAcDepEntity">
+    insert into online_xf_ac_dep (dep_serial, ac_serial, xh, 
+      dep_name, ac_name, gly_no, 
+      sj)
+    values (#{depSerial,jdbcType=INTEGER}, #{acSerial,jdbcType=INTEGER}, #{xh,jdbcType=INTEGER}, 
+      #{depName,jdbcType=VARCHAR}, #{acName,jdbcType=VARCHAR}, #{glyNo,jdbcType=VARCHAR}, 
+      #{sj,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.weds.xf.entity.OnlineXfAcDepEntity">
+    insert into online_xf_ac_dep
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="depSerial != null">
+        dep_serial,
+      </if>
+      <if test="acSerial != null">
+        ac_serial,
+      </if>
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="depName != null">
+        dep_name,
+      </if>
+      <if test="acName != null">
+        ac_name,
+      </if>
+      <if test="glyNo != null">
+        gly_no,
+      </if>
+      <if test="sj != null">
+        sj,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="depSerial != null">
+        #{depSerial,jdbcType=INTEGER},
+      </if>
+      <if test="acSerial != null">
+        #{acSerial,jdbcType=INTEGER},
+      </if>
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="depName != null">
+        #{depName,jdbcType=VARCHAR},
+      </if>
+      <if test="acName != null">
+        #{acName,jdbcType=VARCHAR},
+      </if>
+      <if test="glyNo != null">
+        #{glyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="sj != null">
+        #{sj,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.weds.xf.entity.OnlineXfAcDepEntity">
+    update online_xf_ac_dep
+    <set>
+      <if test="xh != null">
+        xh = #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="depName != null">
+        dep_name = #{depName,jdbcType=VARCHAR},
+      </if>
+      <if test="acName != null">
+        ac_name = #{acName,jdbcType=VARCHAR},
+      </if>
+      <if test="glyNo != null">
+        gly_no = #{glyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="sj != null">
+        sj = #{sj,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where dep_serial = #{depSerial,jdbcType=INTEGER}
+      and ac_serial = #{acSerial,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.weds.xf.entity.OnlineXfAcDepEntity">
+    update online_xf_ac_dep
+    set xh = #{xh,jdbcType=INTEGER},
+      dep_name = #{depName,jdbcType=VARCHAR},
+      ac_name = #{acName,jdbcType=VARCHAR},
+      gly_no = #{glyNo,jdbcType=VARCHAR},
+      sj = #{sj,jdbcType=TIMESTAMP}
+    where dep_serial = #{depSerial,jdbcType=INTEGER}
+      and ac_serial = #{acSerial,jdbcType=INTEGER}
+  </update>
+</mapper>

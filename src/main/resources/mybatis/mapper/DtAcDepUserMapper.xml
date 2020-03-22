@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.weds.xf.mapper.DtAcDepUserMapper">
+  <resultMap id="BaseResultMap" type="com.weds.xf.entity.DtAcDepUserEntity">
+    <id column="xh" jdbcType="INTEGER" property="xh" />
+    <result column="dep_serial" jdbcType="INTEGER" property="depSerial" />
+    <result column="dep_lname" jdbcType="NVARCHAR" property="depLname" />
+    <result column="user_serial" jdbcType="BIGINT" property="userSerial" />
+    <result column="sj" jdbcType="TIMESTAMP" property="sj" />
+    <result column="module_id" jdbcType="VARCHAR" property="moduleId" />
+    <result column="lx" jdbcType="INTEGER" property="lx" />
+    <result column="bm_serial" jdbcType="BIGINT" property="bmSerial" />
+    <result column="gly_no" jdbcType="NVARCHAR" property="glyNo" />
+    <result column="user_mj" jdbcType="NVARCHAR" property="userMj" />
+    <result column="per_lx" jdbcType="INTEGER" property="perLx" />
+    <result column="dep_type" jdbcType="INTEGER" property="depType" />
+    <result column="mjgz" jdbcType="NVARCHAR" property="mjgz" />
+    <result column="outsj" jdbcType="TIMESTAMP" property="outsj" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    xh, dep_serial, dep_lname, user_serial, sj, module_id, lx, bm_serial, gly_no, user_mj, 
+    per_lx, dep_type, mjgz, outsj
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dt_ac_dep_user
+    where xh = #{xh,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from dt_ac_dep_user
+    where xh = #{xh,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.weds.xf.entity.DtAcDepUserEntity">
+    insert into dt_ac_dep_user (xh, dep_serial, dep_lname, 
+      user_serial, sj, module_id, 
+      lx, bm_serial, gly_no, 
+      user_mj, per_lx, dep_type, 
+      mjgz, outsj)
+    values (#{xh,jdbcType=INTEGER}, #{depSerial,jdbcType=INTEGER}, #{depLname,jdbcType=NVARCHAR}, 
+      #{userSerial,jdbcType=BIGINT}, #{sj,jdbcType=TIMESTAMP}, #{moduleId,jdbcType=VARCHAR}, 
+      #{lx,jdbcType=INTEGER}, #{bmSerial,jdbcType=BIGINT}, #{glyNo,jdbcType=NVARCHAR}, 
+      #{userMj,jdbcType=NVARCHAR}, #{perLx,jdbcType=INTEGER}, #{depType,jdbcType=INTEGER}, 
+      #{mjgz,jdbcType=NVARCHAR}, #{outsj,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.weds.xf.entity.DtAcDepUserEntity">
+    insert into dt_ac_dep_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="depSerial != null">
+        dep_serial,
+      </if>
+      <if test="depLname != null">
+        dep_lname,
+      </if>
+      <if test="userSerial != null">
+        user_serial,
+      </if>
+      <if test="sj != null">
+        sj,
+      </if>
+      <if test="moduleId != null">
+        module_id,
+      </if>
+      <if test="lx != null">
+        lx,
+      </if>
+      <if test="bmSerial != null">
+        bm_serial,
+      </if>
+      <if test="glyNo != null">
+        gly_no,
+      </if>
+      <if test="userMj != null">
+        user_mj,
+      </if>
+      <if test="perLx != null">
+        per_lx,
+      </if>
+      <if test="depType != null">
+        dep_type,
+      </if>
+      <if test="mjgz != null">
+        mjgz,
+      </if>
+      <if test="outsj != null">
+        outsj,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="depSerial != null">
+        #{depSerial,jdbcType=INTEGER},
+      </if>
+      <if test="depLname != null">
+        #{depLname,jdbcType=NVARCHAR},
+      </if>
+      <if test="userSerial != null">
+        #{userSerial,jdbcType=BIGINT},
+      </if>
+      <if test="sj != null">
+        #{sj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="moduleId != null">
+        #{moduleId,jdbcType=VARCHAR},
+      </if>
+      <if test="lx != null">
+        #{lx,jdbcType=INTEGER},
+      </if>
+      <if test="bmSerial != null">
+        #{bmSerial,jdbcType=BIGINT},
+      </if>
+      <if test="glyNo != null">
+        #{glyNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="userMj != null">
+        #{userMj,jdbcType=NVARCHAR},
+      </if>
+      <if test="perLx != null">
+        #{perLx,jdbcType=INTEGER},
+      </if>
+      <if test="depType != null">
+        #{depType,jdbcType=INTEGER},
+      </if>
+      <if test="mjgz != null">
+        #{mjgz,jdbcType=NVARCHAR},
+      </if>
+      <if test="outsj != null">
+        #{outsj,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.weds.xf.entity.DtAcDepUserEntity">
+    update dt_ac_dep_user
+    <set>
+      <if test="depSerial != null">
+        dep_serial = #{depSerial,jdbcType=INTEGER},
+      </if>
+      <if test="depLname != null">
+        dep_lname = #{depLname,jdbcType=NVARCHAR},
+      </if>
+      <if test="userSerial != null">
+        user_serial = #{userSerial,jdbcType=BIGINT},
+      </if>
+      <if test="sj != null">
+        sj = #{sj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="moduleId != null">
+        module_id = #{moduleId,jdbcType=VARCHAR},
+      </if>
+      <if test="lx != null">
+        lx = #{lx,jdbcType=INTEGER},
+      </if>
+      <if test="bmSerial != null">
+        bm_serial = #{bmSerial,jdbcType=BIGINT},
+      </if>
+      <if test="glyNo != null">
+        gly_no = #{glyNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="userMj != null">
+        user_mj = #{userMj,jdbcType=NVARCHAR},
+      </if>
+      <if test="perLx != null">
+        per_lx = #{perLx,jdbcType=INTEGER},
+      </if>
+      <if test="depType != null">
+        dep_type = #{depType,jdbcType=INTEGER},
+      </if>
+      <if test="mjgz != null">
+        mjgz = #{mjgz,jdbcType=NVARCHAR},
+      </if>
+      <if test="outsj != null">
+        outsj = #{outsj,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where xh = #{xh,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.weds.xf.entity.DtAcDepUserEntity">
+    update dt_ac_dep_user
+    set dep_serial = #{depSerial,jdbcType=INTEGER},
+      dep_lname = #{depLname,jdbcType=NVARCHAR},
+      user_serial = #{userSerial,jdbcType=BIGINT},
+      sj = #{sj,jdbcType=TIMESTAMP},
+      module_id = #{moduleId,jdbcType=VARCHAR},
+      lx = #{lx,jdbcType=INTEGER},
+      bm_serial = #{bmSerial,jdbcType=BIGINT},
+      gly_no = #{glyNo,jdbcType=NVARCHAR},
+      user_mj = #{userMj,jdbcType=NVARCHAR},
+      per_lx = #{perLx,jdbcType=INTEGER},
+      dep_type = #{depType,jdbcType=INTEGER},
+      mjgz = #{mjgz,jdbcType=NVARCHAR},
+      outsj = #{outsj,jdbcType=TIMESTAMP}
+    where xh = #{xh,jdbcType=INTEGER}
+  </update>
+</mapper>

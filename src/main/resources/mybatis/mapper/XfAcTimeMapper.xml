@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.weds.xf.mapper.XfAcTimeMapper">
+  <resultMap id="BaseResultMap" type="com.weds.xf.entity.XfAcTimeEntity">
+    <id column="xh" jdbcType="INTEGER" property="xh" />
+    <result column="dev_serial" jdbcType="CHAR" property="devSerial" />
+    <result column="ac_type" jdbcType="CHAR" property="acType" />
+    <result column="time_max_m" jdbcType="INTEGER" property="timeMaxM" />
+    <result column="time_max_t" jdbcType="INTEGER" property="timeMaxT" />
+    <result column="day_order" jdbcType="INTEGER" property="dayOrder" />
+    <result column="sj" jdbcType="TIMESTAMP" property="sj" />
+    <result column="gly_no" jdbcType="NVARCHAR" property="glyNo" />
+    <result column="time_no" jdbcType="CHAR" property="timeNo" />
+    <result column="lx" jdbcType="INTEGER" property="lx" />
+    <result column="day_offset" jdbcType="INTEGER" property="dayOffset" />
+    <result column="acdep_serial" jdbcType="INTEGER" property="acdepSerial" />
+    <result column="time_sub" jdbcType="DECIMAL" property="timeSub" />
+    <result column="discount_rate" jdbcType="INTEGER" property="discountRate" />
+    <result column="time_limit" jdbcType="INTEGER" property="timeLimit" />
+    <result column="each_unit" jdbcType="INTEGER" property="eachUnit" />
+    <result column="regserial" jdbcType="NVARCHAR" property="regserial" />
+    <result column="is_timeout" jdbcType="INTEGER" property="isTimeout" />
+    <result column="timeout_rate" jdbcType="INTEGER" property="timeoutRate" />
+    <result column="ac_time_mould" jdbcType="INTEGER" property="acTimeMould" />
+    <result column="ac_sub_auto" jdbcType="INTEGER" property="acSubAuto" />
+    <result column="time_eachsub" jdbcType="INTEGER" property="timeEachsub" />
+    <result column="mould_type" jdbcType="INTEGER" property="mouldType" />
+    <result column="ac_eachtime_mould" jdbcType="INTEGER" property="acEachtimeMould" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    xh, dev_serial, ac_type, time_max_m, time_max_t, day_order, sj, gly_no, time_no, 
+    lx, day_offset, acdep_serial, time_sub, discount_rate, time_limit, each_unit, regserial, 
+    is_timeout, timeout_rate, ac_time_mould, ac_sub_auto, time_eachsub, mould_type, ac_eachtime_mould
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from xf_ac_time
+    where xh = #{xh,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from xf_ac_time
+    where xh = #{xh,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.weds.xf.entity.XfAcTimeEntity">
+    insert into xf_ac_time (xh, dev_serial, ac_type, 
+      time_max_m, time_max_t, day_order, 
+      sj, gly_no, time_no, 
+      lx, day_offset, acdep_serial, 
+      time_sub, discount_rate, time_limit, 
+      each_unit, regserial, is_timeout, 
+      timeout_rate, ac_time_mould, ac_sub_auto, 
+      time_eachsub, mould_type, ac_eachtime_mould
+      )
+    values (#{xh,jdbcType=INTEGER}, #{devSerial,jdbcType=CHAR}, #{acType,jdbcType=CHAR}, 
+      #{timeMaxM,jdbcType=INTEGER}, #{timeMaxT,jdbcType=INTEGER}, #{dayOrder,jdbcType=INTEGER}, 
+      #{sj,jdbcType=TIMESTAMP}, #{glyNo,jdbcType=NVARCHAR}, #{timeNo,jdbcType=CHAR}, 
+      #{lx,jdbcType=INTEGER}, #{dayOffset,jdbcType=INTEGER}, #{acdepSerial,jdbcType=INTEGER}, 
+      #{timeSub,jdbcType=DECIMAL}, #{discountRate,jdbcType=INTEGER}, #{timeLimit,jdbcType=INTEGER}, 
+      #{eachUnit,jdbcType=INTEGER}, #{regserial,jdbcType=NVARCHAR}, #{isTimeout,jdbcType=INTEGER}, 
+      #{timeoutRate,jdbcType=INTEGER}, #{acTimeMould,jdbcType=INTEGER}, #{acSubAuto,jdbcType=INTEGER}, 
+      #{timeEachsub,jdbcType=INTEGER}, #{mouldType,jdbcType=INTEGER}, #{acEachtimeMould,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.weds.xf.entity.XfAcTimeEntity">
+    insert into xf_ac_time
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="devSerial != null">
+        dev_serial,
+      </if>
+      <if test="acType != null">
+        ac_type,
+      </if>
+      <if test="timeMaxM != null">
+        time_max_m,
+      </if>
+      <if test="timeMaxT != null">
+        time_max_t,
+      </if>
+      <if test="dayOrder != null">
+        day_order,
+      </if>
+      <if test="sj != null">
+        sj,
+      </if>
+      <if test="glyNo != null">
+        gly_no,
+      </if>
+      <if test="timeNo != null">
+        time_no,
+      </if>
+      <if test="lx != null">
+        lx,
+      </if>
+      <if test="dayOffset != null">
+        day_offset,
+      </if>
+      <if test="acdepSerial != null">
+        acdep_serial,
+      </if>
+      <if test="timeSub != null">
+        time_sub,
+      </if>
+      <if test="discountRate != null">
+        discount_rate,
+      </if>
+      <if test="timeLimit != null">
+        time_limit,
+      </if>
+      <if test="eachUnit != null">
+        each_unit,
+      </if>
+      <if test="regserial != null">
+        regserial,
+      </if>
+      <if test="isTimeout != null">
+        is_timeout,
+      </if>
+      <if test="timeoutRate != null">
+        timeout_rate,
+      </if>
+      <if test="acTimeMould != null">
+        ac_time_mould,
+      </if>
+      <if test="acSubAuto != null">
+        ac_sub_auto,
+      </if>
+      <if test="timeEachsub != null">
+        time_eachsub,
+      </if>
+      <if test="mouldType != null">
+        mould_type,
+      </if>
+      <if test="acEachtimeMould != null">
+        ac_eachtime_mould,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="devSerial != null">
+        #{devSerial,jdbcType=CHAR},
+      </if>
+      <if test="acType != null">
+        #{acType,jdbcType=CHAR},
+      </if>
+      <if test="timeMaxM != null">
+        #{timeMaxM,jdbcType=INTEGER},
+      </if>
+      <if test="timeMaxT != null">
+        #{timeMaxT,jdbcType=INTEGER},
+      </if>
+      <if test="dayOrder != null">
+        #{dayOrder,jdbcType=INTEGER},
+      </if>
+      <if test="sj != null">
+        #{sj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="glyNo != null">
+        #{glyNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="timeNo != null">
+        #{timeNo,jdbcType=CHAR},
+      </if>
+      <if test="lx != null">
+        #{lx,jdbcType=INTEGER},
+      </if>
+      <if test="dayOffset != null">
+        #{dayOffset,jdbcType=INTEGER},
+      </if>
+      <if test="acdepSerial != null">
+        #{acdepSerial,jdbcType=INTEGER},
+      </if>
+      <if test="timeSub != null">
+        #{timeSub,jdbcType=DECIMAL},
+      </if>
+      <if test="discountRate != null">
+        #{discountRate,jdbcType=INTEGER},
+      </if>
+      <if test="timeLimit != null">
+        #{timeLimit,jdbcType=INTEGER},
+      </if>
+      <if test="eachUnit != null">
+        #{eachUnit,jdbcType=INTEGER},
+      </if>
+      <if test="regserial != null">
+        #{regserial,jdbcType=NVARCHAR},
+      </if>
+      <if test="isTimeout != null">
+        #{isTimeout,jdbcType=INTEGER},
+      </if>
+      <if test="timeoutRate != null">
+        #{timeoutRate,jdbcType=INTEGER},
+      </if>
+      <if test="acTimeMould != null">
+        #{acTimeMould,jdbcType=INTEGER},
+      </if>
+      <if test="acSubAuto != null">
+        #{acSubAuto,jdbcType=INTEGER},
+      </if>
+      <if test="timeEachsub != null">
+        #{timeEachsub,jdbcType=INTEGER},
+      </if>
+      <if test="mouldType != null">
+        #{mouldType,jdbcType=INTEGER},
+      </if>
+      <if test="acEachtimeMould != null">
+        #{acEachtimeMould,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.weds.xf.entity.XfAcTimeEntity">
+    update xf_ac_time
+    <set>
+      <if test="devSerial != null">
+        dev_serial = #{devSerial,jdbcType=CHAR},
+      </if>
+      <if test="acType != null">
+        ac_type = #{acType,jdbcType=CHAR},
+      </if>
+      <if test="timeMaxM != null">
+        time_max_m = #{timeMaxM,jdbcType=INTEGER},
+      </if>
+      <if test="timeMaxT != null">
+        time_max_t = #{timeMaxT,jdbcType=INTEGER},
+      </if>
+      <if test="dayOrder != null">
+        day_order = #{dayOrder,jdbcType=INTEGER},
+      </if>
+      <if test="sj != null">
+        sj = #{sj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="glyNo != null">
+        gly_no = #{glyNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="timeNo != null">
+        time_no = #{timeNo,jdbcType=CHAR},
+      </if>
+      <if test="lx != null">
+        lx = #{lx,jdbcType=INTEGER},
+      </if>
+      <if test="dayOffset != null">
+        day_offset = #{dayOffset,jdbcType=INTEGER},
+      </if>
+      <if test="acdepSerial != null">
+        acdep_serial = #{acdepSerial,jdbcType=INTEGER},
+      </if>
+      <if test="timeSub != null">
+        time_sub = #{timeSub,jdbcType=DECIMAL},
+      </if>
+      <if test="discountRate != null">
+        discount_rate = #{discountRate,jdbcType=INTEGER},
+      </if>
+      <if test="timeLimit != null">
+        time_limit = #{timeLimit,jdbcType=INTEGER},
+      </if>
+      <if test="eachUnit != null">
+        each_unit = #{eachUnit,jdbcType=INTEGER},
+      </if>
+      <if test="regserial != null">
+        regserial = #{regserial,jdbcType=NVARCHAR},
+      </if>
+      <if test="isTimeout != null">
+        is_timeout = #{isTimeout,jdbcType=INTEGER},
+      </if>
+      <if test="timeoutRate != null">
+        timeout_rate = #{timeoutRate,jdbcType=INTEGER},
+      </if>
+      <if test="acTimeMould != null">
+        ac_time_mould = #{acTimeMould,jdbcType=INTEGER},
+      </if>
+      <if test="acSubAuto != null">
+        ac_sub_auto = #{acSubAuto,jdbcType=INTEGER},
+      </if>
+      <if test="timeEachsub != null">
+        time_eachsub = #{timeEachsub,jdbcType=INTEGER},
+      </if>
+      <if test="mouldType != null">
+        mould_type = #{mouldType,jdbcType=INTEGER},
+      </if>
+      <if test="acEachtimeMould != null">
+        ac_eachtime_mould = #{acEachtimeMould,jdbcType=INTEGER},
+      </if>
+    </set>
+    where xh = #{xh,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.weds.xf.entity.XfAcTimeEntity">
+    update xf_ac_time
+    set dev_serial = #{devSerial,jdbcType=CHAR},
+      ac_type = #{acType,jdbcType=CHAR},
+      time_max_m = #{timeMaxM,jdbcType=INTEGER},
+      time_max_t = #{timeMaxT,jdbcType=INTEGER},
+      day_order = #{dayOrder,jdbcType=INTEGER},
+      sj = #{sj,jdbcType=TIMESTAMP},
+      gly_no = #{glyNo,jdbcType=NVARCHAR},
+      time_no = #{timeNo,jdbcType=CHAR},
+      lx = #{lx,jdbcType=INTEGER},
+      day_offset = #{dayOffset,jdbcType=INTEGER},
+      acdep_serial = #{acdepSerial,jdbcType=INTEGER},
+      time_sub = #{timeSub,jdbcType=DECIMAL},
+      discount_rate = #{discountRate,jdbcType=INTEGER},
+      time_limit = #{timeLimit,jdbcType=INTEGER},
+      each_unit = #{eachUnit,jdbcType=INTEGER},
+      regserial = #{regserial,jdbcType=NVARCHAR},
+      is_timeout = #{isTimeout,jdbcType=INTEGER},
+      timeout_rate = #{timeoutRate,jdbcType=INTEGER},
+      ac_time_mould = #{acTimeMould,jdbcType=INTEGER},
+      ac_sub_auto = #{acSubAuto,jdbcType=INTEGER},
+      time_eachsub = #{timeEachsub,jdbcType=INTEGER},
+      mould_type = #{mouldType,jdbcType=INTEGER},
+      ac_eachtime_mould = #{acEachtimeMould,jdbcType=INTEGER}
+    where xh = #{xh,jdbcType=INTEGER}
+  </update>
+</mapper>

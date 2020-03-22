@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.weds.xf.mapper.LinkOfflineCzMapper">
+  <resultMap id="BaseResultMap" type="com.weds.xf.entity.LinkOfflineCzEntity">
+    <id column="xh" jdbcType="INTEGER" property="xh" />
+    <result column="user_serial" jdbcType="INTEGER" property="userSerial" />
+    <result column="jl_data" jdbcType="VARCHAR" property="jlData" />
+    <result column="jl_sj" jdbcType="TIMESTAMP" property="jlSj" />
+    <result column="deal_state" jdbcType="INTEGER" property="dealState" />
+    <result column="deal_sj" jdbcType="TIMESTAMP" property="dealSj" />
+    <result column="mould" jdbcType="INTEGER" property="mould" />
+    <result column="time_no" jdbcType="CHAR" property="timeNo" />
+    <result column="new_money" jdbcType="DECIMAL" property="newMoney" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    xh, user_serial, jl_data, jl_sj, deal_state, deal_sj, mould, time_no, new_money
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from link_offline_cz
+    where xh = #{xh,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from link_offline_cz
+    where xh = #{xh,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.weds.xf.entity.LinkOfflineCzEntity">
+    insert into link_offline_cz (xh, user_serial, jl_data, 
+      jl_sj, deal_state, deal_sj, 
+      mould, time_no, new_money
+      )
+    values (#{xh,jdbcType=INTEGER}, #{userSerial,jdbcType=INTEGER}, #{jlData,jdbcType=VARCHAR}, 
+      #{jlSj,jdbcType=TIMESTAMP}, #{dealState,jdbcType=INTEGER}, #{dealSj,jdbcType=TIMESTAMP}, 
+      #{mould,jdbcType=INTEGER}, #{timeNo,jdbcType=CHAR}, #{newMoney,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.weds.xf.entity.LinkOfflineCzEntity">
+    insert into link_offline_cz
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="userSerial != null">
+        user_serial,
+      </if>
+      <if test="jlData != null">
+        jl_data,
+      </if>
+      <if test="jlSj != null">
+        jl_sj,
+      </if>
+      <if test="dealState != null">
+        deal_state,
+      </if>
+      <if test="dealSj != null">
+        deal_sj,
+      </if>
+      <if test="mould != null">
+        mould,
+      </if>
+      <if test="timeNo != null">
+        time_no,
+      </if>
+      <if test="newMoney != null">
+        new_money,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="userSerial != null">
+        #{userSerial,jdbcType=INTEGER},
+      </if>
+      <if test="jlData != null">
+        #{jlData,jdbcType=VARCHAR},
+      </if>
+      <if test="jlSj != null">
+        #{jlSj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dealState != null">
+        #{dealState,jdbcType=INTEGER},
+      </if>
+      <if test="dealSj != null">
+        #{dealSj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mould != null">
+        #{mould,jdbcType=INTEGER},
+      </if>
+      <if test="timeNo != null">
+        #{timeNo,jdbcType=CHAR},
+      </if>
+      <if test="newMoney != null">
+        #{newMoney,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.weds.xf.entity.LinkOfflineCzEntity">
+    update link_offline_cz
+    <set>
+      <if test="userSerial != null">
+        user_serial = #{userSerial,jdbcType=INTEGER},
+      </if>
+      <if test="jlData != null">
+        jl_data = #{jlData,jdbcType=VARCHAR},
+      </if>
+      <if test="jlSj != null">
+        jl_sj = #{jlSj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dealState != null">
+        deal_state = #{dealState,jdbcType=INTEGER},
+      </if>
+      <if test="dealSj != null">
+        deal_sj = #{dealSj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mould != null">
+        mould = #{mould,jdbcType=INTEGER},
+      </if>
+      <if test="timeNo != null">
+        time_no = #{timeNo,jdbcType=CHAR},
+      </if>
+      <if test="newMoney != null">
+        new_money = #{newMoney,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where xh = #{xh,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.weds.xf.entity.LinkOfflineCzEntity">
+    update link_offline_cz
+    set user_serial = #{userSerial,jdbcType=INTEGER},
+      jl_data = #{jlData,jdbcType=VARCHAR},
+      jl_sj = #{jlSj,jdbcType=TIMESTAMP},
+      deal_state = #{dealState,jdbcType=INTEGER},
+      deal_sj = #{dealSj,jdbcType=TIMESTAMP},
+      mould = #{mould,jdbcType=INTEGER},
+      time_no = #{timeNo,jdbcType=CHAR},
+      new_money = #{newMoney,jdbcType=DECIMAL}
+    where xh = #{xh,jdbcType=INTEGER}
+  </update>
+</mapper>

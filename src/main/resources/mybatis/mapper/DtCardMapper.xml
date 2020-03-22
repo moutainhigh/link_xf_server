@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.weds.xf.mapper.DtCardMapper">
+  <resultMap id="BaseResultMap" type="com.weds.xf.entity.DtCardEntity">
+    <id column="card_serial" jdbcType="CHAR" property="cardSerial" />
+    <result column="xh" jdbcType="INTEGER" property="xh" />
+    <result column="lx" jdbcType="INTEGER" property="lx" />
+    <result column="gly_no" jdbcType="NVARCHAR" property="glyNo" />
+    <result column="card_photo" jdbcType="VARCHAR" property="cardPhoto" />
+    <result column="sj" jdbcType="TIMESTAMP" property="sj" />
+    <result column="user_serial" jdbcType="BIGINT" property="userSerial" />
+    <result column="card_lx" jdbcType="INTEGER" property="cardLx" />
+    <result column="card_type" jdbcType="INTEGER" property="cardType" />
+    <result column="card_hao" jdbcType="VARCHAR" property="cardHao" />
+    <result column="card_order" jdbcType="INTEGER" property="cardOrder" />
+    <result column="card_bz" jdbcType="NVARCHAR" property="cardBz" />
+    <result column="card_verify" jdbcType="VARCHAR" property="cardVerify" />
+    <result column="readd_count" jdbcType="INTEGER" property="readdCount" />
+    <result column="loss_count" jdbcType="INTEGER" property="lossCount" />
+    <result column="Card_work" jdbcType="INTEGER" property="cardWork" />
+    <result column="card_form" jdbcType="NVARCHAR" property="cardForm" />
+    <result column="isCardReplace" jdbcType="INTEGER" property="iscardreplace" />
+    <result column="iscarddel" jdbcType="INTEGER" property="iscarddel" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    card_serial, xh, lx, gly_no, card_photo, sj, user_serial, card_lx, card_type, card_hao, 
+    card_order, card_bz, card_verify, readd_count, loss_count, Card_work, card_form, 
+    isCardReplace, iscarddel
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dt_card
+    where card_serial = #{cardSerial,jdbcType=CHAR}
+  </select>
+  <select id="selectByCardHao" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from dt_card
+    where card_hao = #{cardHao,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from dt_card
+    where card_serial = #{cardSerial,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.weds.xf.entity.DtCardEntity">
+    insert into dt_card (card_serial, xh, lx, 
+      gly_no, card_photo, sj, 
+      user_serial, card_lx, card_type, 
+      card_hao, card_order, card_bz, 
+      card_verify, readd_count, loss_count, 
+      Card_work, card_form, isCardReplace, 
+      iscarddel)
+    values (#{cardSerial,jdbcType=CHAR}, #{xh,jdbcType=INTEGER}, #{lx,jdbcType=INTEGER}, 
+      #{glyNo,jdbcType=NVARCHAR}, #{cardPhoto,jdbcType=VARCHAR}, #{sj,jdbcType=TIMESTAMP}, 
+      #{userSerial,jdbcType=BIGINT}, #{cardLx,jdbcType=INTEGER}, #{cardType,jdbcType=INTEGER}, 
+      #{cardHao,jdbcType=VARCHAR}, #{cardOrder,jdbcType=INTEGER}, #{cardBz,jdbcType=NVARCHAR}, 
+      #{cardVerify,jdbcType=VARCHAR}, #{readdCount,jdbcType=INTEGER}, #{lossCount,jdbcType=INTEGER}, 
+      #{cardWork,jdbcType=INTEGER}, #{cardForm,jdbcType=NVARCHAR}, #{iscardreplace,jdbcType=INTEGER}, 
+      #{iscarddel,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.weds.xf.entity.DtCardEntity">
+    insert into dt_card
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cardSerial != null">
+        card_serial,
+      </if>
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="lx != null">
+        lx,
+      </if>
+      <if test="glyNo != null">
+        gly_no,
+      </if>
+      <if test="cardPhoto != null">
+        card_photo,
+      </if>
+      <if test="sj != null">
+        sj,
+      </if>
+      <if test="userSerial != null">
+        user_serial,
+      </if>
+      <if test="cardLx != null">
+        card_lx,
+      </if>
+      <if test="cardType != null">
+        card_type,
+      </if>
+      <if test="cardHao != null">
+        card_hao,
+      </if>
+      <if test="cardOrder != null">
+        card_order,
+      </if>
+      <if test="cardBz != null">
+        card_bz,
+      </if>
+      <if test="cardVerify != null">
+        card_verify,
+      </if>
+      <if test="readdCount != null">
+        readd_count,
+      </if>
+      <if test="lossCount != null">
+        loss_count,
+      </if>
+      <if test="cardWork != null">
+        Card_work,
+      </if>
+      <if test="cardForm != null">
+        card_form,
+      </if>
+      <if test="iscardreplace != null">
+        isCardReplace,
+      </if>
+      <if test="iscarddel != null">
+        iscarddel,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cardSerial != null">
+        #{cardSerial,jdbcType=CHAR},
+      </if>
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="lx != null">
+        #{lx,jdbcType=INTEGER},
+      </if>
+      <if test="glyNo != null">
+        #{glyNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="cardPhoto != null">
+        #{cardPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="sj != null">
+        #{sj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userSerial != null">
+        #{userSerial,jdbcType=BIGINT},
+      </if>
+      <if test="cardLx != null">
+        #{cardLx,jdbcType=INTEGER},
+      </if>
+      <if test="cardType != null">
+        #{cardType,jdbcType=INTEGER},
+      </if>
+      <if test="cardHao != null">
+        #{cardHao,jdbcType=VARCHAR},
+      </if>
+      <if test="cardOrder != null">
+        #{cardOrder,jdbcType=INTEGER},
+      </if>
+      <if test="cardBz != null">
+        #{cardBz,jdbcType=NVARCHAR},
+      </if>
+      <if test="cardVerify != null">
+        #{cardVerify,jdbcType=VARCHAR},
+      </if>
+      <if test="readdCount != null">
+        #{readdCount,jdbcType=INTEGER},
+      </if>
+      <if test="lossCount != null">
+        #{lossCount,jdbcType=INTEGER},
+      </if>
+      <if test="cardWork != null">
+        #{cardWork,jdbcType=INTEGER},
+      </if>
+      <if test="cardForm != null">
+        #{cardForm,jdbcType=NVARCHAR},
+      </if>
+      <if test="iscardreplace != null">
+        #{iscardreplace,jdbcType=INTEGER},
+      </if>
+      <if test="iscarddel != null">
+        #{iscarddel,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.weds.xf.entity.DtCardEntity">
+    update dt_card
+    <set>
+      <if test="xh != null">
+        xh = #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="lx != null">
+        lx = #{lx,jdbcType=INTEGER},
+      </if>
+      <if test="glyNo != null">
+        gly_no = #{glyNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="cardPhoto != null">
+        card_photo = #{cardPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="sj != null">
+        sj = #{sj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userSerial != null">
+        user_serial = #{userSerial,jdbcType=BIGINT},
+      </if>
+      <if test="cardLx != null">
+        card_lx = #{cardLx,jdbcType=INTEGER},
+      </if>
+      <if test="cardType != null">
+        card_type = #{cardType,jdbcType=INTEGER},
+      </if>
+      <if test="cardHao != null">
+        card_hao = #{cardHao,jdbcType=VARCHAR},
+      </if>
+      <if test="cardOrder != null">
+        card_order = #{cardOrder,jdbcType=INTEGER},
+      </if>
+      <if test="cardBz != null">
+        card_bz = #{cardBz,jdbcType=NVARCHAR},
+      </if>
+      <if test="cardVerify != null">
+        card_verify = #{cardVerify,jdbcType=VARCHAR},
+      </if>
+      <if test="readdCount != null">
+        readd_count = #{readdCount,jdbcType=INTEGER},
+      </if>
+      <if test="lossCount != null">
+        loss_count = #{lossCount,jdbcType=INTEGER},
+      </if>
+      <if test="cardWork != null">
+        Card_work = #{cardWork,jdbcType=INTEGER},
+      </if>
+      <if test="cardForm != null">
+        card_form = #{cardForm,jdbcType=NVARCHAR},
+      </if>
+      <if test="iscardreplace != null">
+        isCardReplace = #{iscardreplace,jdbcType=INTEGER},
+      </if>
+      <if test="iscarddel != null">
+        iscarddel = #{iscarddel,jdbcType=INTEGER},
+      </if>
+    </set>
+    where card_serial = #{cardSerial,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.weds.xf.entity.DtCardEntity">
+    update dt_card
+    set xh = #{xh,jdbcType=INTEGER},
+      lx = #{lx,jdbcType=INTEGER},
+      gly_no = #{glyNo,jdbcType=NVARCHAR},
+      card_photo = #{cardPhoto,jdbcType=VARCHAR},
+      sj = #{sj,jdbcType=TIMESTAMP},
+      user_serial = #{userSerial,jdbcType=BIGINT},
+      card_lx = #{cardLx,jdbcType=INTEGER},
+      card_type = #{cardType,jdbcType=INTEGER},
+      card_hao = #{cardHao,jdbcType=VARCHAR},
+      card_order = #{cardOrder,jdbcType=INTEGER},
+      card_bz = #{cardBz,jdbcType=NVARCHAR},
+      card_verify = #{cardVerify,jdbcType=VARCHAR},
+      readd_count = #{readdCount,jdbcType=INTEGER},
+      loss_count = #{lossCount,jdbcType=INTEGER},
+      Card_work = #{cardWork,jdbcType=INTEGER},
+      card_form = #{cardForm,jdbcType=NVARCHAR},
+      isCardReplace = #{iscardreplace,jdbcType=INTEGER},
+      iscarddel = #{iscarddel,jdbcType=INTEGER}
+    where card_serial = #{cardSerial,jdbcType=CHAR}
+  </update>
+</mapper>

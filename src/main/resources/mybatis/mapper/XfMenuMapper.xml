@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.weds.xf.mapper.XfMenuMapper">
+  <resultMap id="BaseResultMap" type="com.weds.xf.entity.XfMenuEntity">
+    <id column="xh" jdbcType="INTEGER" property="xh" />
+    <result column="bh" jdbcType="CHAR" property="bh" />
+    <result column="lx" jdbcType="INTEGER" property="lx" />
+    <result column="parent_bh" jdbcType="CHAR" property="parentBh" />
+    <result column="menu_name" jdbcType="NVARCHAR" property="menuName" />
+    <result column="key_no" jdbcType="VARCHAR" property="keyNo" />
+    <result column="menu_money" jdbcType="DECIMAL" property="menuMoney" />
+    <result column="menu_rate" jdbcType="INTEGER" property="menuRate" />
+    <result column="bz" jdbcType="NVARCHAR" property="bz" />
+    <result column="sj" jdbcType="TIMESTAMP" property="sj" />
+    <result column="gly_no" jdbcType="NVARCHAR" property="glyNo" />
+    <result column="regserial" jdbcType="NVARCHAR" property="regserial" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    xh, bh, lx, parent_bh, menu_name, key_no, menu_money, menu_rate, bz, sj, gly_no, 
+    regserial
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from xf_menu
+    where xh = #{xh,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from xf_menu
+    where xh = #{xh,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.weds.xf.entity.XfMenuEntity">
+    insert into xf_menu (xh, bh, lx, parent_bh, 
+      menu_name, key_no, menu_money, 
+      menu_rate, bz, sj, 
+      gly_no, regserial)
+    values (#{xh,jdbcType=INTEGER}, #{bh,jdbcType=CHAR}, #{lx,jdbcType=INTEGER}, #{parentBh,jdbcType=CHAR}, 
+      #{menuName,jdbcType=NVARCHAR}, #{keyNo,jdbcType=VARCHAR}, #{menuMoney,jdbcType=DECIMAL}, 
+      #{menuRate,jdbcType=INTEGER}, #{bz,jdbcType=NVARCHAR}, #{sj,jdbcType=TIMESTAMP}, 
+      #{glyNo,jdbcType=NVARCHAR}, #{regserial,jdbcType=NVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.weds.xf.entity.XfMenuEntity">
+    insert into xf_menu
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="bh != null">
+        bh,
+      </if>
+      <if test="lx != null">
+        lx,
+      </if>
+      <if test="parentBh != null">
+        parent_bh,
+      </if>
+      <if test="menuName != null">
+        menu_name,
+      </if>
+      <if test="keyNo != null">
+        key_no,
+      </if>
+      <if test="menuMoney != null">
+        menu_money,
+      </if>
+      <if test="menuRate != null">
+        menu_rate,
+      </if>
+      <if test="bz != null">
+        bz,
+      </if>
+      <if test="sj != null">
+        sj,
+      </if>
+      <if test="glyNo != null">
+        gly_no,
+      </if>
+      <if test="regserial != null">
+        regserial,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="bh != null">
+        #{bh,jdbcType=CHAR},
+      </if>
+      <if test="lx != null">
+        #{lx,jdbcType=INTEGER},
+      </if>
+      <if test="parentBh != null">
+        #{parentBh,jdbcType=CHAR},
+      </if>
+      <if test="menuName != null">
+        #{menuName,jdbcType=NVARCHAR},
+      </if>
+      <if test="keyNo != null">
+        #{keyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="menuMoney != null">
+        #{menuMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="menuRate != null">
+        #{menuRate,jdbcType=INTEGER},
+      </if>
+      <if test="bz != null">
+        #{bz,jdbcType=NVARCHAR},
+      </if>
+      <if test="sj != null">
+        #{sj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="glyNo != null">
+        #{glyNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="regserial != null">
+        #{regserial,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.weds.xf.entity.XfMenuEntity">
+    update xf_menu
+    <set>
+      <if test="bh != null">
+        bh = #{bh,jdbcType=CHAR},
+      </if>
+      <if test="lx != null">
+        lx = #{lx,jdbcType=INTEGER},
+      </if>
+      <if test="parentBh != null">
+        parent_bh = #{parentBh,jdbcType=CHAR},
+      </if>
+      <if test="menuName != null">
+        menu_name = #{menuName,jdbcType=NVARCHAR},
+      </if>
+      <if test="keyNo != null">
+        key_no = #{keyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="menuMoney != null">
+        menu_money = #{menuMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="menuRate != null">
+        menu_rate = #{menuRate,jdbcType=INTEGER},
+      </if>
+      <if test="bz != null">
+        bz = #{bz,jdbcType=NVARCHAR},
+      </if>
+      <if test="sj != null">
+        sj = #{sj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="glyNo != null">
+        gly_no = #{glyNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="regserial != null">
+        regserial = #{regserial,jdbcType=NVARCHAR},
+      </if>
+    </set>
+    where xh = #{xh,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.weds.xf.entity.XfMenuEntity">
+    update xf_menu
+    set bh = #{bh,jdbcType=CHAR},
+      lx = #{lx,jdbcType=INTEGER},
+      parent_bh = #{parentBh,jdbcType=CHAR},
+      menu_name = #{menuName,jdbcType=NVARCHAR},
+      key_no = #{keyNo,jdbcType=VARCHAR},
+      menu_money = #{menuMoney,jdbcType=DECIMAL},
+      menu_rate = #{menuRate,jdbcType=INTEGER},
+      bz = #{bz,jdbcType=NVARCHAR},
+      sj = #{sj,jdbcType=TIMESTAMP},
+      gly_no = #{glyNo,jdbcType=NVARCHAR},
+      regserial = #{regserial,jdbcType=NVARCHAR}
+    where xh = #{xh,jdbcType=INTEGER}
+  </update>
+</mapper>

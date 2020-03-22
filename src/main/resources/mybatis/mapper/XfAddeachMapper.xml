@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.weds.xf.mapper.XfAddeachMapper">
+  <resultMap id="BaseResultMap" type="com.weds.xf.entity.XfAddeachEntity">
+    <id column="xh" jdbcType="INTEGER" property="xh" />
+    <result column="lx" jdbcType="INTEGER" property="lx" />
+    <result column="user_serial" jdbcType="BIGINT" property="userSerial" />
+    <result column="card_serial" jdbcType="CHAR" property="cardSerial" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="sub_kssj" jdbcType="TIMESTAMP" property="subKssj" />
+    <result column="sub_jssj" jdbcType="TIMESTAMP" property="subJssj" />
+    <result column="sub_money" jdbcType="DECIMAL" property="subMoney" />
+    <result column="sub_order" jdbcType="INTEGER" property="subOrder" />
+    <result column="sj" jdbcType="TIMESTAMP" property="sj" />
+    <result column="update_sj" jdbcType="TIMESTAMP" property="updateSj" />
+    <result column="sub_state" jdbcType="INTEGER" property="subState" />
+    <result column="bz" jdbcType="NVARCHAR" property="bz" />
+    <result column="gly_no" jdbcType="NVARCHAR" property="glyNo" />
+    <result column="sub_new" jdbcType="INTEGER" property="subNew" />
+    <result column="xf_lx" jdbcType="INTEGER" property="xfLx" />
+    <result column="sud_del" jdbcType="INTEGER" property="sudDel" />
+    <result column="sub_del" jdbcType="INTEGER" property="subDel" />
+    <result column="sub_import" jdbcType="VARCHAR" property="subImport" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    xh, lx, user_serial, card_serial, type, sub_kssj, sub_jssj, sub_money, sub_order, 
+    sj, update_sj, sub_state, bz, gly_no, sub_new, xf_lx, sud_del, sub_del, sub_import
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from xf_addeach
+    where xh = #{xh,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from xf_addeach
+    where xh = #{xh,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.weds.xf.entity.XfAddeachEntity">
+    insert into xf_addeach (xh, lx, user_serial, 
+      card_serial, type, sub_kssj, 
+      sub_jssj, sub_money, sub_order, 
+      sj, update_sj, sub_state, 
+      bz, gly_no, sub_new, 
+      xf_lx, sud_del, sub_del, 
+      sub_import)
+    values (#{xh,jdbcType=INTEGER}, #{lx,jdbcType=INTEGER}, #{userSerial,jdbcType=BIGINT}, 
+      #{cardSerial,jdbcType=CHAR}, #{type,jdbcType=INTEGER}, #{subKssj,jdbcType=TIMESTAMP}, 
+      #{subJssj,jdbcType=TIMESTAMP}, #{subMoney,jdbcType=DECIMAL}, #{subOrder,jdbcType=INTEGER}, 
+      #{sj,jdbcType=TIMESTAMP}, #{updateSj,jdbcType=TIMESTAMP}, #{subState,jdbcType=INTEGER}, 
+      #{bz,jdbcType=NVARCHAR}, #{glyNo,jdbcType=NVARCHAR}, #{subNew,jdbcType=INTEGER}, 
+      #{xfLx,jdbcType=INTEGER}, #{sudDel,jdbcType=INTEGER}, #{subDel,jdbcType=INTEGER}, 
+      #{subImport,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.weds.xf.entity.XfAddeachEntity">
+    insert into xf_addeach
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="lx != null">
+        lx,
+      </if>
+      <if test="userSerial != null">
+        user_serial,
+      </if>
+      <if test="cardSerial != null">
+        card_serial,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="subKssj != null">
+        sub_kssj,
+      </if>
+      <if test="subJssj != null">
+        sub_jssj,
+      </if>
+      <if test="subMoney != null">
+        sub_money,
+      </if>
+      <if test="subOrder != null">
+        sub_order,
+      </if>
+      <if test="sj != null">
+        sj,
+      </if>
+      <if test="updateSj != null">
+        update_sj,
+      </if>
+      <if test="subState != null">
+        sub_state,
+      </if>
+      <if test="bz != null">
+        bz,
+      </if>
+      <if test="glyNo != null">
+        gly_no,
+      </if>
+      <if test="subNew != null">
+        sub_new,
+      </if>
+      <if test="xfLx != null">
+        xf_lx,
+      </if>
+      <if test="sudDel != null">
+        sud_del,
+      </if>
+      <if test="subDel != null">
+        sub_del,
+      </if>
+      <if test="subImport != null">
+        sub_import,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="lx != null">
+        #{lx,jdbcType=INTEGER},
+      </if>
+      <if test="userSerial != null">
+        #{userSerial,jdbcType=BIGINT},
+      </if>
+      <if test="cardSerial != null">
+        #{cardSerial,jdbcType=CHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="subKssj != null">
+        #{subKssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subJssj != null">
+        #{subJssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subMoney != null">
+        #{subMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="subOrder != null">
+        #{subOrder,jdbcType=INTEGER},
+      </if>
+      <if test="sj != null">
+        #{sj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateSj != null">
+        #{updateSj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subState != null">
+        #{subState,jdbcType=INTEGER},
+      </if>
+      <if test="bz != null">
+        #{bz,jdbcType=NVARCHAR},
+      </if>
+      <if test="glyNo != null">
+        #{glyNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="subNew != null">
+        #{subNew,jdbcType=INTEGER},
+      </if>
+      <if test="xfLx != null">
+        #{xfLx,jdbcType=INTEGER},
+      </if>
+      <if test="sudDel != null">
+        #{sudDel,jdbcType=INTEGER},
+      </if>
+      <if test="subDel != null">
+        #{subDel,jdbcType=INTEGER},
+      </if>
+      <if test="subImport != null">
+        #{subImport,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.weds.xf.entity.XfAddeachEntity">
+    update xf_addeach
+    <set>
+      <if test="lx != null">
+        lx = #{lx,jdbcType=INTEGER},
+      </if>
+      <if test="userSerial != null">
+        user_serial = #{userSerial,jdbcType=BIGINT},
+      </if>
+      <if test="cardSerial != null">
+        card_serial = #{cardSerial,jdbcType=CHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="subKssj != null">
+        sub_kssj = #{subKssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subJssj != null">
+        sub_jssj = #{subJssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subMoney != null">
+        sub_money = #{subMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="subOrder != null">
+        sub_order = #{subOrder,jdbcType=INTEGER},
+      </if>
+      <if test="sj != null">
+        sj = #{sj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateSj != null">
+        update_sj = #{updateSj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subState != null">
+        sub_state = #{subState,jdbcType=INTEGER},
+      </if>
+      <if test="bz != null">
+        bz = #{bz,jdbcType=NVARCHAR},
+      </if>
+      <if test="glyNo != null">
+        gly_no = #{glyNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="subNew != null">
+        sub_new = #{subNew,jdbcType=INTEGER},
+      </if>
+      <if test="xfLx != null">
+        xf_lx = #{xfLx,jdbcType=INTEGER},
+      </if>
+      <if test="sudDel != null">
+        sud_del = #{sudDel,jdbcType=INTEGER},
+      </if>
+      <if test="subDel != null">
+        sub_del = #{subDel,jdbcType=INTEGER},
+      </if>
+      <if test="subImport != null">
+        sub_import = #{subImport,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where xh = #{xh,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.weds.xf.entity.XfAddeachEntity">
+    update xf_addeach
+    set lx = #{lx,jdbcType=INTEGER},
+      user_serial = #{userSerial,jdbcType=BIGINT},
+      card_serial = #{cardSerial,jdbcType=CHAR},
+      type = #{type,jdbcType=INTEGER},
+      sub_kssj = #{subKssj,jdbcType=TIMESTAMP},
+      sub_jssj = #{subJssj,jdbcType=TIMESTAMP},
+      sub_money = #{subMoney,jdbcType=DECIMAL},
+      sub_order = #{subOrder,jdbcType=INTEGER},
+      sj = #{sj,jdbcType=TIMESTAMP},
+      update_sj = #{updateSj,jdbcType=TIMESTAMP},
+      sub_state = #{subState,jdbcType=INTEGER},
+      bz = #{bz,jdbcType=NVARCHAR},
+      gly_no = #{glyNo,jdbcType=NVARCHAR},
+      sub_new = #{subNew,jdbcType=INTEGER},
+      xf_lx = #{xfLx,jdbcType=INTEGER},
+      sud_del = #{sudDel,jdbcType=INTEGER},
+      sub_del = #{subDel,jdbcType=INTEGER},
+      sub_import = #{subImport,jdbcType=VARCHAR}
+    where xh = #{xh,jdbcType=INTEGER}
+  </update>
+</mapper>

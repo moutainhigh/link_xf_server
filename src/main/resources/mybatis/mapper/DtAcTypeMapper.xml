@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.weds.xf.mapper.DtAcTypeMapper">
+  <resultMap id="BaseResultMap" type="com.weds.xf.entity.DtAcTypeEntity">
+    <id column="ac_bh" jdbcType="CHAR" property="acBh" />
+    <result column="ac_name" jdbcType="NVARCHAR" property="acName" />
+    <result column="money_type" jdbcType="INTEGER" property="moneyType" />
+    <result column="reg_money" jdbcType="DECIMAL" property="regMoney" />
+    <result column="reg_manage" jdbcType="INTEGER" property="regManage" />
+    <result column="reg_ratio" jdbcType="INTEGER" property="regRatio" />
+    <result column="ac_limit" jdbcType="INTEGER" property="acLimit" />
+    <result column="ac_jssj" jdbcType="TIMESTAMP" property="acJssj" />
+    <result column="ac_pass" jdbcType="VARCHAR" property="acPass" />
+    <result column="ac_pass_rule" jdbcType="VARCHAR" property="acPassRule" />
+    <result column="ac_subsidy" jdbcType="INTEGER" property="acSubsidy" />
+    <result column="ac_sub_rule" jdbcType="INTEGER" property="acSubRule" />
+    <result column="ac_sub_limit" jdbcType="INTEGER" property="acSubLimit" />
+    <result column="discount_rate" jdbcType="VARCHAR" property="discountRate" />
+    <result column="money_max" jdbcType="DECIMAL" property="moneyMax" />
+    <result column="money_min" jdbcType="DECIMAL" property="moneyMin" />
+    <result column="day_max_m" jdbcType="DECIMAL" property="dayMaxM" />
+    <result column="day_max_t" jdbcType="INTEGER" property="dayMaxT" />
+    <result column="meal_max_m" jdbcType="INTEGER" property="mealMaxM" />
+    <result column="meal_max_t" jdbcType="INTEGER" property="mealMaxT" />
+    <result column="time_max_m" jdbcType="DECIMAL" property="timeMaxM" />
+    <result column="ac_unit" jdbcType="INTEGER" property="acUnit" />
+    <result column="ac_sub_unit" jdbcType="INTEGER" property="acSubUnit" />
+    <result column="ac_earmark" jdbcType="INTEGER" property="acEarmark" />
+    <result column="ac_sub_auto" jdbcType="INTEGER" property="acSubAuto" />
+    <result column="sub_money" jdbcType="DECIMAL" property="subMoney" />
+    <result column="ac_overdraw" jdbcType="DECIMAL" property="acOverdraw" />
+    <result column="sub_max_m" jdbcType="DECIMAL" property="subMaxM" />
+    <result column="make_max_m" jdbcType="DECIMAL" property="makeMaxM" />
+    <result column="ac_time_state" jdbcType="INTEGER" property="acTimeState" />
+    <result column="ac_each" jdbcType="INTEGER" property="acEach" />
+    <result column="ac_each_rule" jdbcType="INTEGER" property="acEachRule" />
+    <result column="ac_time_offset" jdbcType="INTEGER" property="acTimeOffset" />
+    <result column="ac_time_type" jdbcType="INTEGER" property="acTimeType" />
+    <result column="ac_time_day" jdbcType="DECIMAL" property="acTimeDay" />
+    <result column="ac_time_mould" jdbcType="INTEGER" property="acTimeMould" />
+    <result column="pass_max" jdbcType="INTEGER" property="passMax" />
+    <result column="tally_max_m" jdbcType="INTEGER" property="tallyMaxM" />
+    <result column="tally_max_t" jdbcType="INTEGER" property="tallyMaxT" />
+    <result column="ac_regserial" jdbcType="NVARCHAR" property="acRegserial" />
+    <result column="regserial" jdbcType="NVARCHAR" property="regserial" />
+    <result column="ac_timeeach_type" jdbcType="INTEGER" property="acTimeeachType" />
+    <result column="ac_timeeach_day" jdbcType="INTEGER" property="acTimeeachDay" />
+    <result column="ac_timeeach_mould" jdbcType="INTEGER" property="acTimeeachMould" />
+    <result column="ac_each_auto" jdbcType="INTEGER" property="acEachAuto" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ac_bh, ac_name, money_type, reg_money, reg_manage, reg_ratio, ac_limit, ac_jssj, 
+    ac_pass, ac_pass_rule, ac_subsidy, ac_sub_rule, ac_sub_limit, discount_rate, money_max, 
+    money_min, day_max_m, day_max_t, meal_max_m, meal_max_t, time_max_m, ac_unit, ac_sub_unit, 
+    ac_earmark, ac_sub_auto, sub_money, ac_overdraw, sub_max_m, make_max_m, ac_time_state, 
+    ac_each, ac_each_rule, ac_time_offset, ac_time_type, ac_time_day, ac_time_mould, 
+    pass_max, tally_max_m, tally_max_t, ac_regserial, regserial, ac_timeeach_type, ac_timeeach_day, 
+    ac_timeeach_mould, ac_each_auto
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dt_ac_type
+    where ac_bh = #{acBh,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from dt_ac_type
+    where ac_bh = #{acBh,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.weds.xf.entity.DtAcTypeEntity">
+    insert into dt_ac_type (ac_bh, ac_name, money_type, 
+      reg_money, reg_manage, reg_ratio, 
+      ac_limit, ac_jssj, ac_pass, 
+      ac_pass_rule, ac_subsidy, ac_sub_rule, 
+      ac_sub_limit, discount_rate, money_max, 
+      money_min, day_max_m, day_max_t, 
+      meal_max_m, meal_max_t, time_max_m, 
+      ac_unit, ac_sub_unit, ac_earmark, 
+      ac_sub_auto, sub_money, ac_overdraw, 
+      sub_max_m, make_max_m, ac_time_state, 
+      ac_each, ac_each_rule, ac_time_offset, 
+      ac_time_type, ac_time_day, ac_time_mould, 
+      pass_max, tally_max_m, tally_max_t, 
+      ac_regserial, regserial, ac_timeeach_type, 
+      ac_timeeach_day, ac_timeeach_mould, ac_each_auto
+      )
+    values (#{acBh,jdbcType=CHAR}, #{acName,jdbcType=NVARCHAR}, #{moneyType,jdbcType=INTEGER}, 
+      #{regMoney,jdbcType=DECIMAL}, #{regManage,jdbcType=INTEGER}, #{regRatio,jdbcType=INTEGER}, 
+      #{acLimit,jdbcType=INTEGER}, #{acJssj,jdbcType=TIMESTAMP}, #{acPass,jdbcType=VARCHAR}, 
+      #{acPassRule,jdbcType=VARCHAR}, #{acSubsidy,jdbcType=INTEGER}, #{acSubRule,jdbcType=INTEGER}, 
+      #{acSubLimit,jdbcType=INTEGER}, #{discountRate,jdbcType=VARCHAR}, #{moneyMax,jdbcType=DECIMAL}, 
+      #{moneyMin,jdbcType=DECIMAL}, #{dayMaxM,jdbcType=DECIMAL}, #{dayMaxT,jdbcType=INTEGER}, 
+      #{mealMaxM,jdbcType=INTEGER}, #{mealMaxT,jdbcType=INTEGER}, #{timeMaxM,jdbcType=DECIMAL}, 
+      #{acUnit,jdbcType=INTEGER}, #{acSubUnit,jdbcType=INTEGER}, #{acEarmark,jdbcType=INTEGER}, 
+      #{acSubAuto,jdbcType=INTEGER}, #{subMoney,jdbcType=DECIMAL}, #{acOverdraw,jdbcType=DECIMAL}, 
+      #{subMaxM,jdbcType=DECIMAL}, #{makeMaxM,jdbcType=DECIMAL}, #{acTimeState,jdbcType=INTEGER}, 
+      #{acEach,jdbcType=INTEGER}, #{acEachRule,jdbcType=INTEGER}, #{acTimeOffset,jdbcType=INTEGER}, 
+      #{acTimeType,jdbcType=INTEGER}, #{acTimeDay,jdbcType=DECIMAL}, #{acTimeMould,jdbcType=INTEGER}, 
+      #{passMax,jdbcType=INTEGER}, #{tallyMaxM,jdbcType=INTEGER}, #{tallyMaxT,jdbcType=INTEGER}, 
+      #{acRegserial,jdbcType=NVARCHAR}, #{regserial,jdbcType=NVARCHAR}, #{acTimeeachType,jdbcType=INTEGER}, 
+      #{acTimeeachDay,jdbcType=INTEGER}, #{acTimeeachMould,jdbcType=INTEGER}, #{acEachAuto,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.weds.xf.entity.DtAcTypeEntity">
+    insert into dt_ac_type
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="acBh != null">
+        ac_bh,
+      </if>
+      <if test="acName != null">
+        ac_name,
+      </if>
+      <if test="moneyType != null">
+        money_type,
+      </if>
+      <if test="regMoney != null">
+        reg_money,
+      </if>
+      <if test="regManage != null">
+        reg_manage,
+      </if>
+      <if test="regRatio != null">
+        reg_ratio,
+      </if>
+      <if test="acLimit != null">
+        ac_limit,
+      </if>
+      <if test="acJssj != null">
+        ac_jssj,
+      </if>
+      <if test="acPass != null">
+        ac_pass,
+      </if>
+      <if test="acPassRule != null">
+        ac_pass_rule,
+      </if>
+      <if test="acSubsidy != null">
+        ac_subsidy,
+      </if>
+      <if test="acSubRule != null">
+        ac_sub_rule,
+      </if>
+      <if test="acSubLimit != null">
+        ac_sub_limit,
+      </if>
+      <if test="discountRate != null">
+        discount_rate,
+      </if>
+      <if test="moneyMax != null">
+        money_max,
+      </if>
+      <if test="moneyMin != null">
+        money_min,
+      </if>
+      <if test="dayMaxM != null">
+        day_max_m,
+      </if>
+      <if test="dayMaxT != null">
+        day_max_t,
+      </if>
+      <if test="mealMaxM != null">
+        meal_max_m,
+      </if>
+      <if test="mealMaxT != null">
+        meal_max_t,
+      </if>
+      <if test="timeMaxM != null">
+        time_max_m,
+      </if>
+      <if test="acUnit != null">
+        ac_unit,
+      </if>
+      <if test="acSubUnit != null">
+        ac_sub_unit,
+      </if>
+      <if test="acEarmark != null">
+        ac_earmark,
+      </if>
+      <if test="acSubAuto != null">
+        ac_sub_auto,
+      </if>
+      <if test="subMoney != null">
+        sub_money,
+      </if>
+      <if test="acOverdraw != null">
+        ac_overdraw,
+      </if>
+      <if test="subMaxM != null">
+        sub_max_m,
+      </if>
+      <if test="makeMaxM != null">
+        make_max_m,
+      </if>
+      <if test="acTimeState != null">
+        ac_time_state,
+      </if>
+      <if test="acEach != null">
+        ac_each,
+      </if>
+      <if test="acEachRule != null">
+        ac_each_rule,
+      </if>
+      <if test="acTimeOffset != null">
+        ac_time_offset,
+      </if>
+      <if test="acTimeType != null">
+        ac_time_type,
+      </if>
+      <if test="acTimeDay != null">
+        ac_time_day,
+      </if>
+      <if test="acTimeMould != null">
+        ac_time_mould,
+      </if>
+      <if test="passMax != null">
+        pass_max,
+      </if>
+      <if test="tallyMaxM != null">
+        tally_max_m,
+      </if>
+      <if test="tallyMaxT != null">
+        tally_max_t,
+      </if>
+      <if test="acRegserial != null">
+        ac_regserial,
+      </if>
+      <if test="regserial != null">
+        regserial,
+      </if>
+      <if test="acTimeeachType != null">
+        ac_timeeach_type,
+      </if>
+      <if test="acTimeeachDay != null">
+        ac_timeeach_day,
+      </if>
+      <if test="acTimeeachMould != null">
+        ac_timeeach_mould,
+      </if>
+      <if test="acEachAuto != null">
+        ac_each_auto,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="acBh != null">
+        #{acBh,jdbcType=CHAR},
+      </if>
+      <if test="acName != null">
+        #{acName,jdbcType=NVARCHAR},
+      </if>
+      <if test="moneyType != null">
+        #{moneyType,jdbcType=INTEGER},
+      </if>
+      <if test="regMoney != null">
+        #{regMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="regManage != null">
+        #{regManage,jdbcType=INTEGER},
+      </if>
+      <if test="regRatio != null">
+        #{regRatio,jdbcType=INTEGER},
+      </if>
+      <if test="acLimit != null">
+        #{acLimit,jdbcType=INTEGER},
+      </if>
+      <if test="acJssj != null">
+        #{acJssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="acPass != null">
+        #{acPass,jdbcType=VARCHAR},
+      </if>
+      <if test="acPassRule != null">
+        #{acPassRule,jdbcType=VARCHAR},
+      </if>
+      <if test="acSubsidy != null">
+        #{acSubsidy,jdbcType=INTEGER},
+      </if>
+      <if test="acSubRule != null">
+        #{acSubRule,jdbcType=INTEGER},
+      </if>
+      <if test="acSubLimit != null">
+        #{acSubLimit,jdbcType=INTEGER},
+      </if>
+      <if test="discountRate != null">
+        #{discountRate,jdbcType=VARCHAR},
+      </if>
+      <if test="moneyMax != null">
+        #{moneyMax,jdbcType=DECIMAL},
+      </if>
+      <if test="moneyMin != null">
+        #{moneyMin,jdbcType=DECIMAL},
+      </if>
+      <if test="dayMaxM != null">
+        #{dayMaxM,jdbcType=DECIMAL},
+      </if>
+      <if test="dayMaxT != null">
+        #{dayMaxT,jdbcType=INTEGER},
+      </if>
+      <if test="mealMaxM != null">
+        #{mealMaxM,jdbcType=INTEGER},
+      </if>
+      <if test="mealMaxT != null">
+        #{mealMaxT,jdbcType=INTEGER},
+      </if>
+      <if test="timeMaxM != null">
+        #{timeMaxM,jdbcType=DECIMAL},
+      </if>
+      <if test="acUnit != null">
+        #{acUnit,jdbcType=INTEGER},
+      </if>
+      <if test="acSubUnit != null">
+        #{acSubUnit,jdbcType=INTEGER},
+      </if>
+      <if test="acEarmark != null">
+        #{acEarmark,jdbcType=INTEGER},
+      </if>
+      <if test="acSubAuto != null">
+        #{acSubAuto,jdbcType=INTEGER},
+      </if>
+      <if test="subMoney != null">
+        #{subMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="acOverdraw != null">
+        #{acOverdraw,jdbcType=DECIMAL},
+      </if>
+      <if test="subMaxM != null">
+        #{subMaxM,jdbcType=DECIMAL},
+      </if>
+      <if test="makeMaxM != null">
+        #{makeMaxM,jdbcType=DECIMAL},
+      </if>
+      <if test="acTimeState != null">
+        #{acTimeState,jdbcType=INTEGER},
+      </if>
+      <if test="acEach != null">
+        #{acEach,jdbcType=INTEGER},
+      </if>
+      <if test="acEachRule != null">
+        #{acEachRule,jdbcType=INTEGER},
+      </if>
+      <if test="acTimeOffset != null">
+        #{acTimeOffset,jdbcType=INTEGER},
+      </if>
+      <if test="acTimeType != null">
+        #{acTimeType,jdbcType=INTEGER},
+      </if>
+      <if test="acTimeDay != null">
+        #{acTimeDay,jdbcType=DECIMAL},
+      </if>
+      <if test="acTimeMould != null">
+        #{acTimeMould,jdbcType=INTEGER},
+      </if>
+      <if test="passMax != null">
+        #{passMax,jdbcType=INTEGER},
+      </if>
+      <if test="tallyMaxM != null">
+        #{tallyMaxM,jdbcType=INTEGER},
+      </if>
+      <if test="tallyMaxT != null">
+        #{tallyMaxT,jdbcType=INTEGER},
+      </if>
+      <if test="acRegserial != null">
+        #{acRegserial,jdbcType=NVARCHAR},
+      </if>
+      <if test="regserial != null">
+        #{regserial,jdbcType=NVARCHAR},
+      </if>
+      <if test="acTimeeachType != null">
+        #{acTimeeachType,jdbcType=INTEGER},
+      </if>
+      <if test="acTimeeachDay != null">
+        #{acTimeeachDay,jdbcType=INTEGER},
+      </if>
+      <if test="acTimeeachMould != null">
+        #{acTimeeachMould,jdbcType=INTEGER},
+      </if>
+      <if test="acEachAuto != null">
+        #{acEachAuto,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.weds.xf.entity.DtAcTypeEntity">
+    update dt_ac_type
+    <set>
+      <if test="acName != null">
+        ac_name = #{acName,jdbcType=NVARCHAR},
+      </if>
+      <if test="moneyType != null">
+        money_type = #{moneyType,jdbcType=INTEGER},
+      </if>
+      <if test="regMoney != null">
+        reg_money = #{regMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="regManage != null">
+        reg_manage = #{regManage,jdbcType=INTEGER},
+      </if>
+      <if test="regRatio != null">
+        reg_ratio = #{regRatio,jdbcType=INTEGER},
+      </if>
+      <if test="acLimit != null">
+        ac_limit = #{acLimit,jdbcType=INTEGER},
+      </if>
+      <if test="acJssj != null">
+        ac_jssj = #{acJssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="acPass != null">
+        ac_pass = #{acPass,jdbcType=VARCHAR},
+      </if>
+      <if test="acPassRule != null">
+        ac_pass_rule = #{acPassRule,jdbcType=VARCHAR},
+      </if>
+      <if test="acSubsidy != null">
+        ac_subsidy = #{acSubsidy,jdbcType=INTEGER},
+      </if>
+      <if test="acSubRule != null">
+        ac_sub_rule = #{acSubRule,jdbcType=INTEGER},
+      </if>
+      <if test="acSubLimit != null">
+        ac_sub_limit = #{acSubLimit,jdbcType=INTEGER},
+      </if>
+      <if test="discountRate != null">
+        discount_rate = #{discountRate,jdbcType=VARCHAR},
+      </if>
+      <if test="moneyMax != null">
+        money_max = #{moneyMax,jdbcType=DECIMAL},
+      </if>
+      <if test="moneyMin != null">
+        money_min = #{moneyMin,jdbcType=DECIMAL},
+      </if>
+      <if test="dayMaxM != null">
+        day_max_m = #{dayMaxM,jdbcType=DECIMAL},
+      </if>
+      <if test="dayMaxT != null">
+        day_max_t = #{dayMaxT,jdbcType=INTEGER},
+      </if>
+      <if test="mealMaxM != null">
+        meal_max_m = #{mealMaxM,jdbcType=INTEGER},
+      </if>
+      <if test="mealMaxT != null">
+        meal_max_t = #{mealMaxT,jdbcType=INTEGER},
+      </if>
+      <if test="timeMaxM != null">
+        time_max_m = #{timeMaxM,jdbcType=DECIMAL},
+      </if>
+      <if test="acUnit != null">
+        ac_unit = #{acUnit,jdbcType=INTEGER},
+      </if>
+      <if test="acSubUnit != null">
+        ac_sub_unit = #{acSubUnit,jdbcType=INTEGER},
+      </if>
+      <if test="acEarmark != null">
+        ac_earmark = #{acEarmark,jdbcType=INTEGER},
+      </if>
+      <if test="acSubAuto != null">
+        ac_sub_auto = #{acSubAuto,jdbcType=INTEGER},
+      </if>
+      <if test="subMoney != null">
+        sub_money = #{subMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="acOverdraw != null">
+        ac_overdraw = #{acOverdraw,jdbcType=DECIMAL},
+      </if>
+      <if test="subMaxM != null">
+        sub_max_m = #{subMaxM,jdbcType=DECIMAL},
+      </if>
+      <if test="makeMaxM != null">
+        make_max_m = #{makeMaxM,jdbcType=DECIMAL},
+      </if>
+      <if test="acTimeState != null">
+        ac_time_state = #{acTimeState,jdbcType=INTEGER},
+      </if>
+      <if test="acEach != null">
+        ac_each = #{acEach,jdbcType=INTEGER},
+      </if>
+      <if test="acEachRule != null">
+        ac_each_rule = #{acEachRule,jdbcType=INTEGER},
+      </if>
+      <if test="acTimeOffset != null">
+        ac_time_offset = #{acTimeOffset,jdbcType=INTEGER},
+      </if>
+      <if test="acTimeType != null">
+        ac_time_type = #{acTimeType,jdbcType=INTEGER},
+      </if>
+      <if test="acTimeDay != null">
+        ac_time_day = #{acTimeDay,jdbcType=DECIMAL},
+      </if>
+      <if test="acTimeMould != null">
+        ac_time_mould = #{acTimeMould,jdbcType=INTEGER},
+      </if>
+      <if test="passMax != null">
+        pass_max = #{passMax,jdbcType=INTEGER},
+      </if>
+      <if test="tallyMaxM != null">
+        tally_max_m = #{tallyMaxM,jdbcType=INTEGER},
+      </if>
+      <if test="tallyMaxT != null">
+        tally_max_t = #{tallyMaxT,jdbcType=INTEGER},
+      </if>
+      <if test="acRegserial != null">
+        ac_regserial = #{acRegserial,jdbcType=NVARCHAR},
+      </if>
+      <if test="regserial != null">
+        regserial = #{regserial,jdbcType=NVARCHAR},
+      </if>
+      <if test="acTimeeachType != null">
+        ac_timeeach_type = #{acTimeeachType,jdbcType=INTEGER},
+      </if>
+      <if test="acTimeeachDay != null">
+        ac_timeeach_day = #{acTimeeachDay,jdbcType=INTEGER},
+      </if>
+      <if test="acTimeeachMould != null">
+        ac_timeeach_mould = #{acTimeeachMould,jdbcType=INTEGER},
+      </if>
+      <if test="acEachAuto != null">
+        ac_each_auto = #{acEachAuto,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ac_bh = #{acBh,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.weds.xf.entity.DtAcTypeEntity">
+    update dt_ac_type
+    set ac_name = #{acName,jdbcType=NVARCHAR},
+      money_type = #{moneyType,jdbcType=INTEGER},
+      reg_money = #{regMoney,jdbcType=DECIMAL},
+      reg_manage = #{regManage,jdbcType=INTEGER},
+      reg_ratio = #{regRatio,jdbcType=INTEGER},
+      ac_limit = #{acLimit,jdbcType=INTEGER},
+      ac_jssj = #{acJssj,jdbcType=TIMESTAMP},
+      ac_pass = #{acPass,jdbcType=VARCHAR},
+      ac_pass_rule = #{acPassRule,jdbcType=VARCHAR},
+      ac_subsidy = #{acSubsidy,jdbcType=INTEGER},
+      ac_sub_rule = #{acSubRule,jdbcType=INTEGER},
+      ac_sub_limit = #{acSubLimit,jdbcType=INTEGER},
+      discount_rate = #{discountRate,jdbcType=VARCHAR},
+      money_max = #{moneyMax,jdbcType=DECIMAL},
+      money_min = #{moneyMin,jdbcType=DECIMAL},
+      day_max_m = #{dayMaxM,jdbcType=DECIMAL},
+      day_max_t = #{dayMaxT,jdbcType=INTEGER},
+      meal_max_m = #{mealMaxM,jdbcType=INTEGER},
+      meal_max_t = #{mealMaxT,jdbcType=INTEGER},
+      time_max_m = #{timeMaxM,jdbcType=DECIMAL},
+      ac_unit = #{acUnit,jdbcType=INTEGER},
+      ac_sub_unit = #{acSubUnit,jdbcType=INTEGER},
+      ac_earmark = #{acEarmark,jdbcType=INTEGER},
+      ac_sub_auto = #{acSubAuto,jdbcType=INTEGER},
+      sub_money = #{subMoney,jdbcType=DECIMAL},
+      ac_overdraw = #{acOverdraw,jdbcType=DECIMAL},
+      sub_max_m = #{subMaxM,jdbcType=DECIMAL},
+      make_max_m = #{makeMaxM,jdbcType=DECIMAL},
+      ac_time_state = #{acTimeState,jdbcType=INTEGER},
+      ac_each = #{acEach,jdbcType=INTEGER},
+      ac_each_rule = #{acEachRule,jdbcType=INTEGER},
+      ac_time_offset = #{acTimeOffset,jdbcType=INTEGER},
+      ac_time_type = #{acTimeType,jdbcType=INTEGER},
+      ac_time_day = #{acTimeDay,jdbcType=DECIMAL},
+      ac_time_mould = #{acTimeMould,jdbcType=INTEGER},
+      pass_max = #{passMax,jdbcType=INTEGER},
+      tally_max_m = #{tallyMaxM,jdbcType=INTEGER},
+      tally_max_t = #{tallyMaxT,jdbcType=INTEGER},
+      ac_regserial = #{acRegserial,jdbcType=NVARCHAR},
+      regserial = #{regserial,jdbcType=NVARCHAR},
+      ac_timeeach_type = #{acTimeeachType,jdbcType=INTEGER},
+      ac_timeeach_day = #{acTimeeachDay,jdbcType=INTEGER},
+      ac_timeeach_mould = #{acTimeeachMould,jdbcType=INTEGER},
+      ac_each_auto = #{acEachAuto,jdbcType=INTEGER}
+    where ac_bh = #{acBh,jdbcType=CHAR}
+  </update>
+</mapper>

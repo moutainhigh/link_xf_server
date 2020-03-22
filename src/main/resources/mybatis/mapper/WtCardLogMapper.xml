@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.weds.xf.mapper.WtCardLogMapper">
+  <resultMap id="BaseResultMap" type="com.weds.xf.entity.WtCardLogEntity">
+    <id column="Xh" jdbcType="INTEGER" property="xh" />
+    <result column="Regserial" jdbcType="NVARCHAR" property="regserial" />
+    <result column="Lx" jdbcType="INTEGER" property="lx" />
+    <result column="Log_type" jdbcType="INTEGER" property="logType" />
+    <result column="Log_state" jdbcType="INTEGER" property="logState" />
+    <result column="Log_lx" jdbcType="INTEGER" property="logLx" />
+    <result column="User_serial" jdbcType="BIGINT" property="userSerial" />
+    <result column="Dev_serial" jdbcType="CHAR" property="devSerial" />
+    <result column="Card_old" jdbcType="VARCHAR" property="cardOld" />
+    <result column="Card_new" jdbcType="VARCHAR" property="cardNew" />
+    <result column="Log_xh" jdbcType="INTEGER" property="logXh" />
+    <result column="Log_group" jdbcType="CHAR" property="logGroup" />
+    <result column="Log_row" jdbcType="INTEGER" property="logRow" />
+    <result column="Log_erro" jdbcType="INTEGER" property="logErro" />
+    <result column="Bz" jdbcType="NVARCHAR" property="bz" />
+    <result column="Log_sj" jdbcType="TIMESTAMP" property="logSj" />
+    <result column="Log_ip" jdbcType="VARCHAR" property="logIp" />
+    <result column="Gly_no" jdbcType="NVARCHAR" property="glyNo" />
+    <result column="Jl_count" jdbcType="INTEGER" property="jlCount" />
+    <result column="Pay_v2" jdbcType="NVARCHAR" property="payV2" />
+    <result column="pay_old" jdbcType="INTEGER" property="payOld" />
+    <result column="pay_ljcount" jdbcType="INTEGER" property="payLjcount" />
+    <result column="pay_ljmoney" jdbcType="INTEGER" property="payLjmoney" />
+    <result column="import_no" jdbcType="NVARCHAR" property="importNo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Xh, Regserial, Lx, Log_type, Log_state, Log_lx, User_serial, Dev_serial, Card_old, 
+    Card_new, Log_xh, Log_group, Log_row, Log_erro, Bz, Log_sj, Log_ip, Gly_no, Jl_count, 
+    Pay_v2, pay_old, pay_ljcount, pay_ljmoney, import_no
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WT_CARD_LOG
+    where Xh = #{xh,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from WT_CARD_LOG
+    where Xh = #{xh,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.weds.xf.entity.WtCardLogEntity">
+    insert into WT_CARD_LOG (Xh, Regserial, Lx, 
+      Log_type, Log_state, Log_lx, 
+      User_serial, Dev_serial, Card_old, 
+      Card_new, Log_xh, Log_group, 
+      Log_row, Log_erro, Bz, 
+      Log_sj, Log_ip, Gly_no, 
+      Jl_count, Pay_v2, pay_old, 
+      pay_ljcount, pay_ljmoney, import_no
+      )
+    values (#{xh,jdbcType=INTEGER}, #{regserial,jdbcType=NVARCHAR}, #{lx,jdbcType=INTEGER}, 
+      #{logType,jdbcType=INTEGER}, #{logState,jdbcType=INTEGER}, #{logLx,jdbcType=INTEGER}, 
+      #{userSerial,jdbcType=BIGINT}, #{devSerial,jdbcType=CHAR}, #{cardOld,jdbcType=VARCHAR}, 
+      #{cardNew,jdbcType=VARCHAR}, #{logXh,jdbcType=INTEGER}, #{logGroup,jdbcType=CHAR}, 
+      #{logRow,jdbcType=INTEGER}, #{logErro,jdbcType=INTEGER}, #{bz,jdbcType=NVARCHAR}, 
+      #{logSj,jdbcType=TIMESTAMP}, #{logIp,jdbcType=VARCHAR}, #{glyNo,jdbcType=NVARCHAR}, 
+      #{jlCount,jdbcType=INTEGER}, #{payV2,jdbcType=NVARCHAR}, #{payOld,jdbcType=INTEGER}, 
+      #{payLjcount,jdbcType=INTEGER}, #{payLjmoney,jdbcType=INTEGER}, #{importNo,jdbcType=NVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.weds.xf.entity.WtCardLogEntity">
+    insert into WT_CARD_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        Xh,
+      </if>
+      <if test="regserial != null">
+        Regserial,
+      </if>
+      <if test="lx != null">
+        Lx,
+      </if>
+      <if test="logType != null">
+        Log_type,
+      </if>
+      <if test="logState != null">
+        Log_state,
+      </if>
+      <if test="logLx != null">
+        Log_lx,
+      </if>
+      <if test="userSerial != null">
+        User_serial,
+      </if>
+      <if test="devSerial != null">
+        Dev_serial,
+      </if>
+      <if test="cardOld != null">
+        Card_old,
+      </if>
+      <if test="cardNew != null">
+        Card_new,
+      </if>
+      <if test="logXh != null">
+        Log_xh,
+      </if>
+      <if test="logGroup != null">
+        Log_group,
+      </if>
+      <if test="logRow != null">
+        Log_row,
+      </if>
+      <if test="logErro != null">
+        Log_erro,
+      </if>
+      <if test="bz != null">
+        Bz,
+      </if>
+      <if test="logSj != null">
+        Log_sj,
+      </if>
+      <if test="logIp != null">
+        Log_ip,
+      </if>
+      <if test="glyNo != null">
+        Gly_no,
+      </if>
+      <if test="jlCount != null">
+        Jl_count,
+      </if>
+      <if test="payV2 != null">
+        Pay_v2,
+      </if>
+      <if test="payOld != null">
+        pay_old,
+      </if>
+      <if test="payLjcount != null">
+        pay_ljcount,
+      </if>
+      <if test="payLjmoney != null">
+        pay_ljmoney,
+      </if>
+      <if test="importNo != null">
+        import_no,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="regserial != null">
+        #{regserial,jdbcType=NVARCHAR},
+      </if>
+      <if test="lx != null">
+        #{lx,jdbcType=INTEGER},
+      </if>
+      <if test="logType != null">
+        #{logType,jdbcType=INTEGER},
+      </if>
+      <if test="logState != null">
+        #{logState,jdbcType=INTEGER},
+      </if>
+      <if test="logLx != null">
+        #{logLx,jdbcType=INTEGER},
+      </if>
+      <if test="userSerial != null">
+        #{userSerial,jdbcType=BIGINT},
+      </if>
+      <if test="devSerial != null">
+        #{devSerial,jdbcType=CHAR},
+      </if>
+      <if test="cardOld != null">
+        #{cardOld,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNew != null">
+        #{cardNew,jdbcType=VARCHAR},
+      </if>
+      <if test="logXh != null">
+        #{logXh,jdbcType=INTEGER},
+      </if>
+      <if test="logGroup != null">
+        #{logGroup,jdbcType=CHAR},
+      </if>
+      <if test="logRow != null">
+        #{logRow,jdbcType=INTEGER},
+      </if>
+      <if test="logErro != null">
+        #{logErro,jdbcType=INTEGER},
+      </if>
+      <if test="bz != null">
+        #{bz,jdbcType=NVARCHAR},
+      </if>
+      <if test="logSj != null">
+        #{logSj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logIp != null">
+        #{logIp,jdbcType=VARCHAR},
+      </if>
+      <if test="glyNo != null">
+        #{glyNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="jlCount != null">
+        #{jlCount,jdbcType=INTEGER},
+      </if>
+      <if test="payV2 != null">
+        #{payV2,jdbcType=NVARCHAR},
+      </if>
+      <if test="payOld != null">
+        #{payOld,jdbcType=INTEGER},
+      </if>
+      <if test="payLjcount != null">
+        #{payLjcount,jdbcType=INTEGER},
+      </if>
+      <if test="payLjmoney != null">
+        #{payLjmoney,jdbcType=INTEGER},
+      </if>
+      <if test="importNo != null">
+        #{importNo,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.weds.xf.entity.WtCardLogEntity">
+    update WT_CARD_LOG
+    <set>
+      <if test="regserial != null">
+        Regserial = #{regserial,jdbcType=NVARCHAR},
+      </if>
+      <if test="lx != null">
+        Lx = #{lx,jdbcType=INTEGER},
+      </if>
+      <if test="logType != null">
+        Log_type = #{logType,jdbcType=INTEGER},
+      </if>
+      <if test="logState != null">
+        Log_state = #{logState,jdbcType=INTEGER},
+      </if>
+      <if test="logLx != null">
+        Log_lx = #{logLx,jdbcType=INTEGER},
+      </if>
+      <if test="userSerial != null">
+        User_serial = #{userSerial,jdbcType=BIGINT},
+      </if>
+      <if test="devSerial != null">
+        Dev_serial = #{devSerial,jdbcType=CHAR},
+      </if>
+      <if test="cardOld != null">
+        Card_old = #{cardOld,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNew != null">
+        Card_new = #{cardNew,jdbcType=VARCHAR},
+      </if>
+      <if test="logXh != null">
+        Log_xh = #{logXh,jdbcType=INTEGER},
+      </if>
+      <if test="logGroup != null">
+        Log_group = #{logGroup,jdbcType=CHAR},
+      </if>
+      <if test="logRow != null">
+        Log_row = #{logRow,jdbcType=INTEGER},
+      </if>
+      <if test="logErro != null">
+        Log_erro = #{logErro,jdbcType=INTEGER},
+      </if>
+      <if test="bz != null">
+        Bz = #{bz,jdbcType=NVARCHAR},
+      </if>
+      <if test="logSj != null">
+        Log_sj = #{logSj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logIp != null">
+        Log_ip = #{logIp,jdbcType=VARCHAR},
+      </if>
+      <if test="glyNo != null">
+        Gly_no = #{glyNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="jlCount != null">
+        Jl_count = #{jlCount,jdbcType=INTEGER},
+      </if>
+      <if test="payV2 != null">
+        Pay_v2 = #{payV2,jdbcType=NVARCHAR},
+      </if>
+      <if test="payOld != null">
+        pay_old = #{payOld,jdbcType=INTEGER},
+      </if>
+      <if test="payLjcount != null">
+        pay_ljcount = #{payLjcount,jdbcType=INTEGER},
+      </if>
+      <if test="payLjmoney != null">
+        pay_ljmoney = #{payLjmoney,jdbcType=INTEGER},
+      </if>
+      <if test="importNo != null">
+        import_no = #{importNo,jdbcType=NVARCHAR},
+      </if>
+    </set>
+    where Xh = #{xh,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.weds.xf.entity.WtCardLogEntity">
+    update WT_CARD_LOG
+    set Regserial = #{regserial,jdbcType=NVARCHAR},
+      Lx = #{lx,jdbcType=INTEGER},
+      Log_type = #{logType,jdbcType=INTEGER},
+      Log_state = #{logState,jdbcType=INTEGER},
+      Log_lx = #{logLx,jdbcType=INTEGER},
+      User_serial = #{userSerial,jdbcType=BIGINT},
+      Dev_serial = #{devSerial,jdbcType=CHAR},
+      Card_old = #{cardOld,jdbcType=VARCHAR},
+      Card_new = #{cardNew,jdbcType=VARCHAR},
+      Log_xh = #{logXh,jdbcType=INTEGER},
+      Log_group = #{logGroup,jdbcType=CHAR},
+      Log_row = #{logRow,jdbcType=INTEGER},
+      Log_erro = #{logErro,jdbcType=INTEGER},
+      Bz = #{bz,jdbcType=NVARCHAR},
+      Log_sj = #{logSj,jdbcType=TIMESTAMP},
+      Log_ip = #{logIp,jdbcType=VARCHAR},
+      Gly_no = #{glyNo,jdbcType=NVARCHAR},
+      Jl_count = #{jlCount,jdbcType=INTEGER},
+      Pay_v2 = #{payV2,jdbcType=NVARCHAR},
+      pay_old = #{payOld,jdbcType=INTEGER},
+      pay_ljcount = #{payLjcount,jdbcType=INTEGER},
+      pay_ljmoney = #{payLjmoney,jdbcType=INTEGER},
+      import_no = #{importNo,jdbcType=NVARCHAR}
+    where Xh = #{xh,jdbcType=INTEGER}
+  </update>
+</mapper>

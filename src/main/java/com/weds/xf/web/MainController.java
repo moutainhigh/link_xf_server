@@ -70,7 +70,7 @@ public class MainController extends BaseController {
     @Logs
     @ApiOperation(value = "离线记录上传", notes = "离线记录上传")
     @RequestMapping(value = "/recordUpload", method = RequestMethod.POST)
-    public JsonResult recordUpload(@RequestBody @Valid List<RecordReqEntity> list) {
+    public JsonResult recordUpload(@RequestBody @Valid List<RecordUploadReqEntity> list) {
         TradResEntity res = new TradResEntity();
         return succMsg("success");
     }

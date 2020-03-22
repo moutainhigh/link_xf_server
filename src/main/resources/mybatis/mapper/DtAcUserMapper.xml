@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.weds.xf.mapper.DtAcUserMapper">
+  <resultMap id="BaseResultMap" type="com.weds.xf.entity.DtAcUserEntity">
+    <id column="user_serial" jdbcType="BIGINT" property="userSerial" />
+    <result column="ac_type" jdbcType="CHAR" property="acType" />
+    <result column="ac_order" jdbcType="INTEGER" property="acOrder" />
+    <result column="ac_money" jdbcType="INTEGER" property="acMoney" />
+    <result column="ac_addm" jdbcType="INTEGER" property="acAddm" />
+    <result column="ac_subm" jdbcType="INTEGER" property="acSubm" />
+    <result column="ac_regm" jdbcType="INTEGER" property="acRegm" />
+    <result column="ac_pass" jdbcType="VARCHAR" property="acPass" />
+    <result column="ac_kssj" jdbcType="TIMESTAMP" property="acKssj" />
+    <result column="ac_jssj" jdbcType="TIMESTAMP" property="acJssj" />
+    <result column="ac_state" jdbcType="INTEGER" property="acState" />
+    <result column="sj" jdbcType="TIMESTAMP" property="sj" />
+    <result column="gly_no" jdbcType="NVARCHAR" property="glyNo" />
+    <result column="ac_overdraw" jdbcType="INTEGER" property="acOverdraw" />
+    <result column="ac_make" jdbcType="INTEGER" property="acMake" />
+    <result column="ac_addo" jdbcType="INTEGER" property="acAddo" />
+    <result column="ac_subo" jdbcType="INTEGER" property="acSubo" />
+    <result column="ac_eachm" jdbcType="INTEGER" property="acEachm" />
+    <result column="ac_eacho" jdbcType="INTEGER" property="acEacho" />
+    <result column="ac_delm" jdbcType="DECIMAL" property="acDelm" />
+    <result column="xh" jdbcType="INTEGER" property="xh" />
+    <result column="ac_no" jdbcType="CHAR" property="acNo" />
+    <result column="ac_change" jdbcType="INTEGER" property="acChange" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_serial, ac_type, ac_order, ac_money, ac_addm, ac_subm, ac_regm, ac_pass, ac_kssj, 
+    ac_jssj, ac_state, sj, gly_no, ac_overdraw, ac_make, ac_addo, ac_subo, ac_eachm, 
+    ac_eacho, ac_delm, xh, ac_no, ac_change
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dt_ac_user
+    where user_serial = #{userSerial,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from dt_ac_user
+    where user_serial = #{userSerial,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.weds.xf.entity.DtAcUserEntity">
+    insert into dt_ac_user (user_serial, ac_type, ac_order, 
+      ac_money, ac_addm, ac_subm, 
+      ac_regm, ac_pass, ac_kssj, 
+      ac_jssj, ac_state, sj, 
+      gly_no, ac_overdraw, ac_make, 
+      ac_addo, ac_subo, ac_eachm, 
+      ac_eacho, ac_delm, xh, 
+      ac_no, ac_change)
+    values (#{userSerial,jdbcType=BIGINT}, #{acType,jdbcType=CHAR}, #{acOrder,jdbcType=INTEGER}, 
+      #{acMoney,jdbcType=INTEGER}, #{acAddm,jdbcType=INTEGER}, #{acSubm,jdbcType=INTEGER}, 
+      #{acRegm,jdbcType=INTEGER}, #{acPass,jdbcType=VARCHAR}, #{acKssj,jdbcType=TIMESTAMP}, 
+      #{acJssj,jdbcType=TIMESTAMP}, #{acState,jdbcType=INTEGER}, #{sj,jdbcType=TIMESTAMP}, 
+      #{glyNo,jdbcType=NVARCHAR}, #{acOverdraw,jdbcType=INTEGER}, #{acMake,jdbcType=INTEGER}, 
+      #{acAddo,jdbcType=INTEGER}, #{acSubo,jdbcType=INTEGER}, #{acEachm,jdbcType=INTEGER}, 
+      #{acEacho,jdbcType=INTEGER}, #{acDelm,jdbcType=DECIMAL}, #{xh,jdbcType=INTEGER}, 
+      #{acNo,jdbcType=CHAR}, #{acChange,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.weds.xf.entity.DtAcUserEntity">
+    insert into dt_ac_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userSerial != null">
+        user_serial,
+      </if>
+      <if test="acType != null">
+        ac_type,
+      </if>
+      <if test="acOrder != null">
+        ac_order,
+      </if>
+      <if test="acMoney != null">
+        ac_money,
+      </if>
+      <if test="acAddm != null">
+        ac_addm,
+      </if>
+      <if test="acSubm != null">
+        ac_subm,
+      </if>
+      <if test="acRegm != null">
+        ac_regm,
+      </if>
+      <if test="acPass != null">
+        ac_pass,
+      </if>
+      <if test="acKssj != null">
+        ac_kssj,
+      </if>
+      <if test="acJssj != null">
+        ac_jssj,
+      </if>
+      <if test="acState != null">
+        ac_state,
+      </if>
+      <if test="sj != null">
+        sj,
+      </if>
+      <if test="glyNo != null">
+        gly_no,
+      </if>
+      <if test="acOverdraw != null">
+        ac_overdraw,
+      </if>
+      <if test="acMake != null">
+        ac_make,
+      </if>
+      <if test="acAddo != null">
+        ac_addo,
+      </if>
+      <if test="acSubo != null">
+        ac_subo,
+      </if>
+      <if test="acEachm != null">
+        ac_eachm,
+      </if>
+      <if test="acEacho != null">
+        ac_eacho,
+      </if>
+      <if test="acDelm != null">
+        ac_delm,
+      </if>
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="acNo != null">
+        ac_no,
+      </if>
+      <if test="acChange != null">
+        ac_change,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userSerial != null">
+        #{userSerial,jdbcType=BIGINT},
+      </if>
+      <if test="acType != null">
+        #{acType,jdbcType=CHAR},
+      </if>
+      <if test="acOrder != null">
+        #{acOrder,jdbcType=INTEGER},
+      </if>
+      <if test="acMoney != null">
+        #{acMoney,jdbcType=INTEGER},
+      </if>
+      <if test="acAddm != null">
+        #{acAddm,jdbcType=INTEGER},
+      </if>
+      <if test="acSubm != null">
+        #{acSubm,jdbcType=INTEGER},
+      </if>
+      <if test="acRegm != null">
+        #{acRegm,jdbcType=INTEGER},
+      </if>
+      <if test="acPass != null">
+        #{acPass,jdbcType=VARCHAR},
+      </if>
+      <if test="acKssj != null">
+        #{acKssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="acJssj != null">
+        #{acJssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="acState != null">
+        #{acState,jdbcType=INTEGER},
+      </if>
+      <if test="sj != null">
+        #{sj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="glyNo != null">
+        #{glyNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="acOverdraw != null">
+        #{acOverdraw,jdbcType=INTEGER},
+      </if>
+      <if test="acMake != null">
+        #{acMake,jdbcType=INTEGER},
+      </if>
+      <if test="acAddo != null">
+        #{acAddo,jdbcType=INTEGER},
+      </if>
+      <if test="acSubo != null">
+        #{acSubo,jdbcType=INTEGER},
+      </if>
+      <if test="acEachm != null">
+        #{acEachm,jdbcType=INTEGER},
+      </if>
+      <if test="acEacho != null">
+        #{acEacho,jdbcType=INTEGER},
+      </if>
+      <if test="acDelm != null">
+        #{acDelm,jdbcType=DECIMAL},
+      </if>
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="acNo != null">
+        #{acNo,jdbcType=CHAR},
+      </if>
+      <if test="acChange != null">
+        #{acChange,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.weds.xf.entity.DtAcUserEntity">
+    update dt_ac_user
+    <set>
+      <if test="acType != null">
+        ac_type = #{acType,jdbcType=CHAR},
+      </if>
+      <if test="acOrder != null">
+        ac_order = #{acOrder,jdbcType=INTEGER},
+      </if>
+      <if test="acMoney != null">
+        ac_money = #{acMoney,jdbcType=INTEGER},
+      </if>
+      <if test="acAddm != null">
+        ac_addm = #{acAddm,jdbcType=INTEGER},
+      </if>
+      <if test="acSubm != null">
+        ac_subm = #{acSubm,jdbcType=INTEGER},
+      </if>
+      <if test="acRegm != null">
+        ac_regm = #{acRegm,jdbcType=INTEGER},
+      </if>
+      <if test="acPass != null">
+        ac_pass = #{acPass,jdbcType=VARCHAR},
+      </if>
+      <if test="acKssj != null">
+        ac_kssj = #{acKssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="acJssj != null">
+        ac_jssj = #{acJssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="acState != null">
+        ac_state = #{acState,jdbcType=INTEGER},
+      </if>
+      <if test="sj != null">
+        sj = #{sj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="glyNo != null">
+        gly_no = #{glyNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="acOverdraw != null">
+        ac_overdraw = #{acOverdraw,jdbcType=INTEGER},
+      </if>
+      <if test="acMake != null">
+        ac_make = #{acMake,jdbcType=INTEGER},
+      </if>
+      <if test="acAddo != null">
+        ac_addo = #{acAddo,jdbcType=INTEGER},
+      </if>
+      <if test="acSubo != null">
+        ac_subo = #{acSubo,jdbcType=INTEGER},
+      </if>
+      <if test="acEachm != null">
+        ac_eachm = #{acEachm,jdbcType=INTEGER},
+      </if>
+      <if test="acEacho != null">
+        ac_eacho = #{acEacho,jdbcType=INTEGER},
+      </if>
+      <if test="acDelm != null">
+        ac_delm = #{acDelm,jdbcType=DECIMAL},
+      </if>
+      <if test="xh != null">
+        xh = #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="acNo != null">
+        ac_no = #{acNo,jdbcType=CHAR},
+      </if>
+      <if test="acChange != null">
+        ac_change = #{acChange,jdbcType=INTEGER},
+      </if>
+    </set>
+    where user_serial = #{userSerial,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.weds.xf.entity.DtAcUserEntity">
+    update dt_ac_user
+    set ac_type = #{acType,jdbcType=CHAR},
+      ac_order = #{acOrder,jdbcType=INTEGER},
+      ac_money = #{acMoney,jdbcType=INTEGER},
+      ac_addm = #{acAddm,jdbcType=INTEGER},
+      ac_subm = #{acSubm,jdbcType=INTEGER},
+      ac_regm = #{acRegm,jdbcType=INTEGER},
+      ac_pass = #{acPass,jdbcType=VARCHAR},
+      ac_kssj = #{acKssj,jdbcType=TIMESTAMP},
+      ac_jssj = #{acJssj,jdbcType=TIMESTAMP},
+      ac_state = #{acState,jdbcType=INTEGER},
+      sj = #{sj,jdbcType=TIMESTAMP},
+      gly_no = #{glyNo,jdbcType=NVARCHAR},
+      ac_overdraw = #{acOverdraw,jdbcType=INTEGER},
+      ac_make = #{acMake,jdbcType=INTEGER},
+      ac_addo = #{acAddo,jdbcType=INTEGER},
+      ac_subo = #{acSubo,jdbcType=INTEGER},
+      ac_eachm = #{acEachm,jdbcType=INTEGER},
+      ac_eacho = #{acEacho,jdbcType=INTEGER},
+      ac_delm = #{acDelm,jdbcType=DECIMAL},
+      xh = #{xh,jdbcType=INTEGER},
+      ac_no = #{acNo,jdbcType=CHAR},
+      ac_change = #{acChange,jdbcType=INTEGER}
+    where user_serial = #{userSerial,jdbcType=BIGINT}
+  </update>
+</mapper>

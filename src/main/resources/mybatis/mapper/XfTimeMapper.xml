@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.weds.xf.mapper.XfTimeMapper">
+  <resultMap id="BaseResultMap" type="com.weds.xf.entity.XfTimeEntity">
+    <id column="bh" jdbcType="CHAR" property="bh" />
+    <result column="kssj" jdbcType="INTEGER" property="kssj" />
+    <result column="jssj" jdbcType="INTEGER" property="jssj" />
+    <result column="day_offset" jdbcType="INTEGER" property="dayOffset" />
+    <result column="sj" jdbcType="TIMESTAMP" property="sj" />
+    <result column="gly_no" jdbcType="NVARCHAR" property="glyNo" />
+    <result column="dev_serial" jdbcType="CHAR" property="devSerial" />
+    <result column="day_order" jdbcType="INTEGER" property="dayOrder" />
+    <result column="lname" jdbcType="NVARCHAR" property="lname" />
+    <result column="regserial" jdbcType="NVARCHAR" property="regserial" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    bh, kssj, jssj, day_offset, sj, gly_no, dev_serial, day_order, lname, regserial
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from xf_time
+    where bh = #{bh,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from xf_time
+    where bh = #{bh,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.weds.xf.entity.XfTimeEntity">
+    insert into xf_time (bh, kssj, jssj, 
+      day_offset, sj, gly_no, 
+      dev_serial, day_order, lname, 
+      regserial)
+    values (#{bh,jdbcType=CHAR}, #{kssj,jdbcType=INTEGER}, #{jssj,jdbcType=INTEGER}, 
+      #{dayOffset,jdbcType=INTEGER}, #{sj,jdbcType=TIMESTAMP}, #{glyNo,jdbcType=NVARCHAR}, 
+      #{devSerial,jdbcType=CHAR}, #{dayOrder,jdbcType=INTEGER}, #{lname,jdbcType=NVARCHAR}, 
+      #{regserial,jdbcType=NVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.weds.xf.entity.XfTimeEntity">
+    insert into xf_time
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bh != null">
+        bh,
+      </if>
+      <if test="kssj != null">
+        kssj,
+      </if>
+      <if test="jssj != null">
+        jssj,
+      </if>
+      <if test="dayOffset != null">
+        day_offset,
+      </if>
+      <if test="sj != null">
+        sj,
+      </if>
+      <if test="glyNo != null">
+        gly_no,
+      </if>
+      <if test="devSerial != null">
+        dev_serial,
+      </if>
+      <if test="dayOrder != null">
+        day_order,
+      </if>
+      <if test="lname != null">
+        lname,
+      </if>
+      <if test="regserial != null">
+        regserial,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bh != null">
+        #{bh,jdbcType=CHAR},
+      </if>
+      <if test="kssj != null">
+        #{kssj,jdbcType=INTEGER},
+      </if>
+      <if test="jssj != null">
+        #{jssj,jdbcType=INTEGER},
+      </if>
+      <if test="dayOffset != null">
+        #{dayOffset,jdbcType=INTEGER},
+      </if>
+      <if test="sj != null">
+        #{sj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="glyNo != null">
+        #{glyNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="devSerial != null">
+        #{devSerial,jdbcType=CHAR},
+      </if>
+      <if test="dayOrder != null">
+        #{dayOrder,jdbcType=INTEGER},
+      </if>
+      <if test="lname != null">
+        #{lname,jdbcType=NVARCHAR},
+      </if>
+      <if test="regserial != null">
+        #{regserial,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.weds.xf.entity.XfTimeEntity">
+    update xf_time
+    <set>
+      <if test="kssj != null">
+        kssj = #{kssj,jdbcType=INTEGER},
+      </if>
+      <if test="jssj != null">
+        jssj = #{jssj,jdbcType=INTEGER},
+      </if>
+      <if test="dayOffset != null">
+        day_offset = #{dayOffset,jdbcType=INTEGER},
+      </if>
+      <if test="sj != null">
+        sj = #{sj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="glyNo != null">
+        gly_no = #{glyNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="devSerial != null">
+        dev_serial = #{devSerial,jdbcType=CHAR},
+      </if>
+      <if test="dayOrder != null">
+        day_order = #{dayOrder,jdbcType=INTEGER},
+      </if>
+      <if test="lname != null">
+        lname = #{lname,jdbcType=NVARCHAR},
+      </if>
+      <if test="regserial != null">
+        regserial = #{regserial,jdbcType=NVARCHAR},
+      </if>
+    </set>
+    where bh = #{bh,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.weds.xf.entity.XfTimeEntity">
+    update xf_time
+    set kssj = #{kssj,jdbcType=INTEGER},
+      jssj = #{jssj,jdbcType=INTEGER},
+      day_offset = #{dayOffset,jdbcType=INTEGER},
+      sj = #{sj,jdbcType=TIMESTAMP},
+      gly_no = #{glyNo,jdbcType=NVARCHAR},
+      dev_serial = #{devSerial,jdbcType=CHAR},
+      day_order = #{dayOrder,jdbcType=INTEGER},
+      lname = #{lname,jdbcType=NVARCHAR},
+      regserial = #{regserial,jdbcType=NVARCHAR}
+    where bh = #{bh,jdbcType=CHAR}
+  </update>
+</mapper>

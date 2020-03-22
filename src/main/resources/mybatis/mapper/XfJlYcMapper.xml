@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.weds.xf.mapper.XfJlYcMapper">
+  <resultMap id="BaseResultMap" type="com.weds.xf.entity.XfJlYcEntity">
+    <id column="xh" jdbcType="INTEGER" property="xh" />
+    <result column="mould" jdbcType="INTEGER" property="mould" />
+    <result column="lx" jdbcType="INTEGER" property="lx" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="jl_bh" jdbcType="VARCHAR" property="jlBh" />
+    <result column="dev_serial" jdbcType="CHAR" property="devSerial" />
+    <result column="user_serial" jdbcType="BIGINT" property="userSerial" />
+    <result column="user_card" jdbcType="VARCHAR" property="userCard" />
+    <result column="sam_serial" jdbcType="VARCHAR" property="samSerial" />
+    <result column="card_serial" jdbcType="CHAR" property="cardSerial" />
+    <result column="old_money" jdbcType="DECIMAL" property="oldMoney" />
+    <result column="new_money" jdbcType="DECIMAL" property="newMoney" />
+    <result column="more_money" jdbcType="DECIMAL" property="moreMoney" />
+    <result column="discount_rate" jdbcType="INTEGER" property="discountRate" />
+    <result column="jl_sj" jdbcType="TIMESTAMP" property="jlSj" />
+    <result column="jl_count" jdbcType="INTEGER" property="jlCount" />
+    <result column="sub_xh" jdbcType="INTEGER" property="subXh" />
+    <result column="time_order" jdbcType="CHAR" property="timeOrder" />
+    <result column="time_no" jdbcType="CHAR" property="timeNo" />
+    <result column="del_type" jdbcType="INTEGER" property="delType" />
+    <result column="sub_old" jdbcType="DECIMAL" property="subOld" />
+    <result column="sub_new" jdbcType="DECIMAL" property="subNew" />
+    <result column="each_old" jdbcType="INTEGER" property="eachOld" />
+    <result column="each_new" jdbcType="INTEGER" property="eachNew" />
+    <result column="each_unit" jdbcType="INTEGER" property="eachUnit" />
+    <result column="time_serial_old" jdbcType="INTEGER" property="timeSerialOld" />
+    <result column="time_no_old" jdbcType="CHAR" property="timeNoOld" />
+    <result column="time_serial_new" jdbcType="INTEGER" property="timeSerialNew" />
+    <result column="sj" jdbcType="TIMESTAMP" property="sj" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="gly_no" jdbcType="NVARCHAR" property="glyNo" />
+    <result column="ident_type" jdbcType="INTEGER" property="identType" />
+    <result column="ac_pass" jdbcType="INTEGER" property="acPass" />
+    <result column="jl_data" jdbcType="VARCHAR" property="jlData" />
+    <result column="state_flag" jdbcType="INTEGER" property="stateFlag" />
+    <result column="jl_number" jdbcType="INTEGER" property="jlNumber" />
+    <result column="now_bh" jdbcType="VARCHAR" property="nowBh" />
+    <result column="dep_serial" jdbcType="INTEGER" property="depSerial" />
+    <result column="res_sub_lx" jdbcType="INTEGER" property="resSubLx" />
+    <result column="res_day_sub" jdbcType="DECIMAL" property="resDaySub" />
+    <result column="add_gly" jdbcType="VARCHAR" property="addGly" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    xh, mould, lx, type, jl_bh, dev_serial, user_serial, user_card, sam_serial, card_serial, 
+    old_money, new_money, more_money, discount_rate, jl_sj, jl_count, sub_xh, time_order, 
+    time_no, del_type, sub_old, sub_new, each_old, each_new, each_unit, time_serial_old, 
+    time_no_old, time_serial_new, sj, state, gly_no, ident_type, ac_pass, jl_data, state_flag, 
+    jl_number, now_bh, dep_serial, res_sub_lx, res_day_sub, add_gly
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from XF_JL_YC
+    where xh = #{xh,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from XF_JL_YC
+    where xh = #{xh,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.weds.xf.entity.XfJlYcEntity">
+    insert into XF_JL_YC (xh, mould, lx, 
+      type, jl_bh, dev_serial, 
+      user_serial, user_card, sam_serial, 
+      card_serial, old_money, new_money, 
+      more_money, discount_rate, jl_sj, 
+      jl_count, sub_xh, time_order, 
+      time_no, del_type, sub_old, 
+      sub_new, each_old, each_new, 
+      each_unit, time_serial_old, time_no_old, 
+      time_serial_new, sj, state, 
+      gly_no, ident_type, ac_pass, 
+      jl_data, state_flag, jl_number, 
+      now_bh, dep_serial, res_sub_lx, 
+      res_day_sub, add_gly)
+    values (#{xh,jdbcType=INTEGER}, #{mould,jdbcType=INTEGER}, #{lx,jdbcType=INTEGER}, 
+      #{type,jdbcType=INTEGER}, #{jlBh,jdbcType=VARCHAR}, #{devSerial,jdbcType=CHAR}, 
+      #{userSerial,jdbcType=BIGINT}, #{userCard,jdbcType=VARCHAR}, #{samSerial,jdbcType=VARCHAR}, 
+      #{cardSerial,jdbcType=CHAR}, #{oldMoney,jdbcType=DECIMAL}, #{newMoney,jdbcType=DECIMAL}, 
+      #{moreMoney,jdbcType=DECIMAL}, #{discountRate,jdbcType=INTEGER}, #{jlSj,jdbcType=TIMESTAMP}, 
+      #{jlCount,jdbcType=INTEGER}, #{subXh,jdbcType=INTEGER}, #{timeOrder,jdbcType=CHAR}, 
+      #{timeNo,jdbcType=CHAR}, #{delType,jdbcType=INTEGER}, #{subOld,jdbcType=DECIMAL}, 
+      #{subNew,jdbcType=DECIMAL}, #{eachOld,jdbcType=INTEGER}, #{eachNew,jdbcType=INTEGER}, 
+      #{eachUnit,jdbcType=INTEGER}, #{timeSerialOld,jdbcType=INTEGER}, #{timeNoOld,jdbcType=CHAR}, 
+      #{timeSerialNew,jdbcType=INTEGER}, #{sj,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER}, 
+      #{glyNo,jdbcType=NVARCHAR}, #{identType,jdbcType=INTEGER}, #{acPass,jdbcType=INTEGER}, 
+      #{jlData,jdbcType=VARCHAR}, #{stateFlag,jdbcType=INTEGER}, #{jlNumber,jdbcType=INTEGER}, 
+      #{nowBh,jdbcType=VARCHAR}, #{depSerial,jdbcType=INTEGER}, #{resSubLx,jdbcType=INTEGER}, 
+      #{resDaySub,jdbcType=DECIMAL}, #{addGly,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.weds.xf.entity.XfJlYcEntity">
+    insert into XF_JL_YC
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="mould != null">
+        mould,
+      </if>
+      <if test="lx != null">
+        lx,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="jlBh != null">
+        jl_bh,
+      </if>
+      <if test="devSerial != null">
+        dev_serial,
+      </if>
+      <if test="userSerial != null">
+        user_serial,
+      </if>
+      <if test="userCard != null">
+        user_card,
+      </if>
+      <if test="samSerial != null">
+        sam_serial,
+      </if>
+      <if test="cardSerial != null">
+        card_serial,
+      </if>
+      <if test="oldMoney != null">
+        old_money,
+      </if>
+      <if test="newMoney != null">
+        new_money,
+      </if>
+      <if test="moreMoney != null">
+        more_money,
+      </if>
+      <if test="discountRate != null">
+        discount_rate,
+      </if>
+      <if test="jlSj != null">
+        jl_sj,
+      </if>
+      <if test="jlCount != null">
+        jl_count,
+      </if>
+      <if test="subXh != null">
+        sub_xh,
+      </if>
+      <if test="timeOrder != null">
+        time_order,
+      </if>
+      <if test="timeNo != null">
+        time_no,
+      </if>
+      <if test="delType != null">
+        del_type,
+      </if>
+      <if test="subOld != null">
+        sub_old,
+      </if>
+      <if test="subNew != null">
+        sub_new,
+      </if>
+      <if test="eachOld != null">
+        each_old,
+      </if>
+      <if test="eachNew != null">
+        each_new,
+      </if>
+      <if test="eachUnit != null">
+        each_unit,
+      </if>
+      <if test="timeSerialOld != null">
+        time_serial_old,
+      </if>
+      <if test="timeNoOld != null">
+        time_no_old,
+      </if>
+      <if test="timeSerialNew != null">
+        time_serial_new,
+      </if>
+      <if test="sj != null">
+        sj,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="glyNo != null">
+        gly_no,
+      </if>
+      <if test="identType != null">
+        ident_type,
+      </if>
+      <if test="acPass != null">
+        ac_pass,
+      </if>
+      <if test="jlData != null">
+        jl_data,
+      </if>
+      <if test="stateFlag != null">
+        state_flag,
+      </if>
+      <if test="jlNumber != null">
+        jl_number,
+      </if>
+      <if test="nowBh != null">
+        now_bh,
+      </if>
+      <if test="depSerial != null">
+        dep_serial,
+      </if>
+      <if test="resSubLx != null">
+        res_sub_lx,
+      </if>
+      <if test="resDaySub != null">
+        res_day_sub,
+      </if>
+      <if test="addGly != null">
+        add_gly,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="mould != null">
+        #{mould,jdbcType=INTEGER},
+      </if>
+      <if test="lx != null">
+        #{lx,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="jlBh != null">
+        #{jlBh,jdbcType=VARCHAR},
+      </if>
+      <if test="devSerial != null">
+        #{devSerial,jdbcType=CHAR},
+      </if>
+      <if test="userSerial != null">
+        #{userSerial,jdbcType=BIGINT},
+      </if>
+      <if test="userCard != null">
+        #{userCard,jdbcType=VARCHAR},
+      </if>
+      <if test="samSerial != null">
+        #{samSerial,jdbcType=VARCHAR},
+      </if>
+      <if test="cardSerial != null">
+        #{cardSerial,jdbcType=CHAR},
+      </if>
+      <if test="oldMoney != null">
+        #{oldMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="newMoney != null">
+        #{newMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="moreMoney != null">
+        #{moreMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="discountRate != null">
+        #{discountRate,jdbcType=INTEGER},
+      </if>
+      <if test="jlSj != null">
+        #{jlSj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jlCount != null">
+        #{jlCount,jdbcType=INTEGER},
+      </if>
+      <if test="subXh != null">
+        #{subXh,jdbcType=INTEGER},
+      </if>
+      <if test="timeOrder != null">
+        #{timeOrder,jdbcType=CHAR},
+      </if>
+      <if test="timeNo != null">
+        #{timeNo,jdbcType=CHAR},
+      </if>
+      <if test="delType != null">
+        #{delType,jdbcType=INTEGER},
+      </if>
+      <if test="subOld != null">
+        #{subOld,jdbcType=DECIMAL},
+      </if>
+      <if test="subNew != null">
+        #{subNew,jdbcType=DECIMAL},
+      </if>
+      <if test="eachOld != null">
+        #{eachOld,jdbcType=INTEGER},
+      </if>
+      <if test="eachNew != null">
+        #{eachNew,jdbcType=INTEGER},
+      </if>
+      <if test="eachUnit != null">
+        #{eachUnit,jdbcType=INTEGER},
+      </if>
+      <if test="timeSerialOld != null">
+        #{timeSerialOld,jdbcType=INTEGER},
+      </if>
+      <if test="timeNoOld != null">
+        #{timeNoOld,jdbcType=CHAR},
+      </if>
+      <if test="timeSerialNew != null">
+        #{timeSerialNew,jdbcType=INTEGER},
+      </if>
+      <if test="sj != null">
+        #{sj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="glyNo != null">
+        #{glyNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="identType != null">
+        #{identType,jdbcType=INTEGER},
+      </if>
+      <if test="acPass != null">
+        #{acPass,jdbcType=INTEGER},
+      </if>
+      <if test="jlData != null">
+        #{jlData,jdbcType=VARCHAR},
+      </if>
+      <if test="stateFlag != null">
+        #{stateFlag,jdbcType=INTEGER},
+      </if>
+      <if test="jlNumber != null">
+        #{jlNumber,jdbcType=INTEGER},
+      </if>
+      <if test="nowBh != null">
+        #{nowBh,jdbcType=VARCHAR},
+      </if>
+      <if test="depSerial != null">
+        #{depSerial,jdbcType=INTEGER},
+      </if>
+      <if test="resSubLx != null">
+        #{resSubLx,jdbcType=INTEGER},
+      </if>
+      <if test="resDaySub != null">
+        #{resDaySub,jdbcType=DECIMAL},
+      </if>
+      <if test="addGly != null">
+        #{addGly,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.weds.xf.entity.XfJlYcEntity">
+    update XF_JL_YC
+    <set>
+      <if test="mould != null">
+        mould = #{mould,jdbcType=INTEGER},
+      </if>
+      <if test="lx != null">
+        lx = #{lx,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="jlBh != null">
+        jl_bh = #{jlBh,jdbcType=VARCHAR},
+      </if>
+      <if test="devSerial != null">
+        dev_serial = #{devSerial,jdbcType=CHAR},
+      </if>
+      <if test="userSerial != null">
+        user_serial = #{userSerial,jdbcType=BIGINT},
+      </if>
+      <if test="userCard != null">
+        user_card = #{userCard,jdbcType=VARCHAR},
+      </if>
+      <if test="samSerial != null">
+        sam_serial = #{samSerial,jdbcType=VARCHAR},
+      </if>
+      <if test="cardSerial != null">
+        card_serial = #{cardSerial,jdbcType=CHAR},
+      </if>
+      <if test="oldMoney != null">
+        old_money = #{oldMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="newMoney != null">
+        new_money = #{newMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="moreMoney != null">
+        more_money = #{moreMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="discountRate != null">
+        discount_rate = #{discountRate,jdbcType=INTEGER},
+      </if>
+      <if test="jlSj != null">
+        jl_sj = #{jlSj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jlCount != null">
+        jl_count = #{jlCount,jdbcType=INTEGER},
+      </if>
+      <if test="subXh != null">
+        sub_xh = #{subXh,jdbcType=INTEGER},
+      </if>
+      <if test="timeOrder != null">
+        time_order = #{timeOrder,jdbcType=CHAR},
+      </if>
+      <if test="timeNo != null">
+        time_no = #{timeNo,jdbcType=CHAR},
+      </if>
+      <if test="delType != null">
+        del_type = #{delType,jdbcType=INTEGER},
+      </if>
+      <if test="subOld != null">
+        sub_old = #{subOld,jdbcType=DECIMAL},
+      </if>
+      <if test="subNew != null">
+        sub_new = #{subNew,jdbcType=DECIMAL},
+      </if>
+      <if test="eachOld != null">
+        each_old = #{eachOld,jdbcType=INTEGER},
+      </if>
+      <if test="eachNew != null">
+        each_new = #{eachNew,jdbcType=INTEGER},
+      </if>
+      <if test="eachUnit != null">
+        each_unit = #{eachUnit,jdbcType=INTEGER},
+      </if>
+      <if test="timeSerialOld != null">
+        time_serial_old = #{timeSerialOld,jdbcType=INTEGER},
+      </if>
+      <if test="timeNoOld != null">
+        time_no_old = #{timeNoOld,jdbcType=CHAR},
+      </if>
+      <if test="timeSerialNew != null">
+        time_serial_new = #{timeSerialNew,jdbcType=INTEGER},
+      </if>
+      <if test="sj != null">
+        sj = #{sj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="glyNo != null">
+        gly_no = #{glyNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="identType != null">
+        ident_type = #{identType,jdbcType=INTEGER},
+      </if>
+      <if test="acPass != null">
+        ac_pass = #{acPass,jdbcType=INTEGER},
+      </if>
+      <if test="jlData != null">
+        jl_data = #{jlData,jdbcType=VARCHAR},
+      </if>
+      <if test="stateFlag != null">
+        state_flag = #{stateFlag,jdbcType=INTEGER},
+      </if>
+      <if test="jlNumber != null">
+        jl_number = #{jlNumber,jdbcType=INTEGER},
+      </if>
+      <if test="nowBh != null">
+        now_bh = #{nowBh,jdbcType=VARCHAR},
+      </if>
+      <if test="depSerial != null">
+        dep_serial = #{depSerial,jdbcType=INTEGER},
+      </if>
+      <if test="resSubLx != null">
+        res_sub_lx = #{resSubLx,jdbcType=INTEGER},
+      </if>
+      <if test="resDaySub != null">
+        res_day_sub = #{resDaySub,jdbcType=DECIMAL},
+      </if>
+      <if test="addGly != null">
+        add_gly = #{addGly,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where xh = #{xh,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.weds.xf.entity.XfJlYcEntity">
+    update XF_JL_YC
+    set mould = #{mould,jdbcType=INTEGER},
+      lx = #{lx,jdbcType=INTEGER},
+      type = #{type,jdbcType=INTEGER},
+      jl_bh = #{jlBh,jdbcType=VARCHAR},
+      dev_serial = #{devSerial,jdbcType=CHAR},
+      user_serial = #{userSerial,jdbcType=BIGINT},
+      user_card = #{userCard,jdbcType=VARCHAR},
+      sam_serial = #{samSerial,jdbcType=VARCHAR},
+      card_serial = #{cardSerial,jdbcType=CHAR},
+      old_money = #{oldMoney,jdbcType=DECIMAL},
+      new_money = #{newMoney,jdbcType=DECIMAL},
+      more_money = #{moreMoney,jdbcType=DECIMAL},
+      discount_rate = #{discountRate,jdbcType=INTEGER},
+      jl_sj = #{jlSj,jdbcType=TIMESTAMP},
+      jl_count = #{jlCount,jdbcType=INTEGER},
+      sub_xh = #{subXh,jdbcType=INTEGER},
+      time_order = #{timeOrder,jdbcType=CHAR},
+      time_no = #{timeNo,jdbcType=CHAR},
+      del_type = #{delType,jdbcType=INTEGER},
+      sub_old = #{subOld,jdbcType=DECIMAL},
+      sub_new = #{subNew,jdbcType=DECIMAL},
+      each_old = #{eachOld,jdbcType=INTEGER},
+      each_new = #{eachNew,jdbcType=INTEGER},
+      each_unit = #{eachUnit,jdbcType=INTEGER},
+      time_serial_old = #{timeSerialOld,jdbcType=INTEGER},
+      time_no_old = #{timeNoOld,jdbcType=CHAR},
+      time_serial_new = #{timeSerialNew,jdbcType=INTEGER},
+      sj = #{sj,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=INTEGER},
+      gly_no = #{glyNo,jdbcType=NVARCHAR},
+      ident_type = #{identType,jdbcType=INTEGER},
+      ac_pass = #{acPass,jdbcType=INTEGER},
+      jl_data = #{jlData,jdbcType=VARCHAR},
+      state_flag = #{stateFlag,jdbcType=INTEGER},
+      jl_number = #{jlNumber,jdbcType=INTEGER},
+      now_bh = #{nowBh,jdbcType=VARCHAR},
+      dep_serial = #{depSerial,jdbcType=INTEGER},
+      res_sub_lx = #{resSubLx,jdbcType=INTEGER},
+      res_day_sub = #{resDaySub,jdbcType=DECIMAL},
+      add_gly = #{addGly,jdbcType=VARCHAR}
+    where xh = #{xh,jdbcType=INTEGER}
+  </update>
+</mapper>

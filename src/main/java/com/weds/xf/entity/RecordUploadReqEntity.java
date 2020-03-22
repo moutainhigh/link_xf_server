@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
 
-public class TradReqEntity implements Serializable {
+public class RecordUploadReqEntity implements Serializable {
     /**
      *
      */
@@ -52,7 +52,7 @@ public class TradReqEntity implements Serializable {
      *
      */
     @ApiModelProperty(required = true, dataType = "integer", example = "2000002", value = "人员序号")
-    private Long userSerial;
+    private Integer userSerial;
 
 
     /**
@@ -114,7 +114,7 @@ public class TradReqEntity implements Serializable {
      *
      */
     @ApiModelProperty(required = true, dataType = "string", example = "123456", value = "交易密码")
-    private String userPassword;
+    private String password;
 
     public String getOrderCode() {
         return orderCode;
@@ -172,11 +172,11 @@ public class TradReqEntity implements Serializable {
         this.tradFlow = tradFlow;
     }
 
-    public Long getUserSerial() {
+    public Integer getUserSerial() {
         return userSerial;
     }
 
-    public void setUserSerial(Long userSerial) {
+    public void setUserSerial(Integer userSerial) {
         this.userSerial = userSerial;
     }
 
@@ -252,12 +252,12 @@ public class TradReqEntity implements Serializable {
         this.tradTime = tradTime;
     }
 
-    public String getUserPassword() {
-        return userPassword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 
