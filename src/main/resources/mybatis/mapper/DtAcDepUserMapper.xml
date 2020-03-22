@@ -21,12 +21,15 @@
     xh, dep_serial, dep_lname, user_serial, sj, module_id, lx, bm_serial, gly_no, user_mj, 
     per_lx, dep_type, mjgz, outsj
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from dt_ac_dep_user
-    where xh = #{xh,jdbcType=INTEGER}
+    where user_serial = #{userSerial,jdbcType=INTEGER}
+    and dev_serial = #{devSerial,jdbcType=VARCHAR}
   </select>
+
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from dt_ac_dep_user
     where xh = #{xh,jdbcType=INTEGER}

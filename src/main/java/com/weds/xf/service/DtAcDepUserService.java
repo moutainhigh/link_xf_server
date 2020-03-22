@@ -9,6 +9,8 @@ import com.weds.core.base.BaseService;
 import com.weds.xf.mapper.DtAcDepUserMapper;
 import com.weds.xf.entity.DtAcDepUserEntity;
 
+import java.util.List;
+
 /**
  * @Author
  * @Description DtAcDepUser管理
@@ -34,8 +36,8 @@ public class DtAcDepUserService extends BaseService {
 		return dtAcDepUserMapper.insertSelective(record);
 	}
 
-	public DtAcDepUserEntity selectByPrimaryKey(Integer xh) {
-		return dtAcDepUserMapper.selectByPrimaryKey(xh);
+	public DtAcDepUserEntity selectByPrimaryKey(Long userSerial,String devSerial) {
+		return dtAcDepUserMapper.selectByPrimaryKey(userSerial,devSerial);
 	}
 
 	public int updateByPrimaryKeySelective(DtAcDepUserEntity record) {

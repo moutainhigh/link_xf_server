@@ -25,6 +25,7 @@ public class TradService extends BaseService {
     @Autowired AccessVerifyService accessVerifyService;
     @Autowired DtAcLinkService dtAcLinkService;
     @Autowired DtAcUserService dtAcUserService;
+    @Autowired DtDevService dtDevService;
 
     public JsonResult trad(TradReqEntity tradReqEntity){
         Long userSerial = tradReqEntity.getUserSerial();
@@ -39,6 +40,7 @@ public class TradService extends BaseService {
                 if(null != dtUserEntity){
                     tradEntity.setUserType(dtUserEntity.getUserType());
                     tradEntity.setDbUserPassword(dtUserEntity.getUserPassword());
+                    tradEntity.setUserDep(dtUserEntity.getUserDep());
                 }else{
                     return failMsg("人员信息不存在");
                 }
@@ -47,11 +49,19 @@ public class TradService extends BaseService {
                 if(null == dtAcUserEntity){
                     return failMsg("账户信息不存在");
                 }
+                tradEntity.setAcType(dtAcUserEntity.getAcType());
 
                 DtAcLinkEntity dtAcLinkEntity = dtAcLinkService.selectByPrimaryKey(userSerial);
                 if(null == dtAcLinkEntity){
                     return failMsg("联机账户信息不存在");
                 }
+
+                DtDevEntity dtDevEntity = dtDevService.selectByDevSerial(tradReqEntity.getDevSerial());
+                if(null == dtDevEntity){
+                    return failMsg("场所未找到");
+                }
+                tradEntity.setAcDepSerial(dtDevEntity.getAcdepSerial());
+
 
             }else{
                 return failMsg("卡信息不存在");
@@ -61,7 +71,8 @@ public class TradService extends BaseService {
         JsonResult<TradEntity> jRes = accessVerifyService.accessVerify(tradReqEntity,tradEntity);
 
 
-        
+
+
 
     }
 

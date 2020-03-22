@@ -28,6 +28,10 @@ public interface DtDevMapper {
 
     /**
      */
+    DtDevEntity selectByDevSerial(String devSerial);
+
+    /**
+     */
     int updateByPrimaryKeySelective(DtDevEntity record);
 
     /**

@@ -39,6 +39,10 @@ public class DtDevService extends BaseService {
 		return dtDevMapper.selectByPrimaryKey(xh);
 	}
 
+	public DtDevEntity selectByDevSerial(String devSerial) {
+		return dtDevMapper.selectByDevSerial(devSerial);
+	}
+
 	public int updateByPrimaryKeySelective(DtDevEntity record) {
 		return dtDevMapper.updateByPrimaryKeySelective(record);
 	}

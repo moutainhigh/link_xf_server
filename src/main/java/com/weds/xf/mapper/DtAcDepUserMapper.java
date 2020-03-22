@@ -2,6 +2,9 @@ package com.weds.xf.mapper;
 
 import com.weds.core.annotation.MyBatisDao;
 import com.weds.xf.entity.DtAcDepUserEntity;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * @Author
@@ -24,7 +27,7 @@ public interface DtAcDepUserMapper {
 
     /**
      */
-    DtAcDepUserEntity selectByPrimaryKey(Integer xh);
+    DtAcDepUserEntity selectByPrimaryKey(@Param("userSerial") Long userSerial, @Param("devSerial") String devSerial);
 
     /**
      */
