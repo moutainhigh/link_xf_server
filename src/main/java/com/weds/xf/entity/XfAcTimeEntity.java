@@ -92,7 +92,7 @@ public class XfAcTimeEntity extends BaseEntity implements Serializable {
      */
     @Digits(integer = 15, fraction = 4)
     @ApiModelProperty(required = true, dataType = "number", example = "-1", value = "")
-    private BigDecimal timeSub;
+    private Integer timeSub;
 
     /**
      *
@@ -472,13 +472,13 @@ public class XfAcTimeEntity extends BaseEntity implements Serializable {
      *
      * @return the value of xf_ac_time.time_sub
      */
-    public BigDecimal getTimeSub() {
+    public Integer getTimeSub() {
         return timeSub;
     }
 
     /**
      */
-    public XfAcTimeEntity withTimeSub(BigDecimal timeSub) {
+    public XfAcTimeEntity withTimeSub(Integer timeSub) {
         this.setTimeSub(timeSub);
         return this;
     }
@@ -488,7 +488,7 @@ public class XfAcTimeEntity extends BaseEntity implements Serializable {
      *
      * @param timeSub the value for xf_ac_time.time_sub
      */
-    public void setTimeSub(BigDecimal timeSub) {
+    public void setTimeSub(Integer timeSub) {
         this.timeSub = timeSub;
     }
 

@@ -28,20 +28,21 @@
     select 
     <include refid="Base_Column_List" />
     from xf_user_time
-    where xh = #{xh,jdbcType=INTEGER}
+    where user_serial = #{userSerial,jdbcType=INTEGER}
   </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from xf_user_time
     where xh = #{xh,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.weds.xf.entity.XfUserTimeEntity">
-    insert into xf_user_time (xh, user_serial, rq, 
+    insert into xf_user_time (user_serial, rq,
       day_count, day_money, time_no, 
       time_xh, time_ks, time_js, 
       Sub_day, Sub_hour, xf_count, 
       xf_money, xf_each, sj, 
       each_day, each_hour)
-    values (#{xh,jdbcType=INTEGER}, #{userSerial,jdbcType=BIGINT}, #{rq,jdbcType=TIMESTAMP}, 
+    values (#{userSerial,jdbcType=BIGINT}, #{rq,jdbcType=TIMESTAMP},
       #{dayCount,jdbcType=INTEGER}, #{dayMoney,jdbcType=INTEGER}, #{timeNo,jdbcType=CHAR}, 
       #{timeXh,jdbcType=INTEGER}, #{timeKs,jdbcType=INTEGER}, #{timeJs,jdbcType=INTEGER}, 
       #{subDay,jdbcType=INTEGER}, #{subHour,jdbcType=INTEGER}, #{xfCount,jdbcType=INTEGER}, 

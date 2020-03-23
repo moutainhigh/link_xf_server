@@ -17,10 +17,16 @@
     bh, kssj, jssj, day_offset, sj, gly_no, dev_serial, day_order, lname, regserial
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from xf_time
     where bh = #{bh,jdbcType=CHAR}
+  </select>
+  <select id="selectByNowTime"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from xf_time
+    where DATEDIFF(S,convert(varchar(10),getdate(),23) between kssj and jssj
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from xf_time

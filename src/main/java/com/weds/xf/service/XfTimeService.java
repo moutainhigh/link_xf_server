@@ -39,6 +39,10 @@ public class XfTimeService extends BaseService {
 		return xfTimeMapper.selectByPrimaryKey(bh);
 	}
 
+	public XfTimeEntity selectByNowTime() {
+		return xfTimeMapper.selectByNowTime();
+	}
+
 	public int updateByPrimaryKeySelective(XfTimeEntity record) {
 		return xfTimeMapper.updateByPrimaryKeySelective(record);
 	}

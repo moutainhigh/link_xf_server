@@ -120,7 +120,7 @@ public class DtAcTypeEntity implements Serializable {
      */
     @Digits(integer = 15, fraction = 4)
     @ApiModelProperty(required = true, dataType = "number", example = "-1", value = "")
-    private BigDecimal dayMaxM;
+    private Integer dayMaxM;
 
     /**
      *
@@ -145,7 +145,7 @@ public class DtAcTypeEntity implements Serializable {
      */
     @Digits(integer = 15, fraction = 4)
     @ApiModelProperty(required = true, dataType = "number", example = "-1", value = "")
-    private BigDecimal timeMaxM;
+    private Integer timeMaxM;
 
     /**
      *
@@ -200,7 +200,7 @@ public class DtAcTypeEntity implements Serializable {
     private BigDecimal makeMaxM;
 
     /**
-     *
+     *是否允许时段外消费
      */
     @ApiModelProperty(required = true, dataType = "integer", example = "-1", value = "")
     private Integer acTimeState;
@@ -709,13 +709,13 @@ public class DtAcTypeEntity implements Serializable {
      *
      * @return the value of dt_ac_type.day_max_m
      */
-    public BigDecimal getDayMaxM() {
+    public Integer getDayMaxM() {
         return dayMaxM;
     }
 
     /**
      */
-    public DtAcTypeEntity withDayMaxM(BigDecimal dayMaxM) {
+    public DtAcTypeEntity withDayMaxM(Integer dayMaxM) {
         this.setDayMaxM(dayMaxM);
         return this;
     }
@@ -725,7 +725,7 @@ public class DtAcTypeEntity implements Serializable {
      *
      * @param dayMaxM the value for dt_ac_type.day_max_m
      */
-    public void setDayMaxM(BigDecimal dayMaxM) {
+    public void setDayMaxM(Integer dayMaxM) {
         this.dayMaxM = dayMaxM;
     }
 
@@ -809,13 +809,13 @@ public class DtAcTypeEntity implements Serializable {
      *
      * @return the value of dt_ac_type.time_max_m
      */
-    public BigDecimal getTimeMaxM() {
+    public Integer getTimeMaxM() {
         return timeMaxM;
     }
 
     /**
      */
-    public DtAcTypeEntity withTimeMaxM(BigDecimal timeMaxM) {
+    public DtAcTypeEntity withTimeMaxM(Integer timeMaxM) {
         this.setTimeMaxM(timeMaxM);
         return this;
     }
@@ -825,7 +825,7 @@ public class DtAcTypeEntity implements Serializable {
      *
      * @param timeMaxM the value for dt_ac_type.time_max_m
      */
-    public void setTimeMaxM(BigDecimal timeMaxM) {
+    public void setTimeMaxM(Integer timeMaxM) {
         this.timeMaxM = timeMaxM;
     }
 

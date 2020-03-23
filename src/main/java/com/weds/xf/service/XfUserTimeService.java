@@ -35,8 +35,8 @@ public class XfUserTimeService extends BaseService {
 		return xfUserTimeMapper.insertSelective(record);
 	}
 
-	public XfUserTimeEntity selectByPrimaryKey(Integer xh) {
-		return xfUserTimeMapper.selectByPrimaryKey(xh);
+	public XfUserTimeEntity selectByPrimaryKey(Long userSerial) {
+		return xfUserTimeMapper.selectByPrimaryKey(userSerial);
 	}
 
 	public int updateByPrimaryKeySelective(XfUserTimeEntity record) {

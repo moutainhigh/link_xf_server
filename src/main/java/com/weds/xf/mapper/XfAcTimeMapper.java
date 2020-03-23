@@ -2,6 +2,7 @@ package com.weds.xf.mapper;
 
 import com.weds.core.annotation.MyBatisDao;
 import com.weds.xf.entity.XfAcTimeEntity;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * @Author
@@ -28,9 +29,18 @@ public interface XfAcTimeMapper {
 
     /**
      */
+    XfAcTimeEntity selectByAcTypeAndTimeNo(@Param("acType") String acType,@Param("timeNo") String timeNo);
+
+    /**
+     */
+    XfAcTimeEntity selectByAcDepAndTimeNo(@Param("acDep") Integer acDep,@Param("timeNo") String timeNo);
+
+    /**
+     */
     int updateByPrimaryKeySelective(XfAcTimeEntity record);
 
     /**
      */
     int updateByPrimaryKey(XfAcTimeEntity record);
+
 }

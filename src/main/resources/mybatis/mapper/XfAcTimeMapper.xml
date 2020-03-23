@@ -38,6 +38,18 @@
     from xf_ac_time
     where xh = #{xh,jdbcType=INTEGER}
   </select>
+  <select id="selectByAcTypeAndTimeNo" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from xf_ac_time
+    where ac_type = #{acType,jdbcType=VARCHAR} and time_no =  #{timeNo,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByAcDepAndTimeNo" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from xf_ac_time
+    where ac_dep = #{acDep,jdbcType=INTEGER} and time_no =  #{timeNo,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from xf_ac_time
     where xh = #{xh,jdbcType=INTEGER}

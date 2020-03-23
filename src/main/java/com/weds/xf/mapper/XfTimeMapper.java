@@ -28,6 +28,10 @@ public interface XfTimeMapper {
 
     /**
      */
+    XfTimeEntity selectByNowTime();
+
+    /**
+     */
     int updateByPrimaryKeySelective(XfTimeEntity record);
 
     /**

@@ -28,6 +28,10 @@ public interface XfJlMapper {
 
     /**
      */
+    XfJlEntity selectMaxByUser(Long userSerial);
+
+    /**
+     */
     int updateByPrimaryKeySelective(XfJlEntity record);
 
     /**

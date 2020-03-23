@@ -1,6 +1,8 @@
 package com.weds.xf .service;
 
 import javax.annotation.Resource;
+
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -37,6 +39,14 @@ public class XfAcTimeService extends BaseService {
 
 	public XfAcTimeEntity selectByPrimaryKey(Integer xh) {
 		return xfAcTimeMapper.selectByPrimaryKey(xh);
+	}
+
+	public  XfAcTimeEntity selectByAcTypeAndTimeNo(String acType,String timeNo){
+		return xfAcTimeMapper.selectByAcTypeAndTimeNo(acType, timeNo);
+	}
+
+	public XfAcTimeEntity selectByAcDepAndTimeNo(Integer acDep,String timeNo){
+		return xfAcTimeMapper.selectByAcDepAndTimeNo(acDep, timeNo);
 	}
 
 	public int updateByPrimaryKeySelective(XfAcTimeEntity record) {

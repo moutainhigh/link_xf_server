@@ -24,7 +24,7 @@ public interface XfUserTimeMapper {
 
     /**
      */
-    XfUserTimeEntity selectByPrimaryKey(Integer xh);
+    XfUserTimeEntity selectByPrimaryKey(Long userSerial);
 
     /**
      */
