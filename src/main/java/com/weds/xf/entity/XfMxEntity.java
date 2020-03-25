@@ -166,7 +166,7 @@ public class XfMxEntity extends BaseEntity implements Serializable {
      *
      */
     @ApiModelProperty(required = true, dataType = "integer", example = "-1", value = "")
-    private Integer delZero;
+    private BigDecimal delZero;
 
     /**
      *
@@ -179,7 +179,7 @@ public class XfMxEntity extends BaseEntity implements Serializable {
      *
      */
     @ApiModelProperty(required = true, dataType = "integer", example = "-1", value = "")
-    private Integer delEdit;
+    private BigDecimal delEdit;
 
     /**
      *
@@ -313,42 +313,42 @@ public class XfMxEntity extends BaseEntity implements Serializable {
     private Integer delEach;
 
     /**
-     *
+     *  原现金余额
      */
     @Digits(integer = 15, fraction = 4)
     @ApiModelProperty(required = true, dataType = "number", example = "-1", value = "")
     private BigDecimal oldAdd;
 
     /**
-     *
+     * 原补贴余额
      */
     @Digits(integer = 15, fraction = 4)
     @ApiModelProperty(required = true, dataType = "number", example = "-1", value = "")
     private BigDecimal oldSub;
 
     /**
-     *
+     *   现现金余额
      */
     @Digits(integer = 15, fraction = 4)
     @ApiModelProperty(required = true, dataType = "number", example = "-1", value = "")
     private BigDecimal saveAdd;
 
     /**
-     *
+     * 现补贴余额
      */
     @Digits(integer = 15, fraction = 4)
     @ApiModelProperty(required = true, dataType = "number", example = "-1", value = "")
     private BigDecimal saveSub;
 
     /**
-     *
+     *  实际扣现金
      */
     @Digits(integer = 15, fraction = 4)
     @ApiModelProperty(required = true, dataType = "number", example = "-1", value = "")
     private BigDecimal xfAdd;
 
     /**
-     *
+     * 实际扣现金
      */
     @Digits(integer = 15, fraction = 4)
     @ApiModelProperty(required = true, dataType = "number", example = "-1", value = "")
@@ -946,13 +946,13 @@ public class XfMxEntity extends BaseEntity implements Serializable {
      *
      * @return the value of xf_mx.del_zero
      */
-    public Integer getDelZero() {
+    public BigDecimal getDelZero() {
         return delZero;
     }
 
     /**
      */
-    public XfMxEntity withDelZero(Integer delZero) {
+    public XfMxEntity withDelZero(BigDecimal delZero) {
         this.setDelZero(delZero);
         return this;
     }
@@ -962,7 +962,7 @@ public class XfMxEntity extends BaseEntity implements Serializable {
      *
      * @param delZero the value for xf_mx.del_zero
      */
-    public void setDelZero(Integer delZero) {
+    public void setDelZero(BigDecimal delZero) {
         this.delZero = delZero;
     }
 
@@ -996,13 +996,13 @@ public class XfMxEntity extends BaseEntity implements Serializable {
      *
      * @return the value of xf_mx.del_edit
      */
-    public Integer getDelEdit() {
+    public BigDecimal getDelEdit() {
         return delEdit;
     }
 
     /**
      */
-    public XfMxEntity withDelEdit(Integer delEdit) {
+    public XfMxEntity withDelEdit(BigDecimal delEdit) {
         this.setDelEdit(delEdit);
         return this;
     }
@@ -1012,7 +1012,7 @@ public class XfMxEntity extends BaseEntity implements Serializable {
      *
      * @param delEdit the value for xf_mx.del_edit
      */
-    public void setDelEdit(Integer delEdit) {
+    public void setDelEdit(BigDecimal delEdit) {
         this.delEdit = delEdit;
     }
 

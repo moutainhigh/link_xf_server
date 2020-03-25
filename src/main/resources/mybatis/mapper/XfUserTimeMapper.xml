@@ -24,7 +24,8 @@
     xh, user_serial, rq, day_count, day_money, time_no, time_xh, time_ks, time_js, Sub_day, 
     Sub_hour, xf_count, xf_money, xf_each, sj, each_day, each_hour
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="
+" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from xf_user_time

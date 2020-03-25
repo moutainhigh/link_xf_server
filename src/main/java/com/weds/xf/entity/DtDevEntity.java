@@ -52,7 +52,7 @@ public class DtDevEntity extends BaseEntity implements Serializable {
      *
      */
     @ApiModelProperty(required = true, dataType = "integer", example = "-1", value = "")
-    private Integer acdepSerial;
+    private Long acdepSerial;
 
     /**
      *
@@ -229,13 +229,13 @@ public class DtDevEntity extends BaseEntity implements Serializable {
      *
      * @return the value of dt_dev.acdep_serial
      */
-    public Integer getAcdepSerial() {
+    public Long getAcdepSerial() {
         return acdepSerial;
     }
 
     /**
      */
-    public DtDevEntity withAcdepSerial(Integer acdepSerial) {
+    public DtDevEntity withAcdepSerial(Long acdepSerial) {
         this.setAcdepSerial(acdepSerial);
         return this;
     }
@@ -245,7 +245,7 @@ public class DtDevEntity extends BaseEntity implements Serializable {
      *
      * @param acdepSerial the value for dt_dev.acdep_serial
      */
-    public void setAcdepSerial(Integer acdepSerial) {
+    public void setAcdepSerial(Long acdepSerial) {
         this.acdepSerial = acdepSerial;
     }
 

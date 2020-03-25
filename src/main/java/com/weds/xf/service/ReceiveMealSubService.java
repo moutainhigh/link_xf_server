@@ -2,13 +2,14 @@ package com.weds.xf.service;
 
 import com.weds.core.base.BaseService;
 import com.weds.core.resp.JsonResult;
-import com.weds.xf.entity.*;
+import com.weds.xf.entity.TradEntity;
+import com.weds.xf.entity.TradReqEntity;
+import com.weds.xf.entity.XfJlEntity;
+import com.weds.xf.entity.XfMxEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -17,7 +18,7 @@ import java.util.Date;
  * @Date 2020-03-05
  */
 @Service
-public class ReceiveDaySubService extends BaseService {
+public class ReceiveMealSubService extends BaseService {
     @Autowired
     XfJlService xfJlService;
     @Autowired
@@ -29,29 +30,29 @@ public class ReceiveDaySubService extends BaseService {
     @Autowired
     XfUserTimeService xfUserTimeService;
 
-
-    public JsonResult<TradEntity> receiveDaySub(TradReqEntity tradReqEntity, TradEntity tradEntity) throws Exception{
-        if (tradReqEntity.getTradType() == 1 && tradEntity.getDaySubAmt().intValue() <= 0) {
+    public JsonResult<TradEntity> receiveMealSub(TradReqEntity tradReqEntity, TradEntity tradEntity) throws Exception{
+        if (tradReqEntity.getTradType() == 1 && tradEntity.getMealSubAmt().intValue() <= 0) {
             return succMsg("success");
-        } else if (tradReqEntity.getTradType() == 41 && tradEntity.getDaySubEach().intValue() <= 0) {
+        } else if (tradReqEntity.getTradType() == 41 && tradEntity.getMealSubEach().intValue() <= 0) {
             return succMsg("success");
         }
-        JsonResult<XfJlEntity> jRes = insertDaySub2Jl(tradReqEntity, tradEntity);
+
+        JsonResult<XfJlEntity> jRes = insertMealSub2Jl(tradReqEntity, tradEntity);
         if (jRes.getCode() != "600") {
-            return failMsg("插入记录错误!");
+            return failMsg("餐补插入流水失败");
         }
         XfJlEntity xfJlEntity = jRes.getData();
-        JsonResult<TradEntity> res = insertDaySub2Mx(tradEntity, xfJlEntity);
+        return insertMealSub2Mx(tradEntity,xfJlEntity);
     }
 
 
-    private JsonResult<XfJlEntity> insertDaySub2Jl(TradReqEntity tradReqEntity, TradEntity tradEntity) {
+    private JsonResult<XfJlEntity> insertMealSub2Jl(TradReqEntity tradReqEntity, TradEntity tradEntity) {
         XfJlEntity xfJlEntity = new XfJlEntity();
         if (tradReqEntity.getTradType() == 1) {
             xfJlEntity.setMould(0);
             xfJlEntity.setSubOld(tradEntity.getSubAmt());
-            xfJlEntity.setSubNew(tradEntity.getDaySubAmt());
-            xfJlEntity.setNewMoney(tradEntity.getDaySubAmt());
+            xfJlEntity.setSubNew(tradEntity.getMealSubAmt());
+            xfJlEntity.setNewMoney(tradEntity.getMealSubAmt());
             xfJlEntity.setEachOld(0);
             xfJlEntity.setEachNew(0);
         } else {
@@ -92,7 +93,7 @@ public class ReceiveDaySubService extends BaseService {
         return succMsgData(xfJlEntity);
     }
 
-    private JsonResult<TradEntity> insertDaySub2Mx(TradEntity tradEntity, XfJlEntity xfJlEntity) {
+    private JsonResult<TradEntity> insertMealSub2Mx(TradEntity tradEntity, XfJlEntity xfJlEntity) {
         XfMxEntity xfMxEntity = new XfMxEntity();
         xfMxEntity.setMould(xfJlEntity.getMould());
         xfMxEntity.setUserSerial(xfJlEntity.getUserSerial());
@@ -131,7 +132,7 @@ public class ReceiveDaySubService extends BaseService {
         xfMxEntity.setOldAdd(tradEntity.getCashAmt());
         xfMxEntity.setOldSub(tradEntity.getSubAmt());
         xfMxEntity.setSaveAdd(tradEntity.getCashAmt());
-        xfMxEntity.setSaveSub(tradEntity.getSubAmt().add(tradEntity.getDaySubAmt()));
+        xfMxEntity.setSaveSub(tradEntity.getSubAmt().add(tradEntity.getMealSubAmt()));
         xfMxEntity.setXfAdd(tradEntity.getChargeCash());
         xfMxEntity.setXfSub(tradEntity.getChargeSub());
         xfMxEntity.setAddType(0);

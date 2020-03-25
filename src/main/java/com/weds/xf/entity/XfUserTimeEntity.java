@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.weds.core.base.BaseEntity;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Size;
@@ -38,7 +39,7 @@ public class XfUserTimeEntity extends BaseEntity implements Serializable {
      *
      */
     @ApiModelProperty(required = true, dataType = "integer", example = "-1", value = "")
-    private Integer dayMoney;
+    private BigDecimal dayMoney;
 
     /**
      *
@@ -87,7 +88,7 @@ public class XfUserTimeEntity extends BaseEntity implements Serializable {
      *
      */
     @ApiModelProperty(required = true, dataType = "integer", example = "-1", value = "")
-    private Integer xfMoney;
+    private BigDecimal xfMoney;
 
     /**
      *
@@ -225,13 +226,13 @@ public class XfUserTimeEntity extends BaseEntity implements Serializable {
      *
      * @return the value of xf_user_time.day_money
      */
-    public Integer getDayMoney() {
+    public BigDecimal getDayMoney() {
         return dayMoney;
     }
 
     /**
      */
-    public XfUserTimeEntity withDayMoney(Integer dayMoney) {
+    public XfUserTimeEntity withDayMoney(BigDecimal dayMoney) {
         this.setDayMoney(dayMoney);
         return this;
     }
@@ -241,7 +242,7 @@ public class XfUserTimeEntity extends BaseEntity implements Serializable {
      *
      * @param dayMoney the value for xf_user_time.day_money
      */
-    public void setDayMoney(Integer dayMoney) {
+    public void setDayMoney(BigDecimal dayMoney) {
         this.dayMoney = dayMoney;
     }
 
@@ -425,13 +426,13 @@ public class XfUserTimeEntity extends BaseEntity implements Serializable {
      *
      * @return the value of xf_user_time.xf_money
      */
-    public Integer getXfMoney() {
+    public BigDecimal getXfMoney() {
         return xfMoney;
     }
 
     /**
      */
-    public XfUserTimeEntity withXfMoney(Integer xfMoney) {
+    public XfUserTimeEntity withXfMoney(BigDecimal xfMoney) {
         this.setXfMoney(xfMoney);
         return this;
     }
@@ -441,7 +442,7 @@ public class XfUserTimeEntity extends BaseEntity implements Serializable {
      *
      * @param xfMoney the value for xf_user_time.xf_money
      */
-    public void setXfMoney(Integer xfMoney) {
+    public void setXfMoney(BigDecimal xfMoney) {
         this.xfMoney = xfMoney;
     }
 

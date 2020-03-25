@@ -8,12 +8,44 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class TradEntity implements Serializable {
+    public Integer getXfAcTimeXh() {
+        return xfAcTimeXh;
+    }
 
-    public BigDecimal getDaySubEach() {
+    public void setXfAcTimeXh(Integer xfAcTimeXh) {
+        this.xfAcTimeXh = xfAcTimeXh;
+    }
+
+    public Integer getEnableFreeMealSub() {
+        return enableFreeMealSub;
+    }
+
+    public void setEnableFreeMealSub(Integer enableFreeMealSub) {
+        this.enableFreeMealSub = enableFreeMealSub;
+    }
+
+    public Integer getEnableSub() {
+        return enableSub;
+    }
+
+    public void setEnableSub(Integer enableSub) {
+        this.enableSub = enableSub;
+    }
+
+
+    public Integer getMealSubEach() {
+        return mealSubEach;
+    }
+
+    public void setMealSubEach(Integer mealSubEach) {
+        this.mealSubEach = mealSubEach;
+    }
+
+    public Integer getDaySubEach() {
         return daySubEach;
     }
 
-    public void setDaySubEach(BigDecimal daySubEach) {
+    public void setDaySubEach(Integer daySubEach) {
         this.daySubEach = daySubEach;
     }
     public String getCardSerial() {
@@ -162,11 +194,11 @@ public class TradEntity implements Serializable {
         this.dbListAcdepSerial = dbListAcdepSerial;
     }
 
-    public Integer getAcDepSerial() {
+    public Long getAcDepSerial() {
         return acDepSerial;
     }
 
-    public void setAcDepSerial(Integer acDepSerial) {
+    public void setAcDepSerial(Long acDepSerial) {
         this.acDepSerial = acDepSerial;
     }
 
@@ -313,7 +345,7 @@ public class TradEntity implements Serializable {
      *
      */
     @ApiModelProperty(required = false, dataType = "integer", example = "10001", value = "场所编号")
-    private Integer acDepSerial;
+    private Long acDepSerial;
 
 
     /**
@@ -361,50 +393,34 @@ public class TradEntity implements Serializable {
      *
      */
     @ApiModelProperty(required = false, dataType = "integer", example = "100", value = "日补贴")
-    private BigDecimal daySubEach;
+    private Integer daySubEach;
 
     /**
      *
      */
     @ApiModelProperty(required = false, dataType = "integer", example = "100", value = "餐补贴")
     private BigDecimal mealSubAmt;
-//
-//
-//    /**
-//     *
-//     */
-//    @ApiModelProperty(required = false, dataType = "integer", example = "100", value = "日限额")
-//    private Integer dayLimitMoney;
-//
-//    /**
-//     *
-//     */
-//    @ApiModelProperty(required = false, dataType = "integer", example = "100", value = "日限次")
-//    private Integer dayLimitTimes;
-//
-//    /**
-//     *
-//     */
-//    @ApiModelProperty(required = false, dataType = "integer", example = "100", value = "日限份")
-//    private Integer dayLimitEach;
-//
-//    /**
-//     *
-//     */
-//    @ApiModelProperty(required = false, dataType = "integer", example = "100", value = "餐限额")
-//    private Integer mealLimitMoney;
-//
-//    /**
-//     *
-//     */
-//    @ApiModelProperty(required = false, dataType = "integer", example = "100", value = "餐限次")
-//    private Integer mealLimitTimes;
-//
-//    /**
-//     *
-//     */
-//    @ApiModelProperty(required = false, dataType = "integer", example = "100", value = "餐限份")
-//    private Integer mealLimitEach;
+
+
+
+    /**
+     *
+     */
+    @ApiModelProperty(required = false, dataType = "integer", example = "100", value = "餐补份")
+    private Integer mealSubEach;
+
+
+    /**
+     *   1启用0禁用
+     */
+    @ApiModelProperty(required = false, dataType = "integer", example = "100", value = "是否全额补")
+    private Integer enableFreeMealSub;
+
+    /**
+     *   1启用0禁止
+     */
+    @ApiModelProperty(required = false, dataType = "integer", example = "1", value = "是否启用补贴")
+    private Integer enableSub;
 
     /**
      *
@@ -516,5 +532,13 @@ public class TradEntity implements Serializable {
      */
     @ApiModelProperty(required = false, dataType = "string", example = "00000008", value = "卡序号")
     private String cardSerial;
+
+
+
+    /**
+     *  账户时段序号
+     */
+    @ApiModelProperty(required = false, dataType = "integer", example = "1", value = "账户时段序号")
+    private Integer xfAcTimeXh;
 
 }

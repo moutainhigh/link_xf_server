@@ -25,7 +25,7 @@ public interface OnlineXfAcDepMapper {
 
     /**
      */
-    OnlineXfAcDepEntity selectByPrimaryKey(@Param("depSerial") Integer depSerial, @Param("acSerial") Integer acSerial);
+    OnlineXfAcDepEntity selectByPrimaryKey(@Param("depSerial") Integer depSerial, @Param("acSerial") Long acSerial);
 
     /**
      */

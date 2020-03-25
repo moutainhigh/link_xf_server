@@ -172,7 +172,7 @@ public class XfJlEntity extends BaseEntity implements Serializable {
      *
      */
     @ApiModelProperty(required = true, dataType = "integer", example = "-1", value = "")
-    private Integer eachUnit;
+    private BigDecimal eachUnit;
 
     /**
      *
@@ -830,13 +830,13 @@ public class XfJlEntity extends BaseEntity implements Serializable {
      *
      * @return the value of xf_jl.each_unit
      */
-    public Integer getEachUnit() {
+    public BigDecimal getEachUnit() {
         return eachUnit;
     }
 
     /**
      */
-    public XfJlEntity withEachUnit(Integer eachUnit) {
+    public XfJlEntity withEachUnit(BigDecimal eachUnit) {
         this.setEachUnit(eachUnit);
         return this;
     }
@@ -846,7 +846,7 @@ public class XfJlEntity extends BaseEntity implements Serializable {
      *
      * @param eachUnit the value for xf_jl.each_unit
      */
-    public void setEachUnit(Integer eachUnit) {
+    public void setEachUnit(BigDecimal eachUnit) {
         this.eachUnit = eachUnit;
     }
 

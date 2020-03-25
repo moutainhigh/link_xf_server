@@ -18,47 +18,39 @@ import java.util.Date;
 @Service
 public class BalanceVerifyService extends BaseService {
 
-    @Autowired
-    private StDeviceService stDeviceService;
-
     public JsonResult<TradEntity> balanceVerify(TradReqEntity tradReqEntity, TradEntity tradEntity) {
         if (tradReqEntity.getTradType() == 1) {
-            StDeviceEntity stDeviceEntity = stDeviceService.selectByPrimaryKey(tradReqEntity.getDevSerial());
-            if (null == stDeviceEntity) {
-                return failMsg("设备不存在");
-            }
+            BigDecimal totalSubAmt = tradEntity.getSubAmt().add(tradEntity.getDaySubAmt()).add(tradEntity.getMealSubAmt());
+            BigDecimal totalAmt = tradEntity.getCashAmt().add(totalSubAmt);
 
-            Integer chargeType = stDeviceEntity.getPayType();
-            tradEntity.setCardType(chargeType);
-            BigDecimal totalAmt = tradEntity.getCashAmt().add(tradEntity.getSubAmt()).add(tradEntity.getDaySubAmt()).add(tradEntity.getMealSubAmt());
 
-            if (chargeType == 0) {            // 先扣补贴
+            if (tradEntity.getChargeType() == 0) {            // 先扣补贴
                 if (totalAmt.intValue() < tradEntity.getRealMoney().intValue()) {
                     return failMsg("余额不足");
                 }
-                if (tradEntity.getSubAmt().add(tradEntity.getDaySubAmt()).add(tradEntity.getMealSubAmt()).intValue() > tradEntity.getRealMoney().intValue()) {
+                if (totalSubAmt.intValue() > tradEntity.getRealMoney().intValue()) {
                     tradEntity.setChargeSub(tradEntity.getRealMoney());
                     tradEntity.setChargeCash(BigDecimal.valueOf(0));
                 } else {
-                    tradEntity.setChargeSub(tradEntity.getSubAmt().add(tradEntity.getDaySubAmt()).add(tradEntity.getMealSubAmt()));
-                    tradEntity.setChargeCash(tradEntity.getRealMoney().subtract(tradEntity.getSubAmt()).subtract(tradEntity.getDaySubAmt()).subtract(tradEntity.getMealSubAmt()));
+                    tradEntity.setChargeSub(totalSubAmt);
+                    tradEntity.setChargeCash(tradEntity.getRealMoney().subtract(totalSubAmt));
                 }
 
-            } else if (chargeType == 1) {    // 只扣补贴
-                if (tradEntity.getSubAmt().add(tradEntity.getDaySubAmt()).add(tradEntity.getMealSubAmt()).intValue() < tradEntity.getRealMoney().intValue()) {
+            } else if (tradEntity.getChargeType() == 1) {    // 只扣补贴
+                if (totalSubAmt.intValue() < tradEntity.getRealMoney().intValue()) {
                     return failMsg("余额不足");
                 } else {
                     tradEntity.setChargeSub(tradEntity.getRealMoney());
                     tradEntity.setChargeCash(BigDecimal.valueOf(0));
                 }
-            } else if (chargeType == 2) {     // 只扣现金
+            } else if (tradEntity.getChargeType() == 2) {     // 只扣现金
                 if (tradEntity.getCashAmt().intValue() < tradEntity.getRealMoney().intValue()) {
                     return failMsg("余额不足");
                 } else {
                     tradEntity.setChargeSub(BigDecimal.valueOf(0));
                     tradEntity.setChargeCash(tradEntity.getRealMoney());
                 }
-            }else if (chargeType == 3) {     // 先扣现金
+            } else if (tradEntity.getChargeType() == 3) {     // 先扣现金
                 if (totalAmt.intValue() < tradEntity.getRealMoney().intValue()) {
                     return failMsg("余额不足");
                 }
@@ -71,7 +63,7 @@ public class BalanceVerifyService extends BaseService {
                 }
             }
         } else if (tradReqEntity.getTradType() == 41) {
-            if(tradEntity.getEach() <= 0){
+            if (tradEntity.getEach() <= 0) {
                 return failMsg("余额不足");
             }
         }

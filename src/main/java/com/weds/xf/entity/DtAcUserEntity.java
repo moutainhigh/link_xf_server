@@ -33,19 +33,19 @@ public class DtAcUserEntity implements Serializable {
      *
      */
     @ApiModelProperty(required = true, dataType = "integer", example = "-1", value = "")
-    private Integer acMoney;
+    private BigDecimal acMoney;
 
     /**
      *
      */
     @ApiModelProperty(required = true, dataType = "integer", example = "-1", value = "")
-    private Integer acAddm;
+    private BigDecimal acAddm;
 
     /**
      *
      */
     @ApiModelProperty(required = true, dataType = "integer", example = "-1", value = "")
-    private Integer acSubm;
+    private BigDecimal acSubm;
 
     /**
      *
@@ -242,13 +242,13 @@ public class DtAcUserEntity implements Serializable {
      *
      * @return the value of dt_ac_user.ac_money
      */
-    public Integer getAcMoney() {
+    public BigDecimal getAcMoney() {
         return acMoney;
     }
 
     /**
      */
-    public DtAcUserEntity withAcMoney(Integer acMoney) {
+    public DtAcUserEntity withAcMoney(BigDecimal acMoney) {
         this.setAcMoney(acMoney);
         return this;
     }
@@ -258,7 +258,7 @@ public class DtAcUserEntity implements Serializable {
      *
      * @param acMoney the value for dt_ac_user.ac_money
      */
-    public void setAcMoney(Integer acMoney) {
+    public void setAcMoney(BigDecimal acMoney) {
         this.acMoney = acMoney;
     }
 
@@ -267,13 +267,13 @@ public class DtAcUserEntity implements Serializable {
      *
      * @return the value of dt_ac_user.ac_addm
      */
-    public Integer getAcAddm() {
+    public BigDecimal getAcAddm() {
         return acAddm;
     }
 
     /**
      */
-    public DtAcUserEntity withAcAddm(Integer acAddm) {
+    public DtAcUserEntity withAcAddm(BigDecimal acAddm) {
         this.setAcAddm(acAddm);
         return this;
     }
@@ -283,7 +283,7 @@ public class DtAcUserEntity implements Serializable {
      *
      * @param acAddm the value for dt_ac_user.ac_addm
      */
-    public void setAcAddm(Integer acAddm) {
+    public void setAcAddm(BigDecimal acAddm) {
         this.acAddm = acAddm;
     }
 
@@ -292,13 +292,13 @@ public class DtAcUserEntity implements Serializable {
      *
      * @return the value of dt_ac_user.ac_subm
      */
-    public Integer getAcSubm() {
+    public BigDecimal getAcSubm() {
         return acSubm;
     }
 
     /**
      */
-    public DtAcUserEntity withAcSubm(Integer acSubm) {
+    public DtAcUserEntity withAcSubm(BigDecimal acSubm) {
         this.setAcSubm(acSubm);
         return this;
     }
@@ -308,7 +308,7 @@ public class DtAcUserEntity implements Serializable {
      *
      * @param acSubm the value for dt_ac_user.ac_subm
      */
-    public void setAcSubm(Integer acSubm) {
+    public void setAcSubm(BigDecimal acSubm) {
         this.acSubm = acSubm;
     }
 

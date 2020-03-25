@@ -35,7 +35,7 @@ public class OnlineXfAcDepService extends BaseService {
 		return onlineXfAcDepMapper.insertSelective(record);
 	}
 
-	public OnlineXfAcDepEntity selectByPrimaryKey(Integer depSerial, Integer acSerial) {
+	public OnlineXfAcDepEntity selectByPrimaryKey(Integer depSerial, Long acSerial) {
 		return onlineXfAcDepMapper.selectByPrimaryKey(depSerial, acSerial);
 	}
 

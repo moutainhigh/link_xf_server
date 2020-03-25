@@ -3,6 +3,7 @@ package com.weds.xf.entity;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 public class TradReqEntity implements Serializable {
     /**
@@ -59,19 +60,19 @@ public class TradReqEntity implements Serializable {
      *
      */
     @ApiModelProperty(required = true, dataType = "integer", example = "122202", value = "交易前余额")
-    private Integer balance;
+    private BigDecimal balance;
 
     /**
      *
      */
     @ApiModelProperty(required = true, dataType = "integer", example = "350", value = "交易金额")
-    private Integer money;
+    private BigDecimal money;
 
     /**
      *
      */
     @ApiModelProperty(required = true, dataType = "integer", example = "100", value = "应收金额")
-    private Integer shouldMoney;
+    private BigDecimal shouldMoney;
 
     /**
      *
@@ -88,8 +89,8 @@ public class TradReqEntity implements Serializable {
     /**
      *
      */
-    @ApiModelProperty(required = true, dataType = "integer", example = "1500", value = "份单价")
-    private Integer eachMoney;
+    @ApiModelProperty(required = true, dataType = "number", example = "1500", value = "份单价")
+    private BigDecimal eachMoney;
 
     /**
      *
@@ -180,27 +181,27 @@ public class TradReqEntity implements Serializable {
         this.userSerial = userSerial;
     }
 
-    public Integer getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(Integer balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 
-    public Integer getMoney() {
+    public BigDecimal getMoney() {
         return money;
     }
 
-    public void setMoney(Integer money) {
+    public void setMoney(BigDecimal money) {
         this.money = money;
     }
 
-    public Integer getShouldMoney() {
+    public BigDecimal getShouldMoney() {
         return shouldMoney;
     }
 
-    public void setShouldMoney(Integer shouldMoney) {
+    public void setShouldMoney(BigDecimal shouldMoney) {
         this.shouldMoney = shouldMoney;
     }
 
@@ -220,11 +221,11 @@ public class TradReqEntity implements Serializable {
         this.eachNum = eachNum;
     }
 
-    public Integer getEachMoney() {
+    public BigDecimal getEachMoney() {
         return eachMoney;
     }
 
-    public void setEachMoney(Integer eachMoney) {
+    public void setEachMoney(BigDecimal eachMoney) {
         this.eachMoney = eachMoney;
     }
 

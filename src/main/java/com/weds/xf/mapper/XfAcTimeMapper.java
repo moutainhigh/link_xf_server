@@ -33,7 +33,7 @@ public interface XfAcTimeMapper {
 
     /**
      */
-    XfAcTimeEntity selectByAcDepAndTimeNo(@Param("acDep") Integer acDep,@Param("timeNo") String timeNo);
+    XfAcTimeEntity selectByAcDepAndTimeNo(@Param("acDep") Long acDep,@Param("timeNo") String timeNo);
 
     /**
      */

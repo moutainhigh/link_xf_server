@@ -47,7 +47,7 @@ public class DtAcLinkEntity implements Serializable {
      */
     @Digits(integer = 15, fraction = 4)
     @ApiModelProperty(required = true, dataType = "number", example = "-1", value = "")
-    private Integer acAddm;
+    private BigDecimal acAddm;
 
     /**
      *
@@ -325,13 +325,13 @@ public class DtAcLinkEntity implements Serializable {
      *
      * @return the value of dt_ac_link.ac_addm
      */
-    public Integer getAcAddm() {
+    public BigDecimal getAcAddm() {
         return acAddm;
     }
 
     /**
      */
-    public DtAcLinkEntity withAcAddm(Integer acAddm) {
+    public DtAcLinkEntity withAcAddm(BigDecimal acAddm) {
         this.setAcAddm(acAddm);
         return this;
     }
@@ -341,7 +341,7 @@ public class DtAcLinkEntity implements Serializable {
      *
      * @param acAddm the value for dt_ac_link.ac_addm
      */
-    public void setAcAddm(Integer acAddm) {
+    public void setAcAddm(BigDecimal acAddm) {
         this.acAddm = acAddm;
     }
 

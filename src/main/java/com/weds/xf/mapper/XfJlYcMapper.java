@@ -24,7 +24,7 @@ public interface XfJlYcMapper {
 
     /**
      */
-    XfJlYcEntity selectByPrimaryKey(Integer xh);
+    XfJlYcEntity selectByPrimaryKey(String devSerial);
 
     /**
      */

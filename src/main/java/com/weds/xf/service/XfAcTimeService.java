@@ -45,7 +45,7 @@ public class XfAcTimeService extends BaseService {
 		return xfAcTimeMapper.selectByAcTypeAndTimeNo(acType, timeNo);
 	}
 
-	public XfAcTimeEntity selectByAcDepAndTimeNo(Integer acDep,String timeNo){
+	public XfAcTimeEntity selectByAcDepAndTimeNo(Long acDep,String timeNo){
 		return xfAcTimeMapper.selectByAcDepAndTimeNo(acDep, timeNo);
 	}
 

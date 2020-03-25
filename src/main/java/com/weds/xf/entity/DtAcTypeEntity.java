@@ -80,7 +80,7 @@ public class DtAcTypeEntity implements Serializable {
      *
      */
     @ApiModelProperty(required = true, dataType = "integer", example = "-1", value = "")
-    private Integer acSubsidy;
+    private BigDecimal acSubsidy;
 
     /**
      *
@@ -120,7 +120,7 @@ public class DtAcTypeEntity implements Serializable {
      */
     @Digits(integer = 15, fraction = 4)
     @ApiModelProperty(required = true, dataType = "number", example = "-1", value = "")
-    private Integer dayMaxM;
+    private BigDecimal dayMaxM;
 
     /**
      *
@@ -132,20 +132,20 @@ public class DtAcTypeEntity implements Serializable {
      *
      */
     @ApiModelProperty(required = true, dataType = "integer", example = "-1", value = "")
-    private Integer mealMaxM;
+    private BigDecimal mealMaxM;
 
     /**
      *
      */
     @ApiModelProperty(required = true, dataType = "integer", example = "-1", value = "")
-    private Integer mealMaxT;
+    private BigDecimal mealMaxT;
 
     /**
      *
      */
     @Digits(integer = 15, fraction = 4)
     @ApiModelProperty(required = true, dataType = "number", example = "-1", value = "")
-    private Integer timeMaxM;
+    private BigDecimal timeMaxM;
 
     /**
      *
@@ -559,13 +559,13 @@ public class DtAcTypeEntity implements Serializable {
      *
      * @return the value of dt_ac_type.ac_subsidy
      */
-    public Integer getAcSubsidy() {
+    public BigDecimal getAcSubsidy() {
         return acSubsidy;
     }
 
     /**
      */
-    public DtAcTypeEntity withAcSubsidy(Integer acSubsidy) {
+    public DtAcTypeEntity withAcSubsidy(BigDecimal acSubsidy) {
         this.setAcSubsidy(acSubsidy);
         return this;
     }
@@ -575,7 +575,7 @@ public class DtAcTypeEntity implements Serializable {
      *
      * @param acSubsidy the value for dt_ac_type.ac_subsidy
      */
-    public void setAcSubsidy(Integer acSubsidy) {
+    public void setAcSubsidy(BigDecimal acSubsidy) {
         this.acSubsidy = acSubsidy;
     }
 
@@ -709,13 +709,13 @@ public class DtAcTypeEntity implements Serializable {
      *
      * @return the value of dt_ac_type.day_max_m
      */
-    public Integer getDayMaxM() {
+    public BigDecimal getDayMaxM() {
         return dayMaxM;
     }
 
     /**
      */
-    public DtAcTypeEntity withDayMaxM(Integer dayMaxM) {
+    public DtAcTypeEntity withDayMaxM(BigDecimal dayMaxM) {
         this.setDayMaxM(dayMaxM);
         return this;
     }
@@ -725,7 +725,7 @@ public class DtAcTypeEntity implements Serializable {
      *
      * @param dayMaxM the value for dt_ac_type.day_max_m
      */
-    public void setDayMaxM(Integer dayMaxM) {
+    public void setDayMaxM(BigDecimal dayMaxM) {
         this.dayMaxM = dayMaxM;
     }
 
@@ -759,13 +759,13 @@ public class DtAcTypeEntity implements Serializable {
      *
      * @return the value of dt_ac_type.meal_max_m
      */
-    public Integer getMealMaxM() {
+    public BigDecimal getMealMaxM() {
         return mealMaxM;
     }
 
     /**
      */
-    public DtAcTypeEntity withMealMaxM(Integer mealMaxM) {
+    public DtAcTypeEntity withMealMaxM(BigDecimal mealMaxM) {
         this.setMealMaxM(mealMaxM);
         return this;
     }
@@ -775,7 +775,7 @@ public class DtAcTypeEntity implements Serializable {
      *
      * @param mealMaxM the value for dt_ac_type.meal_max_m
      */
-    public void setMealMaxM(Integer mealMaxM) {
+    public void setMealMaxM(BigDecimal mealMaxM) {
         this.mealMaxM = mealMaxM;
     }
 
@@ -784,13 +784,13 @@ public class DtAcTypeEntity implements Serializable {
      *
      * @return the value of dt_ac_type.meal_max_t
      */
-    public Integer getMealMaxT() {
+    public BigDecimal getMealMaxT() {
         return mealMaxT;
     }
 
     /**
      */
-    public DtAcTypeEntity withMealMaxT(Integer mealMaxT) {
+    public DtAcTypeEntity withMealMaxT(BigDecimal mealMaxT) {
         this.setMealMaxT(mealMaxT);
         return this;
     }
@@ -800,7 +800,7 @@ public class DtAcTypeEntity implements Serializable {
      *
      * @param mealMaxT the value for dt_ac_type.meal_max_t
      */
-    public void setMealMaxT(Integer mealMaxT) {
+    public void setMealMaxT(BigDecimal mealMaxT) {
         this.mealMaxT = mealMaxT;
     }
 
@@ -809,13 +809,13 @@ public class DtAcTypeEntity implements Serializable {
      *
      * @return the value of dt_ac_type.time_max_m
      */
-    public Integer getTimeMaxM() {
+    public BigDecimal getTimeMaxM() {
         return timeMaxM;
     }
 
     /**
      */
-    public DtAcTypeEntity withTimeMaxM(Integer timeMaxM) {
+    public DtAcTypeEntity withTimeMaxM(BigDecimal timeMaxM) {
         this.setTimeMaxM(timeMaxM);
         return this;
     }
@@ -825,7 +825,7 @@ public class DtAcTypeEntity implements Serializable {
      *
      * @param timeMaxM the value for dt_ac_type.time_max_m
      */
-    public void setTimeMaxM(Integer timeMaxM) {
+    public void setTimeMaxM(BigDecimal timeMaxM) {
         this.timeMaxM = timeMaxM;
     }
 
