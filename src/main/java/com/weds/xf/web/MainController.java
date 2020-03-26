@@ -43,8 +43,8 @@ public class MainController extends BaseController {
     @Logs
     @ApiOperation(value = "撤销请求", notes = "撤销请求")
     @RequestMapping(value = "/undo", method = RequestMethod.POST)
-    public JsonResult<UndoResEntity> undo(@RequestBody @Valid UndoReqEntity record) {
-        UndoResEntity res = new UndoResEntity();
+    public JsonResult<TradUndoResEntity> undo(@RequestBody @Valid TradUndoReqEntity record) {
+        TradUndoResEntity res = new TradUndoResEntity();
 
         return succMsgData(res);
     }
@@ -52,8 +52,8 @@ public class MainController extends BaseController {
     @Logs
     @ApiOperation(value = "冲正请求", notes = "冲正请求")
     @RequestMapping(value = "/recovery", method = RequestMethod.POST)
-    public JsonResult<RecoveryResEntity> recovery(@RequestBody @Valid RecoveryReqEntity record) {
-        RecoveryResEntity res = new RecoveryResEntity();
+    public JsonResult<TradRecoveryResEntity> recovery(@RequestBody @Valid TradRecoveryReqEntity record) {
+        TradRecoveryResEntity res = new TradRecoveryResEntity();
 
         return succMsgData(res);
     }

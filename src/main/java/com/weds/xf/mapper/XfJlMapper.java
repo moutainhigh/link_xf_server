@@ -2,6 +2,7 @@ package com.weds.xf.mapper;
 
 import com.weds.core.annotation.MyBatisDao;
 import com.weds.xf.entity.XfJlEntity;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * @Author
@@ -29,6 +30,10 @@ public interface XfJlMapper {
     /**
      */
     XfJlEntity selectMaxByUser(Long userSerial);
+
+    /**
+     */
+    XfJlEntity selectByDevAndJlBh(@Param("devSerial") String devSerial,@Param("jlBh") String jlBh);
 
     /**
      */

@@ -5,56 +5,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class TradReqEntity implements Serializable {
+public class TradReqEntity extends TradRecoveryReqEntity implements Serializable {
     /**
-     *
-     */
-    @ApiModelProperty(required = true, dataType = "string", example = "7800", value = "指令码")
-    private String orderCode;
-
-    /**
-     *
-     */
-    @ApiModelProperty(required = true, dataType = "string", example = "", value = "包标识")
-    private String packageSign;
-
-
-    /**
-     *
-     */
-    @ApiModelProperty(required = true, dataType = "string", example = "3000", value = "子指令码")
-    private String subOrderCode;
-
-    /**
-     *
-     */
-    @ApiModelProperty(required = true, dataType = "string", example = "151DF232", value = "物理卡号")
-    private String cardNo;
-
-    /**
-     *
-     */
-    @ApiModelProperty(required = true, dataType = "integer", example = "1", value = "交易类型")
-    private Integer tradType;
-
-    /**
-     *
-     */
-    @ApiModelProperty(required = true, dataType = "string", example = "0010001", value = "终端编号")
-    private String devSerial;
-
-    /**
-     *
-     */
-    @ApiModelProperty(required = true, dataType = "integer", example = "10", value = "交易流水")
-    private Integer tradFlow;
-
-    /**
-     *
-     */
-    @ApiModelProperty(required = true, dataType = "integer", example = "2000002", value = "人员序号")
-    private Long userSerial;
-
 
     /**
      *
@@ -62,17 +14,7 @@ public class TradReqEntity implements Serializable {
     @ApiModelProperty(required = true, dataType = "integer", example = "122202", value = "交易前余额")
     private BigDecimal balance;
 
-    /**
-     *
-     */
-    @ApiModelProperty(required = true, dataType = "integer", example = "350", value = "交易金额")
-    private BigDecimal money;
 
-    /**
-     *
-     */
-    @ApiModelProperty(required = true, dataType = "integer", example = "100", value = "应收金额")
-    private BigDecimal shouldMoney;
 
     /**
      *
@@ -80,42 +22,7 @@ public class TradReqEntity implements Serializable {
     @ApiModelProperty(required = true, dataType = "integer", example = "1", value = "打折折数")
     private Integer rate;
 
-    /**
-     *
-     */
-    @ApiModelProperty(required = true, dataType = "integer", example = "1", value = "交易份数")
-    private Integer eachNum;
 
-    /**
-     *
-     */
-    @ApiModelProperty(required = true, dataType = "number", example = "1500", value = "份单价")
-    private BigDecimal eachMoney;
-
-    /**
-     *
-     */
-    @ApiModelProperty(required = true, dataType = "integer", example = "148", value = "识别介质")
-    private Integer identityType;
-
-
-    /**
-     *
-     */
-    @ApiModelProperty(required = true, dataType = "string", example = "20201020", value = "交易日期")
-    private String tradDate;
-
-    /**
-     *
-     */
-    @ApiModelProperty(required = true, dataType = "string", example = "122135", value = "交易时间")
-    private String tradTime;
-
-    /**
-     *
-     */
-    @ApiModelProperty(required = true, dataType = "string", example = "123456", value = "交易密码")
-    private String userPassword;
 
     public String getOrderCode() {
         return orderCode;

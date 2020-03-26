@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
 
-public class RecoveryReqEntity implements Serializable {
+public class TradUndoReqEntity implements Serializable {
     /**
      *
      */
@@ -58,6 +58,12 @@ public class RecoveryReqEntity implements Serializable {
     /**
      *
      */
+    @ApiModelProperty(required = true, dataType = "integer", example = "122202", value = "交易前余额")
+    private Integer balance;
+
+    /**
+     *
+     */
     @ApiModelProperty(required = true, dataType = "integer", example = "350", value = "交易金额")
     private Integer money;
 
@@ -67,6 +73,11 @@ public class RecoveryReqEntity implements Serializable {
     @ApiModelProperty(required = true, dataType = "integer", example = "100", value = "应收金额")
     private Integer shouldMoney;
 
+    /**
+     *
+     */
+    @ApiModelProperty(required = true, dataType = "integer", example = "1", value = "打折折数")
+    private Integer rate;
 
     /**
      *
@@ -169,6 +180,13 @@ public class RecoveryReqEntity implements Serializable {
         this.userSerial = userSerial;
     }
 
+    public Integer getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Integer balance) {
+        this.balance = balance;
+    }
 
     public Integer getMoney() {
         return money;
@@ -186,6 +204,13 @@ public class RecoveryReqEntity implements Serializable {
         this.shouldMoney = shouldMoney;
     }
 
+    public Integer getRate() {
+        return rate;
+    }
+
+    public void setRate(Integer rate) {
+        this.rate = rate;
+    }
 
     public Integer getEachNum() {
         return eachNum;

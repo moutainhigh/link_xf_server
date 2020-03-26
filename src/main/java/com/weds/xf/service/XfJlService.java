@@ -43,6 +43,10 @@ public class XfJlService extends BaseService {
 		return xfJlMapper.selectMaxByUser(userSerial);
 	}
 
+	public XfJlEntity selectByDevAndJlBh(String devSerial,String jlBh) {
+		return xfJlMapper.selectByDevAndJlBh(devSerial,jlBh);
+	}
+
 	public int updateByPrimaryKeySelective(XfJlEntity record) {
 		return xfJlMapper.updateByPrimaryKeySelective(record);
 	}

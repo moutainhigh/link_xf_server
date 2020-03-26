@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
 
-public class UndoResEntity implements Serializable {
+public class TradUndoResEntity implements Serializable {
     /**
      *
      */

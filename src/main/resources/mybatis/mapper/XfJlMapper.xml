@@ -54,6 +54,12 @@
     where user_serial = #{userSerial,jdbcType=INTEGER}
     order by jl_xh desc
   </select>
+  <select id="selectByDevAndJlBh" parameterType="map" resultMap="BaseResultMap">
+    select top 1
+    <include refid="Base_Column_List" />
+    from xf_jl
+    where dev_serial = #{devSerial,jdbcType=VARCHAR} and jl_bh =  #{jlBh,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from xf_jl
     where xh = #{xh,jdbcType=INTEGER}
