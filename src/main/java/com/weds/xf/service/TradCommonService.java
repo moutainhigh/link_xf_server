@@ -27,11 +27,11 @@ public class TradCommonService extends BaseService {
     @Autowired
     StDeviceService stDeviceService;
 
-    public JsonResult<TradEntity> loadBaseInfo(TradReqEntity tradReqEntity) throws Exception {
-        Long userSerial = tradReqEntity.getUserSerial();
+    public JsonResult<TradEntity> loadBaseInfo(BaseReqEntity terminalBaseReqEntity) throws Exception {
+        Long userSerial = terminalBaseReqEntity.getUserSerial();
         TradEntity tradEntity = new TradEntity();
         if (userSerial == 0 || userSerial == null) {
-            DtCardEntity dtCardEntity = dtCardService.selectByCardHao(tradReqEntity.getCardNo());
+            DtCardEntity dtCardEntity = dtCardService.selectByCardHao(terminalBaseReqEntity.getCardNo());
             if (null != dtCardEntity) {
                 userSerial = dtCardEntity.getUserSerial();
                 tradEntity.setUserSerial(userSerial);

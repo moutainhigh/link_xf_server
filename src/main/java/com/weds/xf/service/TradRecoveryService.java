@@ -39,8 +39,6 @@ public class TradRecoveryService extends BaseService {
     public JsonResult tradRecovery(TradRecoveryReqEntity tradRecoveryReqEntity) {
         try {
             // 基础数据判断
-            TradEntity tradEntity = new TradEntity();
-            tradEntity.set
             JsonResult<TradEntity> jRes = tradCommonService.loadBaseInfo(tradRecoveryReqEntity);
             if (jRes.getCode() != "600") {
                 return jRes;
@@ -52,78 +50,44 @@ public class TradRecoveryService extends BaseService {
                 return succMsg("没有要冲正的记录");
             }
 
-            tradRecoveryReqEntity.setTradFlow(Integer.parseInt(xfJlEntity.getJlBh()));
-
-            if (undoSubAmt.intValue() > 0) {
-                Integer undoSubLx = xfJlYcEntity.getResSubLx();
-                if (undoSubLx == 34) {
-                    tradEntity.setDaySubAmt(undoSubAmt);
-                    jRes = receiveDaySubService.receiveDaySub(tradRecoveryReqEntity, tradEntity);
-                } else if (undoSubLx == 35) {
-                    tradEntity.setMealSubAmt(undoSubAmt);
-                    jRes = receiveMealSubService.receiveMealSub(tradRecoveryReqEntity, tradEntity);
-                }
-                if (jRes.getCode() != "600") {
-                    return jRes;
-                }
-                tradEntity = jRes.getData();
-
-                // 更新累计表
-                jRes = xfUserTimeService.updateTradTotal(tradRecoveryReqEntity, tradEntity);
-                if (jRes.getCode() != "600") {
-                    return jRes;
-                }
-                tradEntity = jRes.getData();
-
-
-                // 更新联机账户表
-                jRes = dtAcLinkService.updateByTradEntity(tradRecoveryReqEntity, tradEntity);
-                if (jRes.getCode() != "600") {
-                    return jRes;
-                }
-                tradEntity = jRes.getData();
-
-                // 更新账户表
-                jRes = dtAcUserService.updateByTradEntity(tradRecoveryReqEntity, tradEntity);
-                if (jRes.getCode() != "600") {
-                    return jRes;
-                }
-                return succMsg("success");
-            }
-
 
             // 扣款
-            tradRecoveryReqEntity.setMoney(xfJlYcEntity.getMoreMoney());
-            tradEntity.setRealMoney(xfJlYcEntity.getNewMoney());
-            tradEntity.setChargeSub(xfJlYcEntity.getSubNew());
-            tradEntity.setChargeCash(xfJlYcEntity.getNewMoney().subtract(xfJlYcEntity.getSubNew()));
-            jRes = chargeService.charge(tradRecoveryReqEntity, tradEntity);
-            if (jRes.getCode() != "600") {
-                return jRes;
-            }
-            tradEntity = jRes.getData();
-
-            // 更新累计表
-            jRes = xfUserTimeService.updateTradTotal(tradRecoveryReqEntity, tradEntity);
-            if (jRes.getCode() != "600") {
-                return jRes;
-            }
-            tradEntity = jRes.getData();
+            TradReqEntity tradReqEntity = new TradReqEntity();
 
 
-            // 更新联机账户表
-            jRes = dtAcLinkService.updateByTradEntity(tradRecoveryReqEntity, tradEntity);
-            if (jRes.getCode() != "600") {
-                return jRes;
-            }
-            tradEntity = jRes.getData();
 
-            // 更新账户表
-            jRes = dtAcUserService.updateByTradEntity(tradRecoveryReqEntity, tradEntity);
-            if (jRes.getCode() != "600") {
-                return jRes;
-            }
-            return succMsg("success");
+
+            tradRecoveryReqEntity.setMoney(tradRecoveryReqEntity.getMoney());
+//            tradEntity.setRealMoney();
+//            tradEntity.setChargeSub();
+//            tradEntity.setChargeCash();
+            jRes = chargeService.charge(baseReqEntity, tradEntity);
+//            if (jRes.getCode() != "600") {
+//                return jRes;
+//            }
+//            tradEntity = jRes.getData();
+//
+//            // 更新累计表
+//            jRes = xfUserTimeService.updateTradTotal(tradRecoveryReqEntity, tradEntity);
+//            if (jRes.getCode() != "600") {
+//                return jRes;
+//            }
+//            tradEntity = jRes.getData();
+//
+//
+//            // 更新联机账户表
+//            jRes = dtAcLinkService.updateByTradEntity(tradRecoveryReqEntity, tradEntity);
+//            if (jRes.getCode() != "600") {
+//                return jRes;
+//            }
+//            tradEntity = jRes.getData();
+//
+//            // 更新账户表
+//            jRes = dtAcUserService.updateByTradEntity(tradRecoveryReqEntity, tradEntity);
+//            if (jRes.getCode() != "600") {
+//                return jRes;
+//            }
+//            return succMsg("success");
 
         } catch (Exception ex) {
             return failMsg(ex.getMessage());
